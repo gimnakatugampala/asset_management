@@ -24,7 +24,7 @@
                                 <h3>Main</h3>
                             </li>
                             <li class="slide">
-                                <a class="side-menu__item has-link" data-bs-toggle="slide" href="../dashboard//index.php"><i
+                                <a class="side-menu__item has-link" data-bs-toggle="slide" href="../dashboard/index.php"><i
                                         class="side-menu__icon fe fe-home"></i><span
                                         class="side-menu__label">Dashboard</span></a>
                             </li>
@@ -130,17 +130,17 @@
 											<div class="tab-content">
 												<div class="tab-pane active" id="side13">
 													<ul class="sidemenu-list">
-                                                        <li><a href="shop.html" class="slide-item">User Management</a></li>
+                                                        <li><a href="../user/user-management.php" class="slide-item">User Management</a></li>
 
-                                                        <li><a href="shop-description.html" class="slide-item"> Manage Page Access</a></li>
+                                                        <li><a href="../user/manage-page-access.php" class="slide-item"> Manage Page Access</a></li>
 
-                                                        <li><a href="cart.html" class="slide-item">Email Settings</a></li>
+                                                        <li><a href="../user/email-settings.php" class="slide-item">Email Settings</a></li>
 
-                                                        <li><a href="add-product.html" class="slide-item">User Profile</a></li>
+                                                        <li><a href="../user/user-profile.php" class="slide-item">User Profile</a></li>
 
-                                                        <li><a href="wishlist.html" class="slide-item">Identity Settings</a></li>
+                                                        <li><a href="../user/identity-settings.php" class="slide-item">Identity Settings</a></li>
 
-                                                        <li><a href="checkout.html" class="slide-item"> Login Settings</a></li>
+                                                        <li><a href="../user/login-history.php" class="slide-item"> Login Settings</a></li>
 													</ul>
 
 												</div>
