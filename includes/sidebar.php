@@ -24,7 +24,7 @@
                                 <h3>Main</h3>
                             </li>
                             <li class="slide">
-                                <a class="side-menu__item has-link" data-bs-toggle="slide" href="index.html"><i
+                                <a class="side-menu__item has-link" data-bs-toggle="slide" href="../dashboard//index.php"><i
                                         class="side-menu__icon fe fe-home"></i><span
                                         class="side-menu__label">Dashboard</span></a>
                             </li>
@@ -39,32 +39,23 @@
                                 </a>
 								<ul class="slide-menu">
 									<li class="panel sidetab-menu">
-										<div class="tab-menu-heading p-0 pb-2 border-0">
-											<div class="tabs-menu ">
-												<!-- Tabs -->
-												<ul class="nav panel-tabs">
-													<li><a href="#side1" class="d-flex active" data-bs-toggle="tab"><i class="fe fe-monitor me-2"></i><p>Home</p></a></li>
-													<li><a href="#side2" data-bs-toggle="tab" class="d-flex"><i class="fe fe-message-square me-2"></i><p>Chat</p></a></li>
-												</ul>
-											</div>
-										</div>
 										<div class="panel-body tabs-menu-body p-0 border-0">
 											<div class="tab-content">
 												<div class="tab-pane active" id="side1">
                                                 <ul class="sidemenu-list">
                                                     <li class="side-menu-label1"><a href="javascript:void(0)">Apps</a></li>
 
-                                                    <li><a href="cards.html" class="slide-item">Assets</a></li>
+                                                    <li><a href="../asset/asset-list.php" class="slide-item">Assets</a></li>
 
-                                                    <li><a href="calendar.html" class="slide-item"> Asset History</a></li>
+                                                    <li><a href="../asset/asset-history.php" class="slide-item"> Asset History</a></li>
 
-                                                    <li><a href="calendar2.html" class="slide-item">Asset Categories</a></li>
+                                                    <li><a href="../asset/asset-categories.php" class="slide-item">Asset Categories</a></li>
 
-                                                    <li><a href="chat.html" class="slide-item"> Asset Sub Categories</a></li>
+                                                    <li><a href="../asset/asset-sub-categories.php" class="slide-item"> Asset Sub Categories</a></li>
 
-                                                    <li><a href="chat.html" class="slide-item">Asset Status</a></li>
+                                                    <li><a href="../asset/asset-status.php" class="slide-item">Asset Status</a></li>
 
-                                                    <li><a href="chat.html" class="slide-item">Comment</a></li>
+                                                    <li><a href="../asset/comments.php" class="slide-item">Comment</a></li>
                                                     
                                                 </ul>
                                                 
@@ -88,11 +79,11 @@
                                                 <div class="tab-pane active" id="side5">
                                                     <ul class="sidemenu-list mega-menu-list">
                                                       
-                                                        <li><a href="alerts.html" class="slide-item">Manage Employee</a></li>
+                                                        <li><a href="../employee/manage-employee.php" class="slide-item">Manage Employee</a></li>
 
-                                                        <li><a href="buttons.html" class="slide-item"> Department</a></li>
+                                                        <li><a href="../employee/manage-department.php" class="slide-item"> Department</a></li>
 
-                                                        <li><a href="colors.html" class="slide-item"> Sub Department</a></li>
+                                                        <li><a href="../employee/manage-subdepartment.php" class="slide-item"> Sub Department</a></li>
                                                         
                                                     </ul>
                                               
@@ -117,7 +108,7 @@
 											<div class="tab-content">
 												<div class="tab-pane active" id="side9">
 													<ul class="sidemenu-list">
-                                                        <li><a href="profile.html" class="slide-item"> Manage Suppliers</a></li>
+                                                        <li><a href="../supplier/manage-supplier.php" class="slide-item"> Manage Suppliers</a></li>
                                                     
 													</ul>
 												</div>

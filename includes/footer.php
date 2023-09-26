@@ -36,11 +36,23 @@
 
     <!-- INTERNAL SELECT2 JS -->
     <script src="../assets/plugins/select2/select2.full.min.js"></script>
+    <script src="../assets/js/select2.js"></script>
 
     <!-- INTERNAL Data tables js-->
+    <!-- DATA TABLE JS-->
     <script src="../assets/plugins/datatable/js/jquery.dataTables.min.js"></script>
     <script src="../assets/plugins/datatable/js/dataTables.bootstrap5.js"></script>
+    <script src="../assets/plugins/datatable/js/dataTables.buttons.min.js"></script>
+    <script src="../assets/plugins/datatable/js/buttons.bootstrap5.min.js"></script>
+    <script src="../assets/plugins/datatable/js/jszip.min.js"></script>
+    <script src="../assets/plugins/datatable/pdfmake/pdfmake.min.js"></script>
+    <script src="../assets/plugins/datatable/pdfmake/vfs_fonts.js"></script>
+    <script src="../assets/plugins/datatable/js/buttons.html5.min.js"></script>
+    <script src="../assets/plugins/datatable/js/buttons.print.min.js"></script>
+    <script src="../assets/plugins/datatable/js/buttons.colVis.min.js"></script>
     <script src="../assets/plugins/datatable/dataTables.responsive.min.js"></script>
+    <script src="../assets/plugins/datatable/responsive.bootstrap5.min.js"></script>
+    <script src="../assets/js/table-data.js"></script>
 
     <!-- INTERNAL APEXCHART JS -->
     <script src="../assets/js/apexcharts.js"></script>
@@ -51,6 +63,27 @@
     <script src="../assets/plugins/flot/jquery.flot.fillbetween.js"></script>
     <script src="../assets/plugins/flot/chart.flot.sampledata.js"></script>
     <script src="../assets/plugins/flot/dashboard.sampledata.js"></script>
+
+        <!-- FILE UPLOADES JS -->
+        <script src="../assets/plugins/fileuploads/js/fileupload.js"></script>
+    <script src="../assets/plugins/fileuploads/js/file-upload.js"></script>
+
+    <!-- INTERNAL File-Uploads Js-->
+    <script src="../assets/plugins/fancyuploder/jquery.ui.widget.js"></script>
+    <script src="../assets/plugins/fancyuploder/jquery.fileupload.js"></script>
+    <script src="../assets/plugins/fancyuploder/jquery.iframe-transport.js"></script>
+    <script src="../assets/plugins/fancyuploder/jquery.fancy-fileupload.js"></script>
+    <script src="../assets/plugins/fancyuploder/fancy-uploader.js"></script>
+
+
+    <!-- INTERNAL Bootstrap-Datepicker js-->
+    <script src="../assets/plugins/bootstrap-daterangepicker/daterangepicker.js"></script>
+
+    <!-- BOOTSTRAP-DATERANGEPICKER JS -->
+    <script src="../assets/plugins/bootstrap-daterangepicker/moment.min.js"></script>
+
+    <!-- INTERNAL Bootstrap-Datepicker js-->
+    <script src="../assets/plugins/bootstrap-datepicker/bootstrap-datepicker.js"></script>
 
     <!-- INTERNAL Vector js -->
     <script src="../assets/plugins/jvectormap/jquery-jvectormap-2.0.2.min.js"></script>
