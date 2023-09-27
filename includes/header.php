@@ -22,9 +22,9 @@
     <link id="style" href="../assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- STYLE CSS -->
-     <link href="../assets/css/style.css" rel="stylesheet">
+    <link href="../assets/css/style.css" rel="stylesheet">
 
-	<!-- Plugins CSS -->
+    <!-- Plugins CSS -->
     <link href="../assets/css/plugins.css" rel="stylesheet">
 
     <!--- FONT-ICONS CSS -->
@@ -33,6 +33,7 @@
     <!-- INTERNAL Switcher css -->
     <link href="../assets/switcher/css/switcher.css" rel="stylesheet">
     <link href="../assets/switcher/demo.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
 </head>
 
