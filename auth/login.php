@@ -47,7 +47,7 @@
                                                 <p class="mb-0"><a href="forgot-password.html" class="text-primary ms-1">Forgot Password?</a></p>
                                             </div> -->
                                             <div class="container-login100-form-btn">
-                                                <a href="../dashboard/" class="login100-form-btn btn-primary">
+                                                <a href="../dashboard/index.php" class="login100-form-btn btn-primary">
                                                         Login
                                                 </a>
                                             </div>

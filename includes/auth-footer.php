@@ -27,6 +27,9 @@
     <!-- Switcher js -->
     <script src="../assets/switcher/js/switcher.js"></script>
 
+    <script src="../assets/js/auth/login.js"></script>
+
+
 </body>
 
 </html>
