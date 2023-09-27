@@ -59,11 +59,12 @@
                                                         <th class="border-bottom-0">Date Purchase</th>
                                                         <th class="border-bottom-0">Assign Employee</th>
                                                         <th class="border-bottom-0">Actions</th>
+                                                        <th class="border-bottom-0">Print</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
                                                     <tr>
-                                                        <td>System Architect</td>
+                                                        <td data-bs-toggle="modal" data-bs-target="#qr-code"> <img  width="40" src="../assets/images/asset-image/asset_qr.png" /></td>
                                                         <td>Edinburgh</td>
                                                         <td>61</td>
                                                         <td>2011/04/25</td>
@@ -75,15 +76,25 @@
                                                         <td>  
                                                         
                                                         <button data-bs-toggle="modal" data-bs-target="#asset-details-modal" type="button" class="btn btn-icon  btn-github"><i class="fa fa-eye" aria-hidden="true"></i></button>
-
-
-                                                        <a href="../asset/asset-print.php" type="button" class="btn btn-icon  btn-warning"><i class="fa fa-print" aria-hidden="true"></i></a>
+            
 
                                                         <button data-bs-toggle="modal" data-bs-target="#allocate-modal" data-bs-whatever="@mdo" type="button" class="btn btn-icon  btn-primary"><i class="fa fa-plus" aria-hidden="true"></i></button>
                                                         
                                                         <button data-bs-toggle="modal" data-bs-target="#edit-asset-modal"  type="button" class="btn btn-icon  btn-secondary"><i class="fa fa-pencil" aria-hidden="true"></i></button>
                                                         
                                                         <button type="button" class="btn btn-icon  btn-danger"><i class="fe fe-trash"></i></button>
+                                                        </td>
+
+                                                        <td>
+                                                        <span class="dropdown">
+                                                        <button class="btn btn-icon  btn-warning dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                                        <i class="fa fa-print" aria-hidden="true"></i>
+                                                        </button>
+                                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                                            <li><a class="dropdown-item" href="../asset/asset-qr-code.php">QR Code</a></li>
+                                                            <li><a class="dropdown-item" href="../asset/asset-print.php">Detail Invoice</a></li>
+                                                        </ul>
+                                                        </span>
                                                         </td>
                                                     </tr>
                                                    
@@ -144,12 +155,11 @@
                                     <div class="row">
                                 <div class="col-md-6">
 
-                                    <div class="mb-4">
-                                        <label class="col-md-3 form-label">Asset ID</label>
-                                        <div class="col-md-9">
-                                            <input type="text" class="form-control">
-                                        </div>
+                                     <div class="mb-4">
+                                    <label class="col-md-3 form-label">QR Code</label>
+                                       <img width="100" src="../assets/images/asset-image/asset_qr.png" />
                                     </div>
+
 
                                     
                                     <div class="mb-4">
@@ -192,7 +202,7 @@
                                 <div class="col-md-6">
 
                                 <div class="mb-4">
-                                        <label class="col-md-3 form-label">Asset Model No</label>
+                                        <label class="col-md-3 form-label">Asset Status</label>
                                         <div class="col-md-9">
                                         <select class="form-select" aria-label="Default select example">
                                             <option selected>Open this select menu</option>
@@ -281,40 +291,7 @@
                                         
                                     <div class="row">
 
-                                    <div class="col-md-6">
-
-                                        <div class="mb-4">
-                                            <label class="col-md-3 form-label">Date of Manufacture</label>
-                                            <div class="col-md-9">
-                                                <input type="date" class="form-control">
-                                            </div>
-                                        </div>
-
-                                        <div class="mb-4">
-                                            <label class="col-md-3 form-label">Year of Valuation</label>
-                                            <div class="col-md-9">
-                                                <input type="date" class="form-control">
-                                            </div>
-                                        </div>
-
-                                        <div class="mb-4">
-                                            <label class="col-md-3 form-label">Warranty In Month</label>
-                                            <div class="col-md-9">
-                                                <input type="text" class="form-control">
-                                            </div>
-                                        </div>
-
-                                        <div class="mb-4">
-                                            <label class="col-md-3 form-label">Depreciation In Month</label>
-                                            <div class="col-md-9">
-                                                <input type="text" class="form-control">
-                                            </div>
-                                        </div>
-
-
-                                    </div>
-
-                                    <div class="col-md-6">
+                                    <div class="col-md-12">
 
                                     <div class="mb-4">
                                             <label class="col-md-3 form-label">Location</label>
@@ -332,7 +309,7 @@
 
 
                                         <div class="mb-4">
-                                            <label class="col-md-3 form-label">Note</label>
+                                            <label class="col-md-3 form-label">Remark</label>
                                             <div class="col-md-9">
                                             <textarea class="form-control mb-4" placeholder="Textarea" rows="3"></textarea>
                                             </div>
@@ -640,12 +617,11 @@
                            <div class="row">
                                 <div class="col-md-6">
 
-                                    <div class="mb-4">
-                                        <label class="col-md-3 form-label">Asset ID</label>
-                                        <div class="col-md-9">
-                                            <input type="text" class="form-control">
-                                        </div>
+                                <div class="mb-4">
+                                    <label class="col-md-3 form-label">QR Code</label>
+                                       <img width="100" src="../assets/images/asset-image/asset_qr.png" />
                                     </div>
+
 
                                     
                                     <div class="mb-4">
@@ -688,7 +664,7 @@
                                 <div class="col-md-6">
 
                                 <div class="mb-4">
-                                        <label class="col-md-3 form-label">Asset Model No</label>
+                                        <label class="col-md-3 form-label">Asset Status</label>
                                         <div class="col-md-9">
                                         <select class="form-select" aria-label="Default select example">
                                             <option selected>Open this select menu</option>
@@ -761,7 +737,7 @@
 
                            
                                 </div>
-
+                        
                                 <div class="d-flex justify-content-center">
                                     <button type="button" class="btn btn-danger mx-2">Save</button>
                                     <button type="button" class="btn btn-info mx-2">Cancel</button>
@@ -777,40 +753,8 @@
 
                             <div class="row">
 
-                                <div class="col-md-6">
 
-                                     <div class="mb-4">
-                                        <label class="col-md-3 form-label">Date of Manufacture</label>
-                                        <div class="col-md-9">
-                                            <input type="date" class="form-control">
-                                        </div>
-                                    </div>
-
-                                    <div class="mb-4">
-                                        <label class="col-md-3 form-label">Year of Valuation</label>
-                                        <div class="col-md-9">
-                                            <input type="date" class="form-control">
-                                        </div>
-                                    </div>
-
-                                    <div class="mb-4">
-                                        <label class="col-md-3 form-label">Warranty In Month</label>
-                                        <div class="col-md-9">
-                                            <input type="text" class="form-control">
-                                        </div>
-                                    </div>
-
-                                    <div class="mb-4">
-                                        <label class="col-md-3 form-label">Depreciation In Month</label>
-                                        <div class="col-md-9">
-                                            <input type="text" class="form-control">
-                                        </div>
-                                    </div>
-
-
-                                </div>
-
-                                <div class="col-md-6">
+                                <div class="col-md-12">
 
                                 <div class="mb-4">
                                         <label class="col-md-3 form-label">Location</label>
@@ -828,7 +772,7 @@
 
 
                                     <div class="mb-4">
-                                        <label class="col-md-3 form-label">Note</label>
+                                        <label class="col-md-3 form-label">Remark</label>
                                         <div class="col-md-9">
                                         <textarea class="form-control mb-4" placeholder="Textarea" rows="3"></textarea>
                                         </div>
@@ -919,6 +863,11 @@
                                                         <tr>
                                                             <th>Asset ID</th>
                                                             <th>634758</th>  
+                                                        </tr>
+
+                                                        <tr>
+                                                            <th>Asset QR Code</th>
+                                                            <th><img width="40" src="../assets/images/asset-image/asset_qr.png" /></th>  
                                                         </tr>
 
                                                         <tr>
@@ -1100,6 +1049,24 @@
 </div>
 
 
+<!-- Asset QR Code -->
+    <div class="modal fade" id="qr-code" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-lg " role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">QR Code</h5>
+                    <button class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">×</span>
+						</button>
+                </div>
+                <div class="modal-body text-center">
+                <img  width="45%"  src="../assets/images/asset-image/asset_qr.png" />
+                </div>
+               
+            </div>
+        </div>
+    </div>
+
 <!-- Edit Asset -->
 <div class="modal fade" id="edit-asset-modal">
         <div class="modal-dialog modal-xl" role="document">
@@ -1132,10 +1099,8 @@
                                 <div class="col-md-6">
 
                                     <div class="mb-4">
-                                        <label class="col-md-3 form-label">Asset ID</label>
-                                        <div class="col-md-9">
-                                            <input type="text" class="form-control">
-                                        </div>
+                                    <label class="col-md-3 form-label">QR Code</label>
+                                       <img width="100" src="../assets/images/asset-image/asset_qr.png" />
                                     </div>
 
                                     
@@ -1179,7 +1144,7 @@
                                 <div class="col-md-6">
 
                                 <div class="mb-4">
-                                        <label class="col-md-3 form-label">Asset Model No</label>
+                                        <label class="col-md-3 form-label">Asset Status</label>
                                         <div class="col-md-9">
                                         <select class="form-select" aria-label="Default select example">
                                             <option selected>Open this select menu</option>
@@ -1268,42 +1233,9 @@
                                     <div class="tab-pane" id="tab60">
                                      
                                     
-                                    <div class="row">
+                                    <div class="row">   
 
-                                        <div class="col-md-6">
-
-                                            <div class="mb-4">
-                                                <label class="col-md-3 form-label">Date of Manufacture</label>
-                                                <div class="col-md-9">
-                                                    <input type="date" class="form-control">
-                                                </div>
-                                            </div>
-
-                                            <div class="mb-4">
-                                                <label class="col-md-3 form-label">Year of Valuation</label>
-                                                <div class="col-md-9">
-                                                    <input type="date" class="form-control">
-                                                </div>
-                                            </div>
-
-                                            <div class="mb-4">
-                                                <label class="col-md-3 form-label">Warranty In Month</label>
-                                                <div class="col-md-9">
-                                                    <input type="text" class="form-control">
-                                                </div>
-                                            </div>
-
-                                            <div class="mb-4">
-                                                <label class="col-md-3 form-label">Depreciation In Month</label>
-                                                <div class="col-md-9">
-                                                    <input type="text" class="form-control">
-                                                </div>
-                                            </div>
-
-
-                                        </div>
-
-                                        <div class="col-md-6">
+                                        <div class="col-md-12">
 
                                         <div class="mb-4">
                                                 <label class="col-md-3 form-label">Location</label>
@@ -1321,7 +1253,7 @@
 
 
                                             <div class="mb-4">
-                                                <label class="col-md-3 form-label">Note</label>
+                                                <label class="col-md-3 form-label">Remark</label>
                                                 <div class="col-md-9">
                                                 <textarea class="form-control mb-4" placeholder="Textarea" rows="3"></textarea>
                                                 </div>

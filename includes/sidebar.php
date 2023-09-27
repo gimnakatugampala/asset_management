@@ -132,13 +132,13 @@
 													<ul class="sidemenu-list">
                                                         <li><a href="../user/user-management.php" class="slide-item">User Management</a></li>
 
-                                                        <li><a href="../user/manage-page-access.php" class="slide-item"> Manage Page Access</a></li>
+                                                        <!-- <li><a href="../user/manage-page-access.php" class="slide-item"> Manage Page Access</a></li>
 
-                                                        <li><a href="../user/email-settings.php" class="slide-item">Email Settings</a></li>
+                                                        <li><a href="../user/email-settings.php" class="slide-item">Email Settings</a></li> -->
 
                                                         <li><a href="../user/user-profile.php" class="slide-item">User Profile</a></li>
 
-                                                        <li><a href="../user/identity-settings.php" class="slide-item">Identity Settings</a></li>
+                                                        <!-- <li><a href="../user/identity-settings.php" class="slide-item">Identity Settings</a></li> -->
 
                                                         <li><a href="../user/login-history.php" class="slide-item"> Login Settings</a></li>
 													</ul>
