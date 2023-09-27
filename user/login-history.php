@@ -52,27 +52,17 @@
                                                         <th class="wd-15p border-bottom-0">ID</th>
                                                         <th class="wd-15p border-bottom-0">User name</th>
                                                         <th class="wd-20p border-bottom-0">Login Time</th>
-                                                        <th class="wd-10p border-bottom-0">Public IP</th>
-                                                        <th class="wd-25p border-bottom-0">Browser</th>
-                                                        <th class="wd-25p border-bottom-0">OS</th>
-                                                        <th class="wd-25p border-bottom-0">Device</th>
-                                                        <th class="wd-25p border-bottom-0">Action</th>
                                                         <th class="wd-25p border-bottom-0">Action Status</th>
                                                         <th class="wd-25p border-bottom-0">Created Date</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
                                                     <tr>
-                                                        <td>Bella</td>
-                                                        <td>Chloe</td>
-                                                        <td>System Developer</td>
-                                                        <td>2018/03/12</td>
-                                                        <td>$654,765</td>
-                                                        <td>b.Chloe@datatables.net</td>
-                                                        <td>b.Chloe@datatables.net</td>
-                                                        <td>b.Chloe@datatables.net</td>
-                                                        <td>b.Chloe@datatables.net</td>
-                                                        <td>b.Chloe@datatables.net</td>
+                                                        <td>1</td>
+                                                        <td>gimna@gmail.com</td>
+                                                        <td>20.09.2023</td>
+                                                        <td>Success</td>
+                                                        <td>26th December 2023</td>
                                                     </tr>
                                                    
                                                 </tbody>

@@ -133,6 +133,11 @@
                                                         </tr>
 
                                                         <tr>
+                                                            <th>Asset QR Code</th>
+                                                            <th><img width="40" src="../assets/images/asset-image/asset_qr.png" /></th>  
+                                                        </tr>
+
+                                                        <tr>
                                                             <th>Asset Model No.</th>
                                                             <th>Mr.</th>  
                                                         </tr>
