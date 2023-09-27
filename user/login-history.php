@@ -52,9 +52,7 @@
                                                         <th class="wd-15p border-bottom-0">ID</th>
                                                         <th class="wd-15p border-bottom-0">User name</th>
                                                         <th class="wd-20p border-bottom-0">Login Time</th>
-                                                        <th class="wd-15p border-bottom-0">Duration(Min)</th>
                                                         <th class="wd-10p border-bottom-0">Public IP</th>
-                                                        <th class="wd-25p border-bottom-0">Latitude</th>
                                                         <th class="wd-25p border-bottom-0">Browser</th>
                                                         <th class="wd-25p border-bottom-0">OS</th>
                                                         <th class="wd-25p border-bottom-0">Device</th>
@@ -70,8 +68,6 @@
                                                         <td>System Developer</td>
                                                         <td>2018/03/12</td>
                                                         <td>$654,765</td>
-                                                        <td>b.Chloe@datatables.net</td>
-                                                        <td>b.Chloe@datatables.net</td>
                                                         <td>b.Chloe@datatables.net</td>
                                                         <td>b.Chloe@datatables.net</td>
                                                         <td>b.Chloe@datatables.net</td>

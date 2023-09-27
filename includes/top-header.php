@@ -46,7 +46,7 @@
                                         </div>
 
 
-                                        <div class="dropdown  d-flex notifications">
+                                        <!-- <div class="dropdown  d-flex notifications">
                                             <a class="nav-link icon" data-bs-toggle="dropdown"><i
                                                     class="fe fe-bell"></i><span class=" pulse"></span>
                                             </a>
@@ -103,7 +103,7 @@
                                                     class="dropdown-item text-center p-3 text-muted">View all
                                                     Notification</a>
                                             </div>
-                                        </div>
+                                        </div> -->
                                     
                                         <div class="dropdown d-flex profile-1">
                                             <a href="javascript:void(0)" data-bs-toggle="dropdown" class="nav-link leading-none d-flex">
@@ -118,17 +118,12 @@
                                                     </div>
                                                 </div>
                                                 <div class="dropdown-divider m-0"></div>
-                                                <a class="dropdown-item" href="profile.html">
+                                                <a class="dropdown-item" href="../user/user-profile.php">
                                                     <i class="dropdown-icon fe fe-user"></i> Profile
                                                 </a>
-                                                <a class="dropdown-item" href="email-inbox.html">
-                                                    <i class="dropdown-icon fe fe-mail"></i> Inbox
-                                                    <span class="badge bg-danger rounded-pill float-end">5</span>
-                                                </a>
-                                                <a class="dropdown-item" href="lockscreen.html">
-                                                    <i class="dropdown-icon fe fe-lock"></i> Lockscreen
-                                                </a>
-                                                <a class="dropdown-item" href="login.html">
+                                           
+                                            
+                                                <a class="dropdown-item" href="../auth/login.php">
                                                     <i class="dropdown-icon fe fe-alert-circle"></i> Sign out
                                                 </a>
                                             </div>
