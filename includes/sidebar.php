@@ -164,9 +164,9 @@
 												<div class="tab-pane active" id="side21">
 													<ul class="sidemenu-list">
 
-                                                        <li><a href="login.html" class="slide-item"> Asset Status</a></li>
+                                                        <li><a href="../report/asset-status.php" class="slide-item"> Asset Status</a></li>
 
-                                                        <li><a href="register.html" class="slide-item"> Asset Allocation</a></li>
+                                                        <li><a href="../report/asset-allocation.php" class="slide-item"> Asset Allocation</a></li>
 
                                                        
 													</ul>

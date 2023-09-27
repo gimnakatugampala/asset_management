@@ -47,6 +47,7 @@
                                         <h3 class="card-title">User List</h3>
                                     </div>
                                     <div class="card-body">
+                                        
                                         <div class="table-responsive">
                                             <table id="file-datatable" class="table table-bordered text-nowrap key-buttons border-bottom">
                                                 <thead>
@@ -126,6 +127,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
+
                     <div class="row">
                         <div class="col-md-6">
 
@@ -193,6 +195,7 @@
 
 
                     </div>
+
                   </div>
               
             </div>
