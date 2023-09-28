@@ -6,7 +6,6 @@
     }
 </style>
 
-
     <!-- PAGE -->
     <div class="page">
         <div class="page-main">
@@ -28,24 +27,24 @@
 
                         <!-- PAGE-HEADER -->
                         <div class="page-header">
-                            <h1 class="page-title">Asset Sub Categories</h1>
+                            <h1 class="page-title">Manage Designation</h1>
                             <div>
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">Asset Sub Category</li>
+                                    <li class="breadcrumb-item active" aria-current="page">Manage Designation</li>
                                 </ol>
                             </div>
                         </div>
                         <!-- PAGE-HEADER END -->
 
-                        <button data-bs-toggle="modal" data-bs-target="#add-asset-sub-cat-modal" type="button" class="btn btn-icon  btn-danger my-3"><i class="fa fa-plus" aria-hidden="true"></i> Add Sub Category</button>
-
-
+                        <button class="btn btn-danger bg-danger my-3" data-bs-toggle="modal" data-bs-target="#add-designation-modal"><i class="icon-plus mx-1"></i>  Add Designation</button>
+            
+                        
                         <div class="row row-sm">
                             <div class="col-lg-12">
                                 <div class="card">
                                     <div class="card-header">
-                                        <h3 class="card-title">Asset Sub Category</h3>
+                                        <h3 class="card-title">Designation List</h3>
                                     </div>
                                     <div class="card-body">
                                         <div class="table-responsive">
@@ -54,7 +53,6 @@
                                                     <tr>
                                                         
                                                         <th class="border-bottom-0">ID</th>
-                                                        <th class="border-bottom-0">Asset Category</th>
                                                         <th class="border-bottom-0">Name</th>
                                                         <th class="border-bottom-0">Description</th>
                                                         <th class="border-bottom-0">Created Date</th>
@@ -64,14 +62,14 @@
                                                 <tbody>
                                                     <tr>
                                                         <td>12</td>
-                                                        <td>IT</td>
-                                                        <td>Charger</td>
-                                                        <td>Desc</td>
-                                                        <td>12/12/2021</td>
+                                                        <td>Tom</td>
+                                                        <td>Description</td>
+                                                        <td>12/12/2023</td>
                                                         <td>
-                                                            <button data-bs-toggle="modal" data-bs-target="#edit-asset-sub-cat-modal"  type="button" class="btn btn-icon  btn-primary"><i class="fa fa-pencil" aria-hidden="true"></i></button>
-                                                            
-                                                            <button type="button" class="btn btn-icon  btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                                                        <button data-bs-toggle="modal" data-bs-target="#edit-designation-modal" type="button" class="btn btn-icon  btn-primary"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+
+                                                        <button  type="button" class="btn btn-icon  btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></button>
+
                                                         </td>
                                                     </tr>
                                                    
@@ -83,7 +81,6 @@
                             </div>
         
                     </div>
-
 
                 
 
@@ -100,27 +97,49 @@
 
     </div>
 
-<!-- Add Asset Sub Category -->
-<div class="modal fade" id="add-asset-sub-cat-modal">
+
+   <!-- Add Designation  -->
+   <div class="modal fade" id="add-designation-modal">
         <div class="modal-dialog" role="document">
             <div class="modal-content modal-content-demo">
                 <div class="modal-header">
-                    <h6 class="modal-title">Add Sub Asset Category</h6>
+                    <h6 class="modal-title">Add Designation</h6>
                     <button class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
                 <div class="modal-body">
                     <form>
-                    <div class="mb-3">
-                        <label class="form-label">Select Category</label>
-                        <select name="country" class="form-control form-select" data-bs-placeholder="Select Country">
-                                <option value="br">Brazil</option>
-                                <option value="cz">Czech Republic</option>
-                                <option value="de">Germany</option>
-                                <option value="pl">Poland</option>
-                            </select>
-                    </div>
+                      <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">Name</label>
+                        <input type="text" class="form-control" id="recipient-name">
+                      </div>
+                      <div class="mb-3">
+                        <label for="message-text" class="col-form-label">Description</label>
+                        <textarea class="form-control" id="message-text"></textarea>
+                      </div>
+                    </form>
+                  </div>
+                <div class="modal-footer">
+                    <button class="btn ripple btn-success" type="button">Save</button>
+                    <button class="btn ripple btn-danger" data-bs-dismiss="modal" type="button">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit Designation  -->
+    <div class="modal fade" id="edit-designation-modal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content modal-content-demo">
+                <div class="modal-header">
+                    <h6 class="modal-title">Edit Designation</h6>
+                    <button class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
                       <div class="mb-3">
                         <label for="recipient-name" class="col-form-label">Name</label>
                         <input type="text" class="form-control" id="recipient-name">
@@ -140,47 +159,6 @@
     </div>
 
 
-    <!-- Edit Asset Sub Category -->
-<div class="modal fade" id="edit-asset-sub-cat-modal">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content modal-content-demo">
-                <div class="modal-header">
-                    <h6 class="modal-title">Edit Sub Asset Category</h6>
-                    <button class="btn-close" data-bs-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form>
-                    <div class="mb-3">
-                        <label class="form-label">Select Category</label>
-                        <select name="country" class="form-control form-select" data-bs-placeholder="Select Country">
-                                <option value="br">Brazil</option>
-                                <option value="cz">Czech Republic</option>
-                                <option value="de">Germany</option>
-                                <option value="pl">Poland</option>
-                            </select>
-                    </div>
-                      <div class="mb-3">
-                        <label for="recipient-name" class="col-form-label">Name</label>
-                        <input type="text" class="form-control" id="recipient-name">
-                      </div>
-                      <div class="mb-3">
-                        <label for="message-text" class="col-form-label">Description</label>
-                        <textarea class="form-control" id="message-text"></textarea>
-                      </div>
-                    </form>
-                  </div>
-                <div class="modal-footer">
-                    <button class="btn ripple btn-success" type="button">Update</button>
-                    <button class="btn ripple btn-danger" data-bs-dismiss="modal" type="button">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
 
-
-
-    
    
     <?php require_once '../includes/footer.php' ;?>

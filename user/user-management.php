@@ -67,7 +67,7 @@
                                                 <tbody>
                                                     <tr>
                                                         <td>12</td>
-                                                        <td>Tom</td>
+                                                        <td><img width="40" src="../assets/images/asset-image/user_pro.jpg" /></td>
                                                         <td>Super</td>
                                                         <td>Admin</td>
                                                         <td>0764961707</td>
@@ -83,7 +83,7 @@
 
                                                     <button data-bs-toggle="modal" data-bs-target="#pass-reset-modal" type="button" class="btn btn-icon  btn-success"><i class="fa fa-key" aria-hidden="true"></i></button>
                                                         
-                                                    <button data-bs-toggle="modal" data-bs-target="#page-access-modal" type="button" class="btn btn-icon  btn-warning"><i class="fa fa-file" aria-hidden="true"></i></button>
+                                                    <!-- <button data-bs-toggle="modal" data-bs-target="#page-access-modal" type="button" class="btn btn-icon  btn-warning"><i class="fa fa-file" aria-hidden="true"></i></button> -->
                                                     
                                                     <button type="button" class="btn btn-icon  btn-danger"><i class="fe fe-trash"></i></button>
 

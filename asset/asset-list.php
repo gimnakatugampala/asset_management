@@ -617,10 +617,10 @@
                            <div class="row">
                                 <div class="col-md-6">
 
-                                <div class="mb-4">
+                                <!-- <div class="mb-4">
                                     <label class="col-md-3 form-label">QR Code</label>
                                        <img width="100" src="../assets/images/asset-image/asset_qr.png" />
-                                    </div>
+                                    </div> -->
 
 
                                     
@@ -925,15 +925,7 @@
                                                             <th>Netherland</th>  
                                                         </tr>
 
-                                                        <tr>
-                                                            <th>Warrenty In Month</th>
-                                                            <th>12/12/2021</th>  
-                                                        </tr>
-
-                                                        <tr>
-                                                            <th>Depresciation In Month</th>
-                                                            <th>12/12/2021</th>  
-                                                        </tr>
+                                                
     
                                                     </tbody>
                                                 </table>

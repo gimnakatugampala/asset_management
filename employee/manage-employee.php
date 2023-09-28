@@ -108,25 +108,107 @@
 
     <!-- Add Employee Status -->
     <div class="modal fade" id="add-employee-modal">
-        <div class="modal-dialog" role="document">
+        <div class="modal-dialog modal-xl" role="document">
             <div class="modal-content modal-content-demo">
                 <div class="modal-header">
-                    <h6 class="modal-title">Add Asset Status</h6>
+                    <h6 class="modal-title">Add Employee</h6>
                     <button class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form>
-                      <div class="mb-3">
-                        <label for="recipient-name" class="col-form-label">Name</label>
-                        <input type="text" class="form-control" id="recipient-name">
-                      </div>
-                      <div class="mb-3">
-                        <label for="message-text" class="col-form-label">Description</label>
-                        <textarea class="form-control" id="message-text"></textarea>
-                      </div>
-                    </form>
+
+                    <div class="row">
+                        <div class="col-md-6">
+
+
+                        <div class="mb-3">
+                            <label for="recipient-name" class="col-form-label">First Name</label>
+                            <input type="text" class="form-control" id="recipient-name">
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Select Department</label>
+                            <select name="country" class="form-control form-select" data-bs-placeholder="Select Department">
+                                    <option value="br">Brazil</option>
+                                    <option value="cz">Czech Republic</option>
+                                    <option value="de">Germany</option>
+                                    <option value="pl">Poland</option>
+                                </select>
+                        </div>
+
+                        
+                        <div class="mb-3">
+                            <label class="form-label">Select Designation</label>
+                            <select name="country" class="form-control form-select" data-bs-placeholder="Select Department">
+                                    <option value="br">Brazil</option>
+                                    <option value="cz">Czech Republic</option>
+                                    <option value="de">Germany</option>
+                                    <option value="pl">Poland</option>
+                                </select>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="recipient-name" class="col-form-label">Phone</label>
+                            <input type="text" class="form-control" id="recipient-name">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="recipient-name" class="col-form-label">Joining Date</label>
+                            <input type="date" class="form-control" id="recipient-name">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="recipient-name" class="col-form-label">Address</label>
+                            <input type="text" class="form-control" id="recipient-name">
+                        </div>
+
+                     
+
+                        </div>
+
+                        <div class="col-md-6">
+
+                        <div class="mb-3">
+                            <label for="recipient-name" class="col-form-label">Last Name</label>
+                            <input type="text" class="form-control" id="recipient-name">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="recipient-name" class="col-form-label">Date Of Birth</label>
+                            <input type="date" class="form-control" id="recipient-name">
+                        </div>
+
+                       
+
+                        <div class="mb-3">
+                            <label class="form-label">Select Sub Department</label>
+                            <select name="country" class="form-control form-select" data-bs-placeholder="Select Department">
+                                    <option value="br">Brazil</option>
+                                    <option value="cz">Czech Republic</option>
+                                    <option value="de">Germany</option>
+                                    <option value="pl">Poland</option>
+                                </select>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="recipient-name" class="col-form-label">Email</label>
+                            <input type="text" class="form-control" id="recipient-name">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="recipient-name" class="col-form-label">Leaving Date</label>
+                            <input type="date" class="form-control" id="recipient-name">
+                        </div>
+
+                        
+                        
+
+                       
+
+                        </div>
+                    </div>
+
                   </div>
                 <div class="modal-footer">
                     <button class="btn ripple btn-success" type="button">Save</button>
@@ -138,25 +220,103 @@
 
     <!-- Edit Employee Status -->
     <div class="modal fade" id="edit-employee-modal">
-        <div class="modal-dialog" role="document">
+        <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content modal-content-demo">
                 <div class="modal-header">
-                    <h6 class="modal-title">Edit Asset Status</h6>
+                    <h6 class="modal-title">Edit Employee</h6>
                     <button class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form>
-                      <div class="mb-3">
-                        <label for="recipient-name" class="col-form-label">Name</label>
-                        <input type="text" class="form-control" id="recipient-name">
-                      </div>
-                      <div class="mb-3">
-                        <label for="message-text" class="col-form-label">Description</label>
-                        <textarea class="form-control" id="message-text"></textarea>
-                      </div>
-                    </form>
+
+
+                <div class="row">
+                        <div class="col-md-6">
+
+
+                        <div class="mb-3">
+                            <label for="recipient-name" class="col-form-label">First Name</label>
+                            <input type="text" class="form-control" id="recipient-name">
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Select Department</label>
+                            <select name="country" class="form-control form-select" data-bs-placeholder="Select Department">
+                                    <option value="br">Brazil</option>
+                                    <option value="cz">Czech Republic</option>
+                                    <option value="de">Germany</option>
+                                    <option value="pl">Poland</option>
+                                </select>
+                        </div>
+
+                        
+                        <div class="mb-3">
+                            <label class="form-label">Select Designation</label>
+                            <select name="country" class="form-control form-select" data-bs-placeholder="Select Department">
+                                    <option value="br">Brazil</option>
+                                    <option value="cz">Czech Republic</option>
+                                    <option value="de">Germany</option>
+                                    <option value="pl">Poland</option>
+                                </select>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="recipient-name" class="col-form-label">Phone</label>
+                            <input type="text" class="form-control" id="recipient-name">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="recipient-name" class="col-form-label">Joining Date</label>
+                            <input type="date" class="form-control" id="recipient-name">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="recipient-name" class="col-form-label">Address</label>
+                            <input type="text" class="form-control" id="recipient-name">
+                        </div>
+
+                     
+
+                        </div>
+
+                        <div class="col-md-6">
+
+                        <div class="mb-3">
+                            <label for="recipient-name" class="col-form-label">Last Name</label>
+                            <input type="text" class="form-control" id="recipient-name">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="recipient-name" class="col-form-label">Date Of Birth</label>
+                            <input type="date" class="form-control" id="recipient-name">
+                        </div>
+
+                       
+
+                        <div class="mb-3">
+                            <label class="form-label">Select Sub Department</label>
+                            <select name="country" class="form-control form-select" data-bs-placeholder="Select Department">
+                                    <option value="br">Brazil</option>
+                                    <option value="cz">Czech Republic</option>
+                                    <option value="de">Germany</option>
+                                    <option value="pl">Poland</option>
+                                </select>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="recipient-name" class="col-form-label">Email</label>
+                            <input type="text" class="form-control" id="recipient-name">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="recipient-name" class="col-form-label">Leaving Date</label>
+                            <input type="date" class="form-control" id="recipient-name">
+                        </div>
+
+                        </div>
+                    </div>
+
                   </div>
                 <div class="modal-footer">
                     <button class="btn ripple btn-success" type="button">Save</button>

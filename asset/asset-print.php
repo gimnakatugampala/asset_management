@@ -120,15 +120,6 @@
                                                             <th>Netherland</th>  
                                                         </tr>
 
-                                                        <tr>
-                                                            <th>Warrenty In Month</th>
-                                                            <th>12/12/2021</th>  
-                                                        </tr>
-
-                                                        <tr>
-                                                            <th>Depresciation In Month</th>
-                                                            <th>12/12/2021</th>  
-                                                        </tr>
 
                                                         <tr>
                                                             <th>Image</th>
@@ -164,10 +155,6 @@
                                                             <th>12</th>  
                                                         </tr>
 
-                                                        <tr>
-                                                            <th>Is Available</th>
-                                                            <th>12</th>  
-                                                        </tr>
 
                                                         <tr>
                                                             <th>Note</th>

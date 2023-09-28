@@ -192,15 +192,6 @@
                                                             <th>Netherland</th>  
                                                         </tr>
 
-                                                        <tr>
-                                                            <th>Warrenty In Month</th>
-                                                            <th>12/12/2021</th>  
-                                                        </tr>
-
-                                                        <tr>
-                                                            <th>Depresciation In Month</th>
-                                                            <th>12/12/2021</th>  
-                                                        </tr>
     
                                                     </tbody>
                                                 </table>
