@@ -51,21 +51,19 @@
 
                                     <div class="table-responsive">
                                         <table id="file-datatable"
-                                            class="table table-bordered text-nowrap key-buttons border-bottom">
+                                            class="table table-bordered text-nowrap key-buttons border-bottom ulist">
                                             <thead>
                                                 <tr>
-                                                    <th class="border-bottom-0">ID</th>
-                                                    <th class="border-bottom-0">Image</th>
+                                                    <th class="border-bottom-0">User Code</th>
                                                     <th class="border-bottom-0">First Name</th>
                                                     <th class="border-bottom-0">Last Name</th>
                                                     <th class="border-bottom-0">Phone Number</th>
                                                     <th class="border-bottom-0">Email</th>
                                                     <th class="border-bottom-0">Created Date</th>
-                                                    <th class="border-bottom-0">View</th>
                                                     <th class="border-bottom-0">Actions</th>
                                                 </tr>
                                             </thead>
-                                            <tbody></tbody>
+                                            <tbody id="userslist"></tbody>
                                         </table>
                                     </div>
                                 </div>
