@@ -51,10 +51,10 @@
 
                                     <div class="table-responsive">
                                         <table id="file-datatable"
-                                            class="table table-bordered text-nowrap key-buttons border-bottom ulist">
+                                            class="table table-bordered text-nowrap key-buttons border-bottom">
                                             <thead>
                                                 <tr>
-                                                    <th class="border-bottom-0">User Code</th>
+                                                    <th class="border-bottom-0">ID</th>
                                                     <th class="border-bottom-0">First Name</th>
                                                     <th class="border-bottom-0">Last Name</th>
                                                     <th class="border-bottom-0">Phone Number</th>
@@ -63,7 +63,36 @@
                                                     <th class="border-bottom-0">Actions</th>
                                                 </tr>
                                             </thead>
-                                            <tbody id="userslist"></tbody>
+                                            <tbody>
+                                                <?php
+                                                require_once '../includes/db_config.php';
+
+                                                $sql = 'SELECT tbgenaral_user_profile.usercode, tbgenaral_user_profile.firstname, tbgenaral_user_profile.lastname, tbgenaral_user_profile.phoneno, user_login.email, tbgenaral_user_profile.createddate FROM user_login INNER JOIN tbgenaral_user_profile ON user_login.genaral_user_profile_id = tbgenaral_user_profile.id WHERE user_login.is_deleted = 0';
+                                                $result = $conn->query($sql);
+
+                                                if ($result->num_rows > 0) {
+                                                    while ($row = $result->fetch_assoc()) {
+                                                        echo "<tr>";
+                                                        echo "<td>" . $row['usercode'] . "</td>";
+                                                        echo "<td>" . $row['firstname'] . "</td>";
+                                                        echo "<td>" . $row['lastname'] . "</td>";
+                                                        echo "<td>" . $row['phoneno'] . "</td>";
+                                                        echo "<td>" . $row['email'] . "</td>";
+                                                        echo "<td>" . $row['createddate'] . "</td>";
+                                                        echo "<td>";
+                                                        echo '<button data-bs-toggle="modal" data-bs-target="#pass-reset-modal" id="updateuserpws" type="button" class="btn btn-icon btn-success"  data-id="' . $row['usercode'] . '"><i class="fa fa-key" aria-hidden="true"></i></button>';
+                                                        echo '<button type="button" class="btn btn-icon btn-danger" id="deleteuser" data-id="' . $row['usercode'] . '"><i class="fe fe-trash"></i></button>';
+                                                        echo "</td>";
+                                                        echo "</tr>";
+                                                    }
+
+                                                } else {
+                                                    echo "<tr><td colspan='6'>No users found.</td></tr>";
+                                                }
+
+                                                $conn->close();
+                                                ?>
+                                            </tbody>
                                         </table>
                                     </div>
                                 </div>
@@ -625,22 +654,21 @@
 
                 <div class="mb-3">
                     <label for="recipient-name" class="col-form-label">Password</label>
-                    <input type="password" class="form-control" id="recipient-name">
+                    <input type="password" class="form-control" id="pws" name="pws">
                 </div>
 
                 <div class="mb-3">
                     <label for="recipient-name" class="col-form-label">Confirm Password</label>
-                    <input type="password" class="form-control" id="recipient-name">
+                    <input type="password" class="form-control" id="conpws" name="conpws">
                 </div>
 
-                <button type="button" class="btn btn-icon  btn-primary">Update</button>
+                <button type="button" class="btn btn-icon  btn-primary"  id="pwsUpdate">Update</button>
 
             </div>
 
         </div>
     </div>
 </div>
-
 
 
 

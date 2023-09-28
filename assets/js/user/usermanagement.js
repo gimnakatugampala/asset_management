@@ -98,8 +98,8 @@ $(document).ready(function () {
         title: "Error",
         text: "Please Select Country",
       });
-    } 
-    
+    }
+
     // else if (image.files.length === 0) {
     //   $("#add-user-modal").modal("toggle");
     //   Swal.fire({
@@ -108,9 +108,7 @@ $(document).ready(function () {
     //     text: "Please Select an Image",
     //   });
     // }
-    
     else {
-      // Send the form data to the server
       $.ajax({
         type: "POST",
         url: "../pages/user/usermanagement.php",
@@ -157,5 +155,100 @@ $(document).ready(function () {
         },
       });
     }
+  });
+
+  $("#updateuserpws").click(function () {
+    var userId = $(this).data("id");
+    $("#pwsUpdate").click(function () {
+      var pws = $("#pws").val();
+      var conpws = $("#conpws").val();
+
+      if (pws === "") {
+        $("#pass-reset-modal").modal("toggle");
+        Swal.fire({
+          icon: "error",
+          title: "Error",
+          text: "Please Enter Password",
+        });
+      } else if (conpws === "") {
+        $("#pass-reset-modal").modal("toggle");
+        Swal.fire({
+          icon: "error",
+          title: "Error",
+          text: "Please Enter Confirm Password",
+        });
+      } else if (pws !== conpws) {
+        $("#pass-reset-modal").modal("toggle");
+        Swal.fire({
+          icon: "error",
+          title: "Error",
+          text: "Password Mismatch",
+        });
+      } else {
+        $.ajax({
+          type: "POST",
+          url: "../pages/user/resetpassword.php",
+          data: {
+            pws: pws,
+            userId: userId,
+          },
+          success: function (response) {
+            $("#pass-reset-modal").modal("toggle");
+            if (response === "success") {
+              Swal.fire({
+                icon: "success",
+                title: "Success",
+                text: "successfully updated",
+              });
+              $("#pws").val("");
+              $("#conpws").val("");
+            } else {
+              Swal.fire({
+                icon: "error",
+                title: "Error",
+                text: "An error occurred while saving the data.",
+              });
+            }
+          },
+          error: function (xhr, status, error) {
+            // Handle errors here
+            console.error("Error:", error);
+          },
+        });
+      }
+    });
+  });
+
+  $("#deleteuser").click(function () {
+    var userId = $(this).data("id");
+
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        $.ajax({
+          url: "../pages/user/deleteuser.php",
+          method: "POST",
+          data: { userId: userId },
+          success: function (response) {
+            if (response === "success") {
+              $(this).closest("tr").remove();
+              window.location.reload();
+            } else {
+              alert("Failed to delete the Category.");
+            }
+          },
+          error: function () {
+            alert("Error occurred while deleting the Category.");
+          },
+        });
+      }
+    });
   });
 });

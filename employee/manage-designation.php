@@ -60,20 +60,32 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr>
-                                                        <td>12</td>
-                                                        <td>Tom</td>
-                                                        <td>Description</td>
-                                                        <td>12/12/2023</td>
-                                                        <td>
-                                                        <button data-bs-toggle="modal" data-bs-target="#edit-designation-modal" type="button" class="btn btn-icon  btn-primary"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                                                <?php
+                                                require_once '../includes/db_config.php';
 
-                                                        <button  type="button" class="btn btn-icon  btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                                                $sql = 'SELECT * FROM tbdesignation WHERE is_deleted = 0';
+                                                $result = $conn->query($sql);
 
-                                                        </td>
-                                                    </tr>
-                                                   
-                                                </tbody>
+                                                if ($result->num_rows > 0) {
+                                                    while ($row = $result->fetch_assoc()) {
+                                                        echo "<tr>";
+                                                        echo "<td>" . $row['code'] . "</td>";
+                                                        echo "<td>" . $row['name'] . "</td>";
+                                                        echo "<td>" . $row['description'] . "</td>";
+                                                        echo "<td>" . $row['createddate'] . "</td>";
+                                                        echo "<td>";
+                                                        echo '<button data-bs-toggle="modal" data-bs-target="#edit-designation-modal" type="button" id="editdesignation" class="btn btn-icon  btn-primary" data-id="' . $row['code'] . '"><i class="fa fa-pencil" aria-hidden="true"></i></button>';
+                                                        echo '<button type="button" class="btn btn-icon btn-danger" id="deletedesignation" data-id="' . $row['code'] . '"><i class="fe fe-trash"></i></button>';
+                                                        echo "</td>";
+                                                        echo "</tr>";
+                                                    }
+                                                } else {
+                                                    echo "<tr><td colspan='6'>No users found.</td></tr>";
+                                                }
+
+                                                $conn->close();
+                                                ?>
+                                            </tbody>
                                             </table>
                                         </div>
                                     </div>
@@ -112,16 +124,16 @@
                     <form>
                       <div class="mb-3">
                         <label for="recipient-name" class="col-form-label">Name</label>
-                        <input type="text" class="form-control" id="recipient-name">
+                        <input type="text" class="form-control" id="desname" name="desname">
                       </div>
                       <div class="mb-3">
                         <label for="message-text" class="col-form-label">Description</label>
-                        <textarea class="form-control" id="message-text"></textarea>
+                        <textarea class="form-control" id="desdiscription" name="desdiscription"></textarea>
                       </div>
                     </form>
                   </div>
                 <div class="modal-footer">
-                    <button class="btn ripple btn-success" type="button">Save</button>
+                    <button class="btn ripple btn-success" type="button" id="adddesignation">Save</button>
                     <button class="btn ripple btn-danger" data-bs-dismiss="modal" type="button">Close</button>
                 </div>
             </div>
@@ -142,16 +154,16 @@
                     <form>
                       <div class="mb-3">
                         <label for="recipient-name" class="col-form-label">Name</label>
-                        <input type="text" class="form-control" id="recipient-name">
+                        <input type="text" class="form-control" id="editdesname" name="editdesname">
                       </div>
                       <div class="mb-3">
                         <label for="message-text" class="col-form-label">Description</label>
-                        <textarea class="form-control" id="message-text"></textarea>
+                        <textarea class="form-control" id="editdesdiscription" name="editdesdiscription"></textarea>
                       </div>
                     </form>
                   </div>
                 <div class="modal-footer">
-                    <button class="btn ripple btn-success" type="button">Save</button>
+                    <button class="btn ripple btn-success" type="button" id="editDesbtn">Save</button>
                     <button class="btn ripple btn-danger" data-bs-dismiss="modal" type="button">Close</button>
                 </div>
             </div>
