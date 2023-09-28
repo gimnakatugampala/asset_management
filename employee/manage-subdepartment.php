@@ -51,31 +51,42 @@
                                             <table id="file-datatable" class="table table-bordered text-nowrap key-buttons border-bottom">
                                                 <thead>
                                                     <tr>
-                                                        
                                                         <th class="border-bottom-0">ID</th>
                                                         <th class="border-bottom-0">Department Name</th>
                                                         <th class="border-bottom-0">Name</th>
-                                                        <th class="border-bottom-0">Description</th>
                                                         <th class="border-bottom-0">Created Date</th>
                                                         <th class="border-bottom-0">Actions</th>
                                                     </tr>
                                                 </thead>
+
                                                 <tbody>
-                                                    <tr>
-                                                        <td>12</td>
-                                                        <td>IT</td>
-                                                        <td>Tom</td>
-                                                        <td>Description</td>
-                                                        <td>12/12/2023</td>
-                                                        <td>
-                                                        <button data-bs-toggle="modal" data-bs-target="#edit-subdepartment-modal" type="button" class="btn btn-icon  btn-primary"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                                                <?php
+                                                require_once '../includes/db_config.php';
 
-                                                        <button  type="button" class="btn btn-icon  btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                                                $sql = 'SELECT tbsubdepartment.code,tbdepartment.name,tbsubdepartment.subdepname,tbsubdepartment.createdate FROM tbsubdepartment INNER JOIN tbdepartment ON tbsubdepartment.departmentid = tbdepartment.id where tbsubdepartment.is_deleted = 0';
+                                                $result = $conn->query($sql);
 
-                                                        </td>
-                                                    </tr>
-                                                   
-                                                </tbody>
+                                                if ($result->num_rows > 0) {
+                                                    while ($row = $result->fetch_assoc()) {
+                                                        echo "<tr>";
+                                                        echo "<td>" . $row['code'] . "</td>";
+                                                        echo "<td>" . $row['name'] . "</td>";
+                                                        echo "<td>" . $row['subdepname'] . "</td>";
+                                                        echo "<td>" . $row['createdate'] . "</td>";
+                                                        echo "<td>";
+                                                        echo '<button data-bs-toggle="modal" data-bs-target="#edit-subdepartment-modal" type="button" id="subdepedit" class="btn btn-icon  btn-primary" data-id="' . $row['code'] . '"><i class="fa fa-pencil" aria-hidden="true"></i></button>';
+                                                        echo '<button type="button" class="btn btn-icon btn-danger" id="deletesubdepartment" data-id="' . $row['code'] . '"><i class="fe fe-trash"></i></button>';
+                                                        echo "</td>";
+                                                        echo "</tr>";
+                                                    }
+                                                } else {
+                                                    echo "<tr><td colspan='6'>No users found.</td></tr>";
+                                                }
+
+                                                $conn->close();
+                                                ?>
+                                            </tbody>
+                                                
                                             </table>
                                         </div>
                                     </div>
@@ -83,11 +94,6 @@
                             </div>
         
                     </div>
-
-                
-
-                    
-
                    
                     </div>
                     <!-- CONTAINER END -->
@@ -98,7 +104,6 @@
         </div>
 
     </div>
-
 
    <!-- Add Department  -->
    <div class="modal fade" id="add-subdepartment-modal">
@@ -114,26 +119,24 @@
                     <form>
                     <div class="form-group">
                         <label class="form-label">Select Department</label>
-                        <select name="country" class="form-control form-select" data-bs-placeholder="Select Country">
-                                <option value="br">Brazil</option>
-                                <option value="cz">Czech Republic</option>
-                                <option value="de">Germany</option>
-                                <option value="pl" selected>Poland</option>
+                        <select name="country" class="form-control form-select" data-bs-placeholder="Select Country" id="cmbDepartment">
+                                <option value="0">Select Department</option>
+                                
                             </select>
                     </div>
                     
                       <div class="mb-3">
                         <label for="recipient-name" class="col-form-label">Name</label>
-                        <input type="text" class="form-control" id="recipient-name">
+                        <input type="text" class="form-control" id="subdepname" name="subdepname">
                       </div>
                       <div class="mb-3">
                         <label for="message-text" class="col-form-label">Description</label>
-                        <textarea class="form-control" id="message-text"></textarea>
+                        <textarea class="form-control" id="subdepdescription" name="subdepdescription"></textarea>
                       </div>
                     </form>
                   </div>
                 <div class="modal-footer">
-                    <button class="btn ripple btn-success" type="button">Save</button>
+                    <button class="btn ripple btn-success" type="button" id="addsubDepartment">Save</button>
                     <button class="btn ripple btn-danger" data-bs-dismiss="modal" type="button">Close</button>
                 </div>
             </div>
@@ -154,25 +157,23 @@
                     <form>
                     <div class="form-group">
                         <label class="form-label">Select Department</label>
-                        <select name="country" class="form-control form-select" data-bs-placeholder="Select Country">
-                                <option value="br">Brazil</option>
-                                <option value="cz">Czech Republic</option>
-                                <option value="de">Germany</option>
-                                <option value="pl" selected>Poland</option>
+                        <select name="country" class="form-control form-select" data-bs-placeholder="Select Country" id="editcmbDepartment">
+                                <option value="0">Select Department</option>
+                                
                             </select>
                     </div>
                       <div class="mb-3">
                         <label for="recipient-name" class="col-form-label">Name</label>
-                        <input type="text" class="form-control" id="recipient-name">
+                        <input type="text" class="form-control" id="editsubdepname" name="editsubdepname">
                       </div>
                       <div class="mb-3">
                         <label for="message-text" class="col-form-label">Description</label>
-                        <textarea class="form-control" id="message-text"></textarea>
+                        <textarea class="form-control" id="editsubdepdescription" name="editsubdepdescription"></textarea>
                       </div>
                     </form>
                   </div>
                 <div class="modal-footer">
-                    <button class="btn ripple btn-success" type="button">Save</button>
+                    <button class="btn ripple btn-success" type="button" id="editsubDepartmentbtn">Save</button>
                     <button class="btn ripple btn-danger" data-bs-dismiss="modal" type="button">Close</button>
                 </div>
             </div>

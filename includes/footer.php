@@ -119,8 +119,11 @@
 
 <script src="../assets/js/LoadDropdown/countrylist.js"></script>
 <script src="../assets/js/user/usermanagement.js"></script>
-<script src="../assets/js/user/userslist.js"></script>
+<script src="../assets/js/employee/adddepartment.js"></script>
 
+<script src="../assets/js/LoadDropdown/departmentlist.js"></script>
+<script src="../assets/js/employee/addsubdepartment.js"></script>
+<script src="../assets/js/employee/adddesignation.js"></script>
 
 
 
