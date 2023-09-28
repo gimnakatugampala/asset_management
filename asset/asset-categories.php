@@ -38,7 +38,7 @@
                         </div>
                         <!-- PAGE-HEADER END -->
 
-                        <button data-bs-toggle="modal" data-bs-target="#add-asset-cat-modal" type="button" class="btn btn-icon  btn-secondary my-3"><i class="fa fa-plus" aria-hidden="true"></i> Add Category</button>
+                        <button data-bs-toggle="modal" data-bs-target="#add-asset-cat-modal" type="button" class="btn btn-icon  btn-danger my-3"><i class="fa fa-plus" aria-hidden="true"></i> Add Category</button>
 
                         <div class="row row-sm">
                             <div class="col-lg-12">

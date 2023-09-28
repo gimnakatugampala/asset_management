@@ -81,6 +81,8 @@
                                                       
                                                         <li><a href="../employee/manage-employee.php" class="slide-item">Manage Employee</a></li>
 
+                                                        <li><a href="../employee/manage-designation.php" class="slide-item">Manage Designation</a></li>
+
                                                         <li><a href="../employee/manage-department.php" class="slide-item"> Department</a></li>
 
                                                         <li><a href="../employee/manage-subdepartment.php" class="slide-item"> Sub Department</a></li>
