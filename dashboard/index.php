@@ -1,15 +1,15 @@
-<?php require_once '../includes/header.php' ;?>
+<?php require_once '../includes/header.php'; ?>
 
     <!-- PAGE -->
     <div class="page">
         <div class="page-main">
 
             <!-- app-Header -->
-            <?php require_once '../includes/top-header.php' ;?>
+            <?php require_once '../includes/top-header.php'; ?>
             <!-- /app-Header -->
 
             <!--APP-SIDEBAR-->
-            <?php require_once '../includes/sidebar.php' ;?>
+            <?php require_once '../includes/sidebar.php'; ?>
             <!--/APP-SIDEBAR-->
 
             <!--app-content open-->
@@ -2559,4 +2559,4 @@
 
 
    
-    <?php require_once '../includes/footer.php' ;?>
+    <?php require_once '../includes/footer.php'; ?>

@@ -123,7 +123,7 @@
                                                 </a>
                                            
                                             
-                                                <a class="dropdown-item" href="../auth/login.php">
+                                                <a class="dropdown-item" href="../includes/logout.php">
                                                     <i class="dropdown-icon fe fe-alert-circle"></i> Sign out
                                                 </a>
                                             </div>

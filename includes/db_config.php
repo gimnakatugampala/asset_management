@@ -2,7 +2,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "db_techdrive";
+$dbname = "db_assest";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 

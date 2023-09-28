@@ -7,7 +7,7 @@ $(document).ready(function () {
       Swal.fire({
         icon: "error",
         title: "Error",
-        text: "Please Enter your Username",
+        text: "Please Enter your Email",
       });
     } else if (password === "") {
       Swal.fire({

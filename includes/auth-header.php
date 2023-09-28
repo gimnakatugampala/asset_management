@@ -33,6 +33,9 @@
     <link href="../assets/switcher/css/switcher.css" rel="stylesheet">
     <link href="../assets/switcher/demo.css" rel="stylesheet">
 
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+
 </head>
 
 <body class="app sidebar-mini ltr login-img">
