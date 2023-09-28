@@ -63,7 +63,8 @@
                                                     <th class="border-bottom-0">Actions</th>
                                                 </tr>
                                             </thead>
-                                            <tbody id="userslist"></tbody>
+                                            <tbody id="userslist">
+                                            </tbody>
                                         </table>
                                     </div>
                                 </div>
