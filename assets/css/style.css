@@ -17840,10 +17840,12 @@ table.table-bordered.dataTable thead tr:first-child td {
 
 @media (min-width: 1280px) and (max-width: 1460px) {
 
-    #saleschart,
-    #leadschart,
-    #profitchart,
-    #costchart {
+    #totalassetchart,
+    #totalassignedassetchart,
+    #totalunassignedassetchart,
+    #totalemployee,
+    #totaldepartment,
+    #totalsuppliers {
         width: 4rem !important;
     }
 }
