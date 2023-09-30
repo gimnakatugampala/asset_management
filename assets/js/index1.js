@@ -2,7 +2,7 @@ $(function (e) {
     'use strict'
 
     // CHARTJS SALES CHART OPEN
-    var ctx = document.getElementById('saleschart').getContext('2d');
+    var ctx = document.getElementById('totalassetchart').getContext('2d');
     new Chart(ctx, {
         type: 'bar',
         data: {
@@ -93,7 +93,7 @@ $(function (e) {
 
 
     // CHARTJS LEADS CHART  OPEN
-    var ctx1 = document.getElementById('leadschart').getContext('2d');
+    var ctx1 = document.getElementById('totalassignedassetchart').getContext('2d');
     new Chart(ctx1, {
         type: 'line',
         data: {
@@ -164,7 +164,7 @@ $(function (e) {
     // CHARTJS LEADS CHART CLOSED
 
     // PROFIT CHART OPEN
-    var ctx2 = document.getElementById('profitchart').getContext('2d');
+    var ctx2 = document.getElementById('totalunassignedassetchart').getContext('2d');
     new Chart(ctx2, {
         type: 'bar',
         data: {
@@ -241,8 +241,11 @@ $(function (e) {
     // PROFIT CHART CLOSED
 
 
+
+
+
     // COST CHART OPEN
-    var ctx3 = document.getElementById('costchart').getContext('2d');
+    var ctx3 = document.getElementById('totalemployee').getContext('2d');
     new Chart(ctx3, {
         type: 'line',
         data: {
@@ -306,6 +309,166 @@ $(function (e) {
         }
     });
     // COST CHART CLOSED
+
+
+       // COST CHART OPEN
+       var ctx4 = document.getElementById('totaldepartment').getContext('2d');
+       new Chart(ctx4, {
+           type: 'line',
+           data: {
+               labels: ['Date 1', 'Date 2', 'Date 3', 'Date 4', 'Date 5', 'Date 6', 'Date 7', 'Date 8', 'Date 9', 'Date 10', 'Date 11', 'Date 12', 'Date 13', 'Date 14', 'Date 15', 'Date 16', 'Date 17'],
+               datasets: [{
+                   label: 'Total Department',
+                   data: [28, 56, 36, 32, 48, 54, 37, 58, 66, 53, 21, 24, 14, 45, 0, 32, 67, 49, 52, 55, 46, 54, 130],
+                   backgroundColor: 'transparent',
+                   borderColor: 'crimson',
+                   borderWidth: '2.5',
+                   pointBorderColor: 'transparent',
+                   pointBackgroundColor: 'transparent',
+                   lineTension: 0.3
+               },]
+           },
+           options: {
+               maintainAspectRatio: false,
+               plugins: {
+                   legend: {
+                       display: false,
+                       labels: {
+                           display: false
+                       }
+                   },
+                   tooltip: {
+                       enabled: false
+                   }
+               },
+               responsive: true,
+               scales: {
+                   x: {
+                       categoryPercentage: 1.0,
+                       barPercentage: 1.0,
+                       barDatasetSpacing: 0,
+                       display: false,
+                       barThickness: 5,
+                       gridLines: {
+                           color: 'transparent',
+                           zeroLineColor: 'transparent'
+                       },
+                       ticks: {
+                           fontSize: 2,
+                           fontColor: 'transparent'
+                       }
+                   },
+                   y: {
+                       display: false,
+                       ticks: {
+                           display: false,
+                       }
+                   }
+               },
+               title: {
+                   display: false,
+               },
+               elements: {
+                   point: {
+                       radius: 0
+                   }
+               }
+           }
+       });
+       // COST CHART CLOSED
+
+
+    // CHARTJS SALES CHART OPEN
+    var ctx5 = document.getElementById('totalsuppliers').getContext('2d');
+    new Chart(ctx5, {
+        type: 'bar',
+        data: {
+            labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+            datasets: [{
+                barPercentage: 0.1,
+                barThickness: 6,
+                barGap: 0,
+                maxBarThickness: 8,
+                minBarLength: 2,
+                label: 'Total Supplier',
+                data: [19, 10, 15, 8, 6, 10, 13],
+                backgroundColor: [
+                    'rgba(5, 195, 251, 0.2)',
+                    'rgba(5, 195, 251, 0.2)',
+                    '#05c3fb',
+                    'rgba(5, 195, 251, 0.2)',
+                    'rgba(5, 195, 251, 0.2)',
+                    '#05c3fb',
+                    '#05c3fb'
+                ],
+                borderColor: [
+                    'rgba(5, 195, 251, 0.5)',
+                    'rgba(5, 195, 251, 0.5)',
+                    '#05c3fb',
+                    'rgba(5, 195, 251, 0.5)',
+                    'rgba(5, 195, 251, 0.5)',
+                    '#05c3fb',
+                    '#05c3fb'
+                ],
+                pointBorderWidth: 2,
+                pointRadius: 2,
+                pointHoverRadius: 2,
+                borderRadius: 10,
+                borderWidth: 1
+            },]
+        },
+        options: {
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    display: false,
+                    labels: {
+                        display: false
+                    }
+                },
+                tooltip: {
+                    enabled: false
+                }
+            },
+            responsive: true,
+            scales: {
+                x: {
+                    categoryPercentage: 1.0,
+                    barPercentage: 1.0,
+                    barDatasetSpacing: 0,
+                    display: false,
+                    barThickness: 5,
+                    barRadius: 0,
+                    gridLines: {
+                        color: 'transparent',
+                        zeroLineColor: 'transparent'
+                    },
+                    ticks: {
+                        fontSize: 2,
+                        fontColor: 'transparent'
+                    }
+                },
+                y: {
+                    display: false,
+                    ticks: {
+                        display: false,
+                    }
+                }
+            },
+            title: {
+                display: false,
+            },
+            elements: {
+                point: {
+                    radius: 0
+                }
+            }
+        }
+    });
+
+    // CHARTJS SALES CHART CLOSED
+
+            
 
     // FLOAT CHART OPEN
     $.plot('#flotback-chart', [{
