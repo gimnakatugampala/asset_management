@@ -70,7 +70,7 @@
                                                     while ($row = $result->fetch_assoc()) {
                                                         echo "<tr>";
                                                         echo "<td>" . $row['code'] . "</td>";
-                                                        echo "<td>" . $row['name'] . "</td>";
+                                                        echo "<td>" . $row['desname'] . "</td>";
                                                         echo "<td>" . $row['description'] . "</td>";
                                                         echo "<td>" . $row['createddate'] . "</td>";
                                                         echo "<td>";

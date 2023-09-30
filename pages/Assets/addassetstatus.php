@@ -2,15 +2,15 @@
 require_once '../../includes/db_config.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $desname = $_POST['desname'];
-    $desdiscription = $_POST['desdiscription'];
+    $name = $_POST['name'];
+    $description = $_POST['description'];
 
     $createddate = date('Y-m-d');
 
     $datetime = date("Y-m-d H:i:s");
     $departmentcode = strtotime($datetime);
     
-    $sql = "INSERT INTO tbdesignation (code,desname,createddate,is_deleted,description) VALUES ('$departmentcode', '$desname', '$createddate', '0','$desdiscription')";
+    $sql = "INSERT INTO assetstatus (code,name,description,createdate,is_deleted) VALUES ('$departmentcode', '$name', '$description', '$createddate', '0')";
     if ($conn->query($sql) === true) {
         echo 'success';
     } else {

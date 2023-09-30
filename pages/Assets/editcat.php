@@ -4,10 +4,10 @@ require_once '../../includes/db_config.php';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     try {
         $userId = $_POST['userId'];
-        $editdesname = $_POST['editdesname'];
-        $editdesdiscription = $_POST['editdesdiscription'];
+        $editcatname = $_POST['editcatname'];
+        $editcatdescription = $_POST['editcatdescription'];
 
-        $sql = "UPDATE tbdesignation SET desname  = '$editdesname',description  = '$editdesdiscription' WHERE code = '$userId'";
+        $sql = "UPDATE assetstatus SET name  = '$editcatname', description  = '$editcatdescription' WHERE code = '$userId'";
         if ($conn->query($sql) === true) {
             echo 'success';
         } else {
