@@ -53,7 +53,6 @@
                                             class="table table-bordered text-nowrap key-buttons border-bottom">
                                             <thead>
                                                 <tr>
-
                                                     <th class="border-bottom-0">ID</th>
                                                     <th class="border-bottom-0">Name</th>
                                                     <th class="border-bottom-0">Contact Person</th>
@@ -65,26 +64,34 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>
-                                                    <td>12</td>
-                                                    <td>PHP</td>
-                                                    <td>TBD</td>
-                                                    <td>gimna@gmail.com</td>
-                                                    <td>083873432</td>
-                                                    <td>Sri Lanka</td>
-                                                    <td>12/12/2023</td>
-                                                    <td>
-                                                        <button data-bs-toggle="modal"
-                                                            data-bs-target="#edit-supplier-modal" type="button"
-                                                            class="btn btn-icon  btn-primary"><i class="fa fa-pencil"
-                                                                aria-hidden="true"></i></button>
+                                                <?php
+                                                require_once '../includes/db_config.php';
 
-                                                        <button type="button" class="btn btn-icon  btn-danger"><i
-                                                                class="fa fa-trash" aria-hidden="true"></i></button>
+                                                $sql = 'SELECT * FROM tbsupplier WHERE is_deleted = 0';
+                                                $result = $conn->query($sql);
 
-                                                    </td>
-                                                </tr>
+                                                if ($result->num_rows > 0) {
+                                                    while ($row = $result->fetch_assoc()) {
+                                                        echo "<tr>";
+                                                        echo "<td>" . $row['code'] . "</td>";
+                                                        echo "<td>" . $row['name'] . "</td>";
+                                                        echo "<td>" . $row['contactperson'] . "</td>";
+                                                        echo "<td>" . $row['email'] . "</td>";
+                                                        echo "<td>" . $row['phone'] . "</td>";
+                                                        echo "<td>" . $row['address'] . "</td>";
+                                                        echo "<td>" . $row['createddate'] . "</td>";
+                                                        echo "<td>";
+                                                        echo '<button data-bs-toggle="modal" data-bs-target="#edit-supplier-modal" type="button" id="editsup" class="btn btn-icon  btn-primary" data-id="' . $row['code'] . '"><i class="fa fa-pencil" aria-hidden="true"></i></button>';
+                                                        echo '<button type="button" class="btn btn-icon btn-danger" id="deletesup" data-id="' . $row['code'] . '"><i class="fe fe-trash"></i></button>';
+                                                        echo "</td>";
+                                                        echo "</tr>";
+                                                    }
+                                                } else {
+                                                    echo "<tr><td colspan='6'>No users found.</td></tr>";
+                                                }
 
+                                                $conn->close();
+                                                ?>
                                             </tbody>
                                         </table>
                                     </div>
@@ -160,7 +167,7 @@
                         <div class="mb-4">
                             <label class="col-md-3 form-label">Phone</label>
                             <div class="col-md-12">
-                                <input type="text" class="form-control" name="supphone" id="supphone">
+                                <input type="number" class="form-control" name="supphone" id="supphone">
                             </div>
                         </div>
 
@@ -195,21 +202,21 @@
                         <div class="mb-4">
                             <label class="col-md-3 form-label">Name</label>
                             <div class="col-md-12">
-                                <input type="text" class="form-control" name="supname" id="supname">
+                                <input type="text" class="form-control" name="editsupname" id="editsupname">
                             </div>
                         </div>
 
                         <div class="mb-4">
                             <label class="col-md-3 form-label">Contact Person</label>
                             <div class="col-md-12">
-                                <input type="text" class="form-control" name="cperson" id="cperson">
+                                <input type="text" class="form-control" name="editcperson" id="editcperson">
                             </div>
                         </div>
 
                         <div class="mb-4">
                             <label class="col-md-3 form-label">Address</label>
                             <div class="col-md-12">
-                                <input type="text" class="form-control" name="supaddress" id="supaddress">
+                                <input type="text" class="form-control" name="editsupaddress" id="editsupaddress">
                             </div>
                         </div>
 
@@ -220,14 +227,14 @@
                         <div class="mb-4">
                             <label class="col-md-3 form-label">Email</label>
                             <div class="col-md-12">
-                                <input type="text" class="form-control" name="supemail" id="supemail">
+                                <input type="text" class="form-control" name="editsupemail" id="editsupemail">
                             </div>
                         </div>
 
                         <div class="mb-4">
                             <label class="col-md-3 form-label">Phone</label>
                             <div class="col-md-12">
-                                <input type="text" class="form-control" name="supphone" id="supphone">
+                                <input type="text" class="form-control" name="editsupphone" id="editsupphone">
                             </div>
                         </div>
 
@@ -237,7 +244,7 @@
 
             </div>
             <div class="modal-footer">
-                <button class="btn ripple btn-success" type="button" id="supEdit">Save</button>
+                <button class="btn ripple btn-success" type="button" id="editbtnsup">Save</button>
                 <button class="btn ripple btn-danger" data-bs-dismiss="modal" type="button">Close</button>
             </div>
         </div>

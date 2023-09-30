@@ -4,18 +4,18 @@ require_once '../../includes/db_config.php';
 if (isset($_POST['user_id'])) {
     $user_id = $_POST['user_id'];
 
-    $stmt = $conn->prepare("SELECT desname,description FROM tbdesignation WHERE code = ?");
+    $stmt = $conn->prepare("SELECT name,description FROM assetcategory WHERE code = ?");
     $stmt->bind_param("i", $user_id);
     $stmt->execute();
     $result = $stmt->get_result();
 
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
-        $desname = $row['desname'];
+        $name = $row['name'];
         $description = $row['description'];
 
         $response = [
-            'desname' => $desname,
+            'name' => $name,
             'description' => $description,
         ];
 

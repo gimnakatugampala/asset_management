@@ -1,137 +1,124 @@
 $(document).ready(function () {
-  var user_id = "";
+  $("#addempbtn").click(function () {
+    const selectdep = document.getElementById("cmbDepartment");
+    const selectdesignation = document.getElementById("cmbDes");
+    const selectsubdep = document.getElementById("cmbSubdep");
 
-  // Send an AJAX request to the server to get the user ID
-  $.ajax({
-    type: "GET",
-    url: "../pages/auth/get_user_id.php", // Replace with the actual path to your PHP script
-    dataType: "json",
-    success: function (response) {
-      if (response.user_id !== null) {
-        // User is authenticated, and user_id is available in response
-        user_id = response.user_id;
-      } else {
-        // User is not authenticated or user_id is not available
-        console.log("User is not authenticated.");
-      }
-    },
-    error: function (xhr, status, error) {
-      // Handle errors here
-      console.error("Error:", error);
-    },
-  });
-
-  $("#btnSave").click(function () {
-    const countrySelect = document.getElementById("countrySelect");
-    const countryid = countrySelect.value;
     var firstname = $("#firstname").val();
-    var lastname = $("#lastname").val();
-    var phoneno = $("#phoneno").val();
-    var email = $("#email").val();
-    var password = $("#password").val();
-    var confirmpassword = $("#confirmpassword").val();
+    const depid = selectdep.value;
+    const desid = selectdesignation.value;
+    var phone = $("#phone").val();
+    var joingdate = $("#joingdate").val();
     var address = $("#address").val();
+    var lastname = $("#lastname").val();
+    var dob = $("#dob").val();
+    const subdepid = selectsubdep.value;
+    var email = $("#email").val();
+    var leavingdate = $("#leavingdate").val();
 
     // const image = document.getElementById("image");
 
     // Input validation
     if (firstname === "") {
-      $("#add-user-modal").modal("toggle");
+      $("#add-employee-modal").modal("toggle");
       Swal.fire({
         icon: "error",
         title: "Error",
         text: "Please Enter First Name",
       });
-    } else if (lastname === "") {
-      $("#add-user-modal").modal("toggle");
+    } else if (depid === "0") {
+      $("#add-employee-modal").modal("toggle");
       Swal.fire({
         icon: "error",
         title: "Error",
-        text: "Please Select Category",
+        text: "Please Select Department",
       });
-    } else if (phoneno === "") {
-      $("#add-user-modal").modal("toggle");
+    } else if (desid === "0") {
+      $("#add-employee-modal").modal("toggle");
       Swal.fire({
         icon: "error",
         title: "Error",
-        text: "Please Enter Phone No",
+        text: "Please Select Designation",
+      });
+    } else if (phone === "") {
+      $("#add-employee-modal").modal("toggle");
+      Swal.fire({
+        icon: "error",
+        title: "Error",
+        text: "Please Enter Phone no",
+      });
+    } else if (joingdate === "") {
+      $("#add-employee-modal").modal("toggle");
+      Swal.fire({
+        icon: "error",
+        title: "Error",
+        text: "Please Select Joing Date",
+      });
+    } else if (dob === "") {
+      $("#add-employee-modal").modal("toggle");
+      Swal.fire({
+        icon: "error",
+        title: "Error",
+        text: "Please select Date of Birth",
+      });
+    } else if (subdepid === "0") {
+      $("#add-employee-modal").modal("toggle");
+      Swal.fire({
+        icon: "error",
+        title: "Error",
+        text: "Please Select Sub Department",
       });
     } else if (email === "") {
-      $("#add-user-modal").modal("toggle");
+      $("#add-employee-modal").modal("toggle");
       Swal.fire({
         icon: "error",
         title: "Error",
-        text: "Please Enter email",
+        text: "Please Enter Email",
       });
-    } else if (password === "") {
-      $("#add-user-modal").modal("toggle");
+    } else if (leavingdate === "") {
+      $("#add-employee-modal").modal("toggle");
       Swal.fire({
         icon: "error",
         title: "Error",
-        text: "Please Enter Password",
+        text: "Please Select Leaving Date",
       });
-    } else if (confirmpassword === "") {
-      $("#add-user-modal").modal("toggle");
-      Swal.fire({
-        icon: "error",
-        title: "Error",
-        text: "Please Enter Confirm Password",
-      });
-    } else if (password !== confirmpassword) {
-      $("#add-user-modal").modal("toggle");
-      Swal.fire({
-        icon: "error",
-        title: "Error",
-        text: "Password Mismatch",
-      });
-    } else if (address === "") {
-      $("#add-user-modal").modal("toggle");
-      Swal.fire({
-        icon: "error",
-        title: "Error",
-        text: "Please Enter Address",
-      });
-    } else if (countryid === "0") {
-      $("#add-user-modal").modal("toggle");
-      Swal.fire({
-        icon: "error",
-        title: "Error",
-        text: "Please Select Country",
-      });
-    }
-    else {
+    } else {
       $.ajax({
         type: "POST",
-        url: "../pages/user/usermanagement.php",
+        url: "../pages/employee/addemp.php",
         data: {
-          firstname: firstname,
-          lastname: lastname,
-          phoneno: phoneno,
-          email: email,
-          password: password,
-          address: address,
-          countryid: countryid,
-          user_id: user_id,
+            firstname:firstname,
+            depid:depid,
+            desid:desid,
+            phone:phone,
+            joingdate:joingdate,
+            address:address,
+            lastname:lastname,
+            dob:dob,
+            subdepid:subdepid,
+            email:email,
+            leavingdate:leavingdate
         },
         success: function (response) {
-          $("#add-user-modal").modal("toggle");
-          if (response === "success") {
+          $("#add-employee-modal").modal("toggle");
+          if (response === "true\r\n\r\n") {
             Swal.fire({
               icon: "success",
               title: "Success",
-              text: "User added successfully",
+              text: "Employee added successfully",
             });
 
-            // Clear form fields after successful submission
             $("#firstname").val("");
-            $("#lastname").val("");
-            $("#phoneno").val("");
-            $("#email").val("");
-            $("#password").val("");
-            $("#confirmpassword").val("");
+            $("#depid").val("0");
+            $("#desid").val("0");
+            $("#phone").val("");
+            $("#joingdate").val("");
             $("#address").val("");
-            $("#image").val(""); // Reset the file input
-            $("#countrySelect").val("0"); // Reset the country select
+            $("#lastname").val("");
+            $("#dob").val("");
+            $("#subdepid").val("0");
+            $("#email").val("");
+            $("#leavingdate").val("");
           } else {
             Swal.fire({
               icon: "error",
@@ -148,7 +135,9 @@ $(document).ready(function () {
     }
   });
 
-  $("#updateuserpws").click(function () {
+  
+
+  $("#editemp").click(function () {
     var userId = $(this).data("id");
     $("#pwsUpdate").click(function () {
       var pws = $("#pws").val();
@@ -210,7 +199,7 @@ $(document).ready(function () {
     });
   });
 
-  $("#deleteuser").click(function () {
+  $("#deleteemp").click(function () {
     var userId = $(this).data("id");
 
     Swal.fire({

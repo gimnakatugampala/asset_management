@@ -1,7 +1,7 @@
 <?php
 require_once '../../includes/db_config.php';
 
-$sql = 'SELECT * FROM tbdepartment where is_deleted = 0';
+$sql = 'SELECT * FROM tbdesignation where is_deleted = 0';
 $result = $conn->query($sql);
 
 $catdata = [];

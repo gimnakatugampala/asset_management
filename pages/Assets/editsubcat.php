@@ -1,13 +1,14 @@
 <?php
 require_once '../../includes/db_config.php';
 
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     try {
+        $editsubcatname = $_POST['editsubcatname'];
+        $did = $_POST['did'];
         $userId = $_POST['userId'];
-        $editdesname = $_POST['editdesname'];
-        $editdesdiscription = $_POST['editdesdiscription'];
 
-        $sql = "UPDATE tbdesignation SET desname  = '$editdesname',description  = '$editdesdiscription' WHERE code = '$userId'";
+        $sql = "UPDATE assetsubcategory SET subcatname  = '$editsubcatname', assetcategoryid ='$did' WHERE code = '$userId'";
         if ($conn->query($sql) === true) {
             echo 'success';
         } else {

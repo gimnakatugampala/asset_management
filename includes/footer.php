@@ -118,12 +118,23 @@
 
 
 <script src="../assets/js/LoadDropdown/countrylist.js"></script>
+<script src="../assets/js/LoadDropdown/catlist.js"></script>
+<script src="../assets/js/LoadDropdown/designationlist.js"></script>
+<script src="../assets/js/LoadDropdown/subdeplist.js"></script>
+
 <script src="../assets/js/user/usermanagement.js"></script>
+<script src="../assets/js/user/userprofile.js"></script>
 <script src="../assets/js/employee/adddepartment.js"></script>
+<script src="../assets/js/employee/addemp.js"></script>
+<script src="../assets/js/Assets/assetstatus.js"></script>
+<script src="../assets/js/Assets/cat.js"></script>
+<script src="../assets/js/Assets/subcat.js"></script>
+<script src="../assets/js/Assets/assest.js"></script>
 
 <script src="../assets/js/LoadDropdown/departmentlist.js"></script>
 <script src="../assets/js/employee/addsubdepartment.js"></script>
 <script src="../assets/js/employee/adddesignation.js"></script>
+<script src="../assets/js/supplier/addsupplier.js"></script>
 
 
 
