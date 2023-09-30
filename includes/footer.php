@@ -75,6 +75,25 @@
 <script src="../assets/plugins/fancyuploder/fancy-uploader.js"></script>
 
 
+<!-- FORM WIZARD JS-->
+<script src="../assets/plugins/formwizard/jquery.smartWizard.js"></script>
+<script src="../assets/plugins/formwizard/fromwizard.js"></script>
+
+<!-- INTERNAl Jquery.steps js -->
+<script src="../assets/plugins/jquery-steps/jquery.steps.min.js"></script>
+<script src="../assets/plugins/parsleyjs/parsley.min.js"></script>
+
+    <!-- Perfect SCROLLBAR JS-->
+    <script src="../assets/plugins/p-scroll/perfect-scrollbar.js"></script>
+    <script src="../assets/plugins/p-scroll/pscroll.js"></script>
+    <script src="../assets/plugins/p-scroll/pscroll-1.js"></script>
+
+    <!-- INTERNAL Accordion-Wizard-Form js-->
+    <script src="../assets/plugins/accordion-Wizard-Form/jquery.accordion-wizard.min.js"></script>
+    <script src="../assets/js/form-wizard.js"></script>
+
+
+
 <!-- INTERNAL Bootstrap-Datepicker js-->
 <script src="../assets/plugins/bootstrap-daterangepicker/daterangepicker.js"></script>
 

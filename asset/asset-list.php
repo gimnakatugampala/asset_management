@@ -597,24 +597,13 @@
 						</button>
                 </div>
                 <div class="modal-body">
-                    
-                <div class="panel panel-primary">
-                <div class="tab-menu-heading">
-                    <div class="tabs-menu">
-                        <!-- Tabs -->
-                        <ul class="nav panel-tabs panel-info">
-                            <li><a href="#tab40" class="active" data-bs-toggle="tab">Basic Info</a></li>
-                            <li><a href="#tab41" data-bs-toggle="tab">Other Info</a></li>
-                            <li><a href="#tab42" data-bs-toggle="tab">Asset Assign</a></li>
-                            
-                        </ul>
-                    </div>
-                </div>
-                <div class="panel-body tabs-menu-body">
-                    <div class="tab-content">
-                        <div class="tab-pane active" id="tab40">
 
-                           <div class="row">
+                <!-- AREA -->
+                <div class="card-body">
+                    <div id="wizard1">
+                        <h3>Basic Info</h3> 
+                        <section>
+                        <div class="row">
                                 <div class="col-md-6">
 
                                 <!-- <div class="mb-4">
@@ -738,81 +727,43 @@
                            
                                 </div>
                         
-                                <div class="d-flex justify-content-center">
-                                    <button type="button" class="btn btn-danger mx-2">Save</button>
-                                    <button type="button" class="btn btn-info mx-2">Cancel</button>
-                                </div>
-
-                                
-
-
                            </div>
-
-                        </div>
-                        <div class="tab-pane" id="tab41">
-
-                            <div class="row">
+                        </section>
 
 
-                                <div class="col-md-12">
+                        <h3>Other Info</h3>
+                        <section>
+                        <div class="row">
+                            <div class="col-md-12">
+
+                            <div class="mb-4">
+                                    <label class="col-md-3 form-label">Location</label>
+                                    <div class="col-md-9">
+                                        <input type="text" class="form-control">
+                                    </div>
+                                </div>
 
                                 <div class="mb-4">
-                                        <label class="col-md-3 form-label">Location</label>
-                                        <div class="col-md-9">
-                                            <input type="text" class="form-control">
-                                        </div>
+                                    <label class="col-md-3 form-label">Image URL</label>
+                                    <div class="col-md-9">
+                                    <input type="file" class="dropify" data-bs-height="180">
                                     </div>
-
-                                    <div class="mb-4">
-                                        <label class="col-md-3 form-label">Image URL</label>
-                                        <div class="col-md-9">
-                                        <input type="file" class="dropify" data-bs-height="180">
-                                        </div>
-                                    </div>
-
-
-                                    <div class="mb-4">
-                                        <label class="col-md-3 form-label">Remark</label>
-                                        <div class="col-md-9">
-                                        <textarea class="form-control mb-4" placeholder="Textarea" rows="3"></textarea>
-                                        </div>
-                                    </div>
-                                    
                                 </div>
 
 
-                                   <div class="d-flex justify-content-center">
-                                    <button type="button" class="btn btn-danger mx-2">Save</button>
-                                    <button type="button" class="btn btn-info mx-2">Cancel</button>
+                                <div class="mb-4">
+                                    <label class="col-md-3 form-label">Remark</label>
+                                    <div class="col-md-9">
+                                    <textarea class="form-control mb-4" placeholder="Textarea" rows="3"></textarea>
+                                    </div>
                                 </div>
-
-                            </div>
-
-                        </div>
-                        <div class="tab-pane" id="tab42">
-
-                        <div class=" row mb-4">
-                            <label class="col-md-3 form-label">Assign Asset</label>
-                            <div class="col-md-9">
-                            <select name="country" class="form-control form-select" data-bs-placeholder="Select Country">
-                                <option value="br">Brazil</option>
-                                <option value="cz">Czech Republic</option>
-                                <option value="de">Germany</option>
-                                <option value="pl" selected>Poland</option>
-                            </select>
                             </div>
                         </div>
-                        
-                        <div class="d-flex justify-content-center">
-                            <button class="btn btn-primary m-2">Save</button>
-
-                            <button class="btn btn-secondary m-2" data-bs-dismiss="modal">Close</button>
-                        </div>
-                        </div>
-                     
+                        </section>
                     </div>
                 </div>
-            </div>
+                <!-- AREA -->
+
                 
                 </div>
             </div>
