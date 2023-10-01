@@ -1,12 +1,7 @@
 <?php
-session_start();
 require_once '../../includes/db_config.php';
 
-
-if (isset($_SESSION['user_id'])) {
-    header('Location: ../dashboard/');
-    exit();
-}
+session_start();
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 

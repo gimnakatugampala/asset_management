@@ -3,38 +3,50 @@ $(document).ready(function () {
     var email = $("#email").val();
     var password = $("#password").val();
 
-    if (email === "") {
+    var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
       Swal.fire({
         icon: "error",
         title: "Error",
-        text: "Please Enter your Email",
+        text: "Please Enter a Valid Email Address",
       });
-    } else if (password === "") {
+      return;
+    }
+
+    if (password === "") {
       Swal.fire({
         icon: "error",
         title: "Error",
         text: "Please Enter your Password",
       });
-    } else {
-      $.ajax({
-        type: "POST",
-        url: "../pages/auth/login.php",
-        data: {
-          email: email,
-          password: password,
-        },
-        success: function (response) {
-          if (response === "success") {
-            window.location.href = "../dashboard";
-          } else {
-            Swal.fire({
-              icon: "error",
-              title: "Login failed",
-              text: "Please check your credentials.",
-            });
-          }
-        },
-      });
+      return;
     }
+
+    $.ajax({
+      type: "POST",
+      url: "../pages/auth/login.php",
+      data: {
+        email: email,
+        password: password,
+      },
+      success: function (response) {
+        if (response === "success") {
+          window.location.href = "../dashboard";
+        } else {
+          Swal.fire({
+            icon: "error",
+            title: "Login failed",
+            text: "Please check your credentials.",
+          });
+        }
+      },
+      error: function (xhr, status, error) {
+        Swal.fire({
+          icon: "error",
+          title: "Error",
+          text: "An error occurred while processing your request. Please try again later.",
+        });
+      }
+    });
   });
 });
