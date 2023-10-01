@@ -54,7 +54,7 @@ $(document).ready(function () {
         dataType: 'json',
         success: function(data) {
             if (data) {
-                $("#editdepname").val(data.name);
+                $("#editdepname").val(data.depname);
                 $("#editdepdescription").val(data.description);
             } else {
                 $("#editdepname").val("");

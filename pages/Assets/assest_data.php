@@ -1,31 +1,25 @@
+
 <?php
 require_once '../../includes/db_config.php';
 
-if (isset($_POST['user_id'])) {
-    $user_id = $_POST['user_id'];
 
-    $stmt = $conn->prepare("SELECT * FROM tbemployee INNER JOIN tbasset ON tbasset.assigntoemployeeid = tbemployee.id WHERE tbasset.code = ?");
-    $stmt->bind_param("i", $user_id);
-    $stmt->execute();
-    $result = $stmt->get_result();
+$user_id = $_POST['user_id'];
 
-    if ($result->num_rows > 0) {
-        $row = $result->fetch_assoc();
+$sql = "SELECT tbasset.modal,tbasset.name,tbasset.description,tbasset.unitprice,tbasset.purchaseDate,assetstatus.sname,
+assetcategory.asscatname,assetsubcategory.subcatname,tbsupplier.supname,tbdepartment.depname,tbsubdepartment.subdepname,tbasset.location,tbasset.remark,tbasset.qrcode
+FROM tbemployee INNER JOIN tbasset ON tbasset.assigntoemployeeid = tbemployee.id INNER JOIN tbdepartment ON tbemployee.departmentid = tbdepartment.id INNER JOIN tbdesignation ON tbemployee.designationid = tbdesignation.id INNER JOIN tbsubdepartment ON tbemployee.subdepartmentid = tbsubdepartment.id INNER JOIN tbsupplier ON tbasset.supplierid = tbsupplier.id INNER JOIN assetstatus ON tbasset.assetstatusid = assetstatus.id INNER JOIN assetcategory ON tbasset.categoryId = assetcategory.id INNER JOIN assetsubcategory ON tbasset.subcategoryid = assetsubcategory.id WHERE tbasset.code = '$user_id';"; 
+$result = $conn->query($sql);
 
-        $response = [
-            'success' => true,
-            'data' => $row
-        ];
-
-        echo json_encode($response);
-    } else {
-        echo json_encode(['error' => 'User not found']);
+$data = array();
+if ($result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+        $data[] = $row;
     }
-
-    $stmt->close();
-} else {
-    echo json_encode(['error' => 'Invalid request']);
 }
+
+// Return data as JSON response
+echo json_encode($data);
 
 $conn->close();
 ?>
+

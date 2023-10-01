@@ -5,7 +5,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     try {
         $userId = $_POST["userId"];
 
-        $sql = "UPDATE tbasset SET is_deleted  = '1' WHERE code = '$userId'";
+        $sql = "UPDATE assetcategory SET is_deleted  = '1' WHERE code = '$userId'";
         if ($conn->query($sql) === TRUE) {
             echo "success";
         } else {

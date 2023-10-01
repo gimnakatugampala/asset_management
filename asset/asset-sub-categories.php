@@ -66,14 +66,14 @@
                                                 <?php
                                                 require_once '../includes/db_config.php';
 
-                                                $sql = 'SELECT assetsubcategory.code,assetcategory.name,assetsubcategory.subcatname,assetsubcategory.createdate FROM assetsubcategory INNER JOIN assetcategory ON assetsubcategory.assetcategoryid = assetcategory.id where assetsubcategory.is_deleted = 0';
+                                                $sql = 'SELECT assetsubcategory.code,assetcategory.asscatname,assetsubcategory.subcatname,assetsubcategory.createdate FROM assetsubcategory INNER JOIN assetcategory ON assetsubcategory.assetcategoryid = assetcategory.id where assetsubcategory.is_deleted = 0';
                                                 $result = $conn->query($sql);
 
                                                 if ($result->num_rows > 0) {
                                                     while ($row = $result->fetch_assoc()) {
                                                         echo "<tr>";
                                                         echo "<td>" . $row['code'] . "</td>";
-                                                        echo "<td>" . $row['name'] . "</td>";
+                                                        echo "<td>" . $row['asscatname'] . "</td>";
                                                         echo "<td>" . $row['subcatname'] . "</td>";
                                                         echo "<td>" . $row['createdate'] . "</td>";
                                                         echo "<td>";

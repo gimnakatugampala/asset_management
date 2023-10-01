@@ -1,3 +1,5 @@
+var user_id = "";
+
 var finishLink = document.querySelector('a[href="#finish"]');
 
 // Add a click event listener
@@ -164,24 +166,459 @@ finishLink.addEventListener("click", function (event) {
   event.preventDefault();
 });
 
-$("#viewdetails").click(function () {
-  var userId = $(this).data("id");
-
+$(".viewdetails").click(function () {
+  var clickedButton; // Declare a variable to store the clicked button reference
+  user_id = $(this).data("id");
   $.ajax({
-    url: "../pages/Assets/assest_data.php.php",
-    method: "POST",
-    data: { user_id: userId },
-    dataType: "json",
-    success: function (response) {
-      if (response.success) {
-        var userData = response.data;
-       
-      } else {
-        alert("111");
-      }
+    type: "POST",
+    url: "../pages/Assets/assest_data.php",
+    data: {
+      user_id: user_id,
     },
-    error: function (error) {
-      alert(error);
+    success: function (response) {
+      $.ajax({
+        type: "POST",
+        url: "../pages/Assets/assest_comment_list.php",
+        data: {
+          user_id: user_id,
+        },
+        success: function (response) {
+          var data = JSON.parse(response);
+          var table = $("#commentbodyviewdetails");
+          table.empty();
+
+          for (var i = 0; i < data.length; i++) {
+            var row = $("<tr>");
+            row.append($("<td>").text(data[i].comment));
+            row.append($("<td>").text(data[i].firstname));
+            row.append($("<td>").text(data[i].commentcreatedate));
+            row.append(
+              "<td><button type='button' class='btn btn-icon btn-danger deletecommentitem' data-id='" +
+                data[i].commentcode +
+                "'><i class='fe fe-trash'></i></button></td>"
+            );
+            table.append(row);
+          }
+
+          $(".deletecommentitem").click(function () {
+            $("#asset-details-modal").modal("toggle");
+            clickedButton = $(this); // Store the clicked button reference
+            user_id = clickedButton.data("id");
+
+            Swal.fire({
+              title: "Are you sure?",
+              text: "You won't be able to revert this!",
+              icon: "warning",
+              showCancelButton: true,
+              confirmButtonColor: "#3085d6",
+              cancelButtonColor: "#d33",
+              confirmButtonText: "Yes, delete it!",
+            }).then((result) => {
+              if (result.isConfirmed) {
+                $.ajax({
+                  url: "../pages/Assets/deletecommentlist.php",
+                  method: "POST",
+                  data: { user_id: user_id },
+                  success: function (response) {
+                    if (response === "success") {
+                      clickedButton.closest("tr").remove(); // Use the stored reference to remove the closest <tr> element
+                      window.location.reload();
+                    } else {
+                      alert("Failed to delete the Category.");
+                    }
+                  },
+                  error: function () {
+                    alert("Error occurred while deleting the Category.");
+                  },
+                });
+              }
+            });
+          });
+        },
+        error: function (xhr, status, error) {
+          console.error("Error:", error);
+        },
+      });
+
+      var data = JSON.parse(response);
+      var tableBody = document.getElementById("table-body");
+
+      // Generate the table HTML dynamically
+      var tableHTML = "";
+      for (var i = 0; i < data.length; i++) {
+        tableHTML += "<tr>";
+        tableHTML += "<th>Asset Model No</th>";
+        tableHTML += "<th>" + data[i].modal + "</th>";
+        tableHTML += "</tr>";
+
+        tableHTML += "<tr>";
+        tableHTML += "<th>Name</th>";
+        tableHTML += "<th>" + data[i].name + "</th>";
+        tableHTML += "</tr>";
+
+        tableHTML += "<tr>";
+        tableHTML += "<th>Description</th>";
+        tableHTML += "<th>" + data[i].description + "</th>";
+        tableHTML += "</tr>";
+
+        tableHTML += "<tr>";
+        tableHTML += "<th>Unit Price</th>";
+        tableHTML += "<th>" + data[i].unitprice + "</th>";
+        tableHTML += "</tr>";
+
+        tableHTML += "<tr>";
+        tableHTML += "<th>Date Of Purchase</th>";
+        tableHTML += "<th>" + data[i].purchaseDate + "</th>";
+        tableHTML += "</tr>";
+
+        tableHTML += "<tr>";
+        tableHTML += "<th>Asset Status</th>";
+        tableHTML += "<th>" + data[i].sname + "</th>";
+        tableHTML += "</tr>";
+
+        tableHTML += "<tr>";
+        tableHTML += "<th>Category</th>";
+        tableHTML += "<th>" + data[i].asscatname + "</th>";
+        tableHTML += "</tr>";
+
+        tableHTML += "<tr>";
+        tableHTML += "<th>Sub Category</th>";
+        tableHTML += "<th>" + data[i].subcatname + "</th>";
+        tableHTML += "</tr>";
+
+        tableHTML += "<tr>";
+        tableHTML += "<th>Supplier</th>";
+        tableHTML += "<th>" + data[i].supname + "</th>";
+        tableHTML += "</tr>";
+
+        tableHTML += "<tr>";
+        tableHTML += "<th>Department</th>";
+        tableHTML += "<th>" + data[i].depname + "</th>";
+        tableHTML += "</tr>";
+
+        tableHTML += "<tr>";
+        tableHTML += "<th>Sub Department</th>";
+        tableHTML += "<th>" + data[i].subdepname + "</th>";
+        tableHTML += "</tr>";
+
+        tableHTML += "<tr>";
+        tableHTML += "<th>Location</th>";
+        tableHTML += "<th>" + data[i].location + "</th>";
+        tableHTML += "</tr>";
+
+        tableHTML += "<tr>";
+        tableHTML += "<th>Remark</th>";
+        tableHTML += "<th>" + data[i].remark + "</th>";
+        tableHTML += "</tr>";
+      }
+      tableBody.innerHTML = tableHTML;
+    },
+    error: function (xhr, status, error) {
+      console.error("Error:", error);
+    },
+  });
+  
+});
+
+$(".alocatedetails").click(function () {
+  var clickedButton; // Declare a variable to store the clicked button reference
+  user_id = $(this).data("id");  $.ajax({
+    type: "POST",
+    url: "../pages/Assets/assest_comment_list.php",
+    data: {
+      user_id: user_id,
+    },
+    success: function (response) {
+      var data = JSON.parse(response);
+      var table = $("#commentbodyallocate");
+      table.empty();
+
+      // Iterate over the data array and create a table row for each item
+      for (var i = 0; i < data.length; i++) {
+        var row = $("<tr>");
+        row.append($("<td>").text(data[i].comment));
+        row.append($("<td>").text(data[i].firstname));
+        row.append($("<td>").text(data[i].commentcreatedate));
+        row.append(
+          "<td><button type='button' class='btn btn-icon btn-danger deletecommentitem' data-id='" +
+            data[i].commentcode +
+            "'><i class='fe fe-trash'></i></button></td>"
+        );
+        table.append(row);
+      }
+
+      $(".deletecommentitem").click(function () {
+        $("#asset-details-modal").modal("toggle");
+        clickedButton = $(this); // Store the clicked button reference
+        user_id = clickedButton.data("id");
+
+        Swal.fire({
+          title: "Are you sure?",
+          text: "You won't be able to revert this!",
+          icon: "warning",
+          showCancelButton: true,
+          confirmButtonColor: "#3085d6",
+          cancelButtonColor: "#d33",
+          confirmButtonText: "Yes, delete it!",
+        }).then((result) => {
+          if (result.isConfirmed) {
+            $.ajax({
+              url: "../pages/Assets/deletecommentlist.php",
+              method: "POST",
+              data: { user_id: user_id },
+              success: function (response) {
+                if (response === "success") {
+                  clickedButton.closest("tr").remove(); // Use the stored reference to remove the closest <tr> element
+                  window.location.reload();
+                } else {
+                  alert("Failed to delete the Category.");
+                }
+              },
+              error: function () {
+                alert("Error occurred while deleting the Category.");
+              },
+            });
+          }
+        });
+      });
+    },
+    error: function (xhr, status, error) {
+      console.error("Error:", error);
     },
   });
 });
+
+$(".editassestlist").click(function () {
+  var clickedButton; // Declare a variable to store the clicked button reference
+  user_id = $(this).data("id");  $.ajax({
+    type: "POST",
+    url: "../pages/Assets/assest_comment_list.php",
+    data: {
+      user_id: user_id,
+    },
+    success: function (response) {
+      var data = JSON.parse(response);
+      var table = $("#commentbodyedit");
+      table.empty();
+
+      // Iterate over the data array and create a table row for each item
+      for (var i = 0; i < data.length; i++) {
+        var row = $("<tr>");
+        row.append($("<td>").text(data[i].comment));
+        row.append($("<td>").text(data[i].firstname));
+        row.append($("<td>").text(data[i].commentcreatedate));
+        row.append(
+          "<td><button type='button' class='btn btn-icon btn-danger deletecommentitem' data-id='" +
+            data[i].commentcode +
+            "'><i class='fe fe-trash'></i></button></td>"
+        );
+        table.append(row);
+      }
+
+      $(".deletecommentitem").click(function () {
+        $("#asset-details-modal").modal("toggle");
+        clickedButton = $(this); // Store the clicked button reference
+        user_id = clickedButton.data("id");
+
+        Swal.fire({
+          title: "Are you sure?",
+          text: "You won't be able to revert this!",
+          icon: "warning",
+          showCancelButton: true,
+          confirmButtonColor: "#3085d6",
+          cancelButtonColor: "#d33",
+          confirmButtonText: "Yes, delete it!",
+        }).then((result) => {
+          if (result.isConfirmed) {
+            $.ajax({
+              url: "../pages/Assets/deletecommentlist.php",
+              method: "POST",
+              data: { user_id: user_id },
+              success: function (response) {
+                if (response === "success") {
+                  clickedButton.closest("tr").remove(); // Use the stored reference to remove the closest <tr> element
+                  window.location.reload();
+                } else {
+                  alert("Failed to delete the Category.");
+                }
+              },
+              error: function () {
+                alert("Error occurred while deleting the Category.");
+              },
+            });
+          }
+        });
+      });
+    },
+    error: function (xhr, status, error) {
+      console.error("Error:", error);
+    },
+  });
+});
+
+$(".deleteassestlist").click(function () {
+  var userId = $(this).data("id");
+
+  Swal.fire({
+    title: "Are you sure?",
+    text: "You won't be able to revert this!",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Yes, delete it!",
+  }).then((result) => {
+    if (result.isConfirmed) {
+      $.ajax({
+        url: "../pages/Assets/deleteasset.php",
+        method: "POST",
+        data: { userId: userId },
+        success: function (response) {
+          if (response === "success") {
+            $(this).closest("tr").remove();
+            window.location.reload();
+          } else {
+            alert("Failed to delete the Category.");
+          }
+        },
+        error: function () {
+          alert("Error occurred while deleting the Category.");
+        },
+      });
+    }
+  });
+});
+
+$(".empassigndetail").click(function () {
+  user_id = $(this).data("id");
+});
+
+$("#addcomment1").click(function () {
+  var commentarea = $("#commentarea1").val();
+
+  if (commentarea === "") {
+    $("#allocate-modal").modal("toggle");
+    Swal.fire({
+      icon: "error",
+      title: "Error",
+      text: "Please Enter Comment Name",
+    });
+  } else {
+    $.ajax({
+      type: "POST",
+      url: "../pages/Assets/addcomment.php",
+      data: {
+        user_id: user_id,
+        commentarea: commentarea,
+      },
+      success: function (response) {
+        $("#allocate-modal").modal("toggle");
+        if (response === "success") {
+          Swal.fire({
+            icon: "success",
+            title: "Success",
+            text: "Comment added successfully",
+          });
+          $("#commentarea").val("");
+        } else {
+          Swal.fire({
+            icon: "error",
+            title: "Error",
+            text: "An error occurred while saving the data.",
+          });
+        }
+      },
+      error: function (xhr, status, error) {
+        // Handle errors here
+        console.error("Error:", error);
+      },
+    });
+  }
+});
+
+$("#addcomment2").click(function () {
+  var commentarea = $("#commentarea2").val();
+
+  if (commentarea === "") {
+    $("#asset-details-modal").modal("toggle");
+    Swal.fire({
+      icon: "error",
+      title: "Error",
+      text: "Please Enter Comment Name",
+    });
+  } else {
+    $.ajax({
+      type: "POST",
+      url: "../pages/Assets/addcomment.php",
+      data: {
+        user_id: user_id,
+        commentarea: commentarea,
+      },
+      success: function (response) {
+        $("#asset-details-modal").modal("toggle");
+        if (response === "success") {
+          Swal.fire({
+            icon: "success",
+            title: "Success",
+            text: "Comment added successfully",
+          });
+          $("#commentarea").val("");
+        } else {
+          Swal.fire({
+            icon: "error",
+            title: "Error",
+            text: "An error occurred while saving the data.",
+          });
+        }
+      },
+      error: function (xhr, status, error) {
+        // Handle errors here
+        console.error("Error:", error);
+      },
+    });
+  }
+});
+
+$("#addcomment3").click(function () {
+  var commentarea = $("#commentarea3").val();
+
+  if (commentarea === "") {
+    $("#edit-asset-modal").modal("toggle");
+    Swal.fire({
+      icon: "error",
+      title: "Error",
+      text: "Please Enter Comment Name",
+    });
+  } else {
+    $.ajax({
+      type: "POST",
+      url: "../pages/Assets/addcomment.php",
+      data: {
+        user_id: user_id,
+        commentarea: commentarea,
+      },
+      success: function (response) {
+        $("#edit-asset-modal").modal("toggle");
+        if (response === "success") {
+          Swal.fire({
+            icon: "success",
+            title: "Success",
+            text: "Comment added successfully",
+          });
+          $("#commentarea").val("");
+        } else {
+          Swal.fire({
+            icon: "error",
+            title: "Error",
+            text: "An error occurred while saving the data.",
+          });
+        }
+      },
+      error: function (xhr, status, error) {
+        // Handle errors here
+        console.error("Error:", error);
+      },
+    });
+  }
+});
+

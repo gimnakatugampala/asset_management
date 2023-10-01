@@ -4,18 +4,18 @@ require_once '../../includes/db_config.php';
 if (isset($_POST['user_id'])) {
     $user_id = $_POST['user_id'];
 
-    $stmt = $conn->prepare("SELECT name,description FROM tbdepartment WHERE code = ?");
+    $stmt = $conn->prepare("SELECT depname,description FROM tbdepartment WHERE code = ?");
     $stmt->bind_param("i", $user_id);
     $stmt->execute();
     $result = $stmt->get_result();
 
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
-        $name = $row['name'];
+        $depname = $row['depname'];
         $description = $row['description'];
 
         $response = [
-            'name' => $name,
+            'depname' => $depname,
             'description' => $description,
         ];
 

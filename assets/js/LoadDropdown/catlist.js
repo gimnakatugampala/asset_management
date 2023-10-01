@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
         categories.forEach(function (category) {
             const option = document.createElement("option");
             option.value = category.id;
-            option.textContent = category.name;
+            option.textContent = category.asscatname;
             countrySelect.appendChild(option);
         });
     }
@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", function () {
         categories.forEach(function (category) {
             const option = document.createElement("option");
             option.value = category.id;
-            option.textContent = category.name;
+            option.textContent = category.asscatname;
             editcmbDepartment.appendChild(option);
         });
     }
