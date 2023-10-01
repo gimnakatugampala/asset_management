@@ -1,4 +1,4 @@
-<?php require_once '../includes/header.php' ;?>
+<?php require_once '../includes/header.php'; ?>
 
 <style>
     .dt-buttons.btn-group{
@@ -10,11 +10,11 @@
         <div class="page-main">
 
             <!-- app-Header -->
-            <?php require_once '../includes/top-header.php' ;?>
+            <?php require_once '../includes/top-header.php'; ?>
             <!-- /app-Header -->
 
             <!--APP-SIDEBAR-->
-            <?php require_once '../includes/sidebar.php' ;?>
+            <?php require_once '../includes/sidebar.php'; ?>
             <!--/APP-SIDEBAR-->
 
             <!--app-content open-->
@@ -63,42 +63,53 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr>
-                                                        <td data-bs-toggle="modal" data-bs-target="#qr-code"> <img  width="40" src="../assets/images/asset-image/asset_qr.png" /></td>
-                                                        <td>Edinburgh</td>
-                                                        <td>61</td>
-                                                        <td>2011/04/25</td>
-                                                        <td>$320,800</td>
-                                                        <td>
+                                                <?php
+                                                require_once '../includes/db_config.php';
 
-                                                        <button data-bs-toggle="modal" data-bs-target="#emp-modal" data-bs-whatever="@mdo1" type="button" class="btn btn-icon  btn-success text-center"><i class="fa fa-handshake-o" aria-hidden="true"></i></button> Unassigned</td>
+                                                $sql = 'SELECT * FROM tbemployee INNER JOIN tbasset ON tbasset.assigntoemployeeid = tbemployee.id WHERE tbasset.is_deleted = 0';
+                                                $result = $conn->query($sql);
 
-                                                        <td>  
-                                                        
-                                                        <button data-bs-toggle="modal" data-bs-target="#asset-details-modal" type="button" class="btn btn-icon  btn-github"><i class="fa fa-eye" aria-hidden="true"></i></button>
-            
-
-                                                        <button data-bs-toggle="modal" data-bs-target="#allocate-modal" data-bs-whatever="@mdo" type="button" class="btn btn-icon  btn-primary"><i class="fa fa-plus" aria-hidden="true"></i></button>
-                                                        
-                                                        <button data-bs-toggle="modal" data-bs-target="#edit-asset-modal"  type="button" class="btn btn-icon  btn-secondary"><i class="fa fa-pencil" aria-hidden="true"></i></button>
-                                                        
-                                                        <button type="button" class="btn btn-icon  btn-danger"><i class="fe fe-trash"></i></button>
-                                                        </td>
-
-                                                        <td>
-                                                        <span class="dropdown">
+                                                if ($result->num_rows > 0) {
+                                                    while ($row = $result->fetch_assoc()) {
+                                                        echo "<tr>";
+                                                        echo "<td><img src='../qrimage/" . $row['qrcode'] . "' alt='QR Code'></td>"; // Display QR code image
+                                                        echo "<td>" . $row['modal'] . "</td>";
+                                                        echo "<td>" . $row['name'] . "</td>";
+                                                        echo "<td>" . $row['unitprice'] . "</td>";
+                                                        echo "<td>" . $row['purchaseDate'] . "</td>";
+                                                        if ($row['employeecode'] == 000) {
+                                                            echo '<td>Unassigned</td>';
+                                                        } else {
+                                                            echo "<td>" . $row['firstname'] . " " . $row['lastname'] . "</td>";
+                                                        }
+                                                        echo "<td>";
+                                                        echo '<button id="viewdetails" data-bs-toggle="modal" data-bs-target="#asset-details-modal" data-id="' . $row['code'] . '" type="button" class="btn btn-icon  btn-github"><i class="fa fa-eye" aria-hidden="true"></i></button>';
+                                                        echo '<button id="alocatedetails" data-bs-toggle="modal" data-bs-target="#allocate-modal" data-id="' . $row['code'] . '" data-bs-whatever="@mdo" type="button" class="btn btn-icon  btn-primary"><i class="fa fa-plus" aria-hidden="true"></i></button>';
+                                                        echo '<button id="editassest" data-bs-toggle="modal" data-bs-target="#edit-asset-modal" data-id="' . $row['code'] . '" type="button" class="btn btn-icon  btn-secondary"><i class="fa fa-pencil" aria-hidden="true"></i></button>';
+                                                        echo '<button id="deleteassest" type="button" class="btn btn-icon  btn-danger" data-id="' . $row['code'] . '"><i class="fe fe-trash"></i></button>';
+                                                        echo "</td>";
+                                                        echo "<td>";
+                                                        echo '<span class="dropdown">
                                                         <button class="btn btn-icon  btn-warning dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                                                         <i class="fa fa-print" aria-hidden="true"></i>
                                                         </button>
                                                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                                            <li><a class="dropdown-item" href="../asset/asset-qr-code.php">QR Code</a></li>
+                                                            <li><a class="dropdown-item"  href="../asset/asset-qr-code.php">QR Code</a></li>
                                                             <li><a class="dropdown-item" href="../asset/asset-print.php">Detail Invoice</a></li>
                                                         </ul>
-                                                        </span>
-                                                        </td>
-                                                    </tr>
-                                                   
-                                                </tbody>
+                                                        </span>';
+                                                        echo "</td>";
+                                                        echo "</tr>";
+                                                    }
+
+
+                                                } else {
+                                                    echo "<tr><td colspan='6'>No users found.</td></tr>";
+                                                }
+
+                                                $conn->close();
+                                                ?>
+                                            </tbody>
                                             </table>
                                         </div>
                                     </div>
@@ -121,7 +132,6 @@
         </div>
 
     </div>
-
 
     <!-- Allocate Modal -->
     <div class="modal fade" id="allocate-modal">
@@ -364,13 +374,7 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>
-                                                    <td>1</td>
-                                                    <td>7</td>
-                                                    <td>Mr. Alex</td>
-                                                    <td><button class="btn btn-danger"> <i class="fe fe-trash-2"></i></button></td>
-                                                </tr>
-                                            
+                                               
                                             </tbody>
                                         </table>
                                     </div>
@@ -593,8 +597,8 @@
                 <div class="modal-header">
                     <h5 class="modal-title">Add Asset</h5>
                     <button class="btn-close" data-bs-dismiss="modal" aria-label="Close">
-							<span aria-hidden="true">×</span>
-						</button>
+                            <span aria-hidden="true">×</span>
+                        </button>
                 </div>
                 <div class="modal-body">
 
@@ -605,46 +609,39 @@
                         <section>
                         <div class="row">
                                 <div class="col-md-6">
-
-                                <!-- <div class="mb-4">
-                                    <label class="col-md-3 form-label">QR Code</label>
-                                       <img width="100" src="../assets/images/asset-image/asset_qr.png" />
-                                    </div> -->
-
-
                                     
                                     <div class="mb-4">
                                         <label class="col-md-3 form-label">Asset Model No</label>
                                         <div class="col-md-9">
-                                            <input type="text" class="form-control">
+                                            <input type="text" class="form-control" id="modelno" name="modelno">
                                         </div>
                                     </div>
 
                                     <div class="mb-4">
                                         <label class="col-md-3 form-label">Name</label>
                                         <div class="col-md-9">
-                                            <input type="text" class="form-control">
+                                            <input type="text" class="form-control" id="aname" name="aname">
                                         </div>
                                     </div>
 
                                     <div class="mb-4">
                                         <label class="col-md-3 form-label">Description</label>
                                         <div class="col-md-9">
-                                            <input type="text" class="form-control">
+                                            <input type="text" class="form-control" id="adescription" name="adescription">
                                         </div>
                                     </div>
 
                                     <div class="mb-4">
                                         <label class="col-md-3 form-label">Unit Price</label>
                                         <div class="col-md-9">
-                                            <input type="text" class="form-control">
+                                            <input type="number" class="form-control" id="unitprice" name="unitprice">
                                         </div>
                                     </div>
 
                                     <div class="mb-4">
                                         <label class="col-md-4 form-label">Date Of Purchase</label>
                                         <div class="col-md-8">
-                                        <input class="form-control" placeholder="MM/DD/YYYY" type="date">
+                                        <input class="form-control" placeholder="MM/DD/YYYY" type="date" id="dateofpurchase" name="dateofpurchase">
                                         </div>
                                     </div>
 
@@ -655,11 +652,8 @@
                                 <div class="mb-4">
                                         <label class="col-md-3 form-label">Asset Status</label>
                                         <div class="col-md-9">
-                                        <select class="form-select" aria-label="Default select example">
-                                            <option selected>Open this select menu</option>
-                                            <option value="1">One</option>
-                                            <option value="2">Two</option>
-                                            <option value="3">Three</option>
+                                        <select class="form-select" aria-label="Default select example" id="cmbStatus">
+                                            <option value="0">Select Asset Status</option>
                                             </select>
                                         </div>
                                 </div>
@@ -667,11 +661,9 @@
                                 <div class="mb-4">
                                     <label class="col-md-3 form-label">Category</label>
                                     <div class="col-md-9">
-                                    <select class="form-select" aria-label="Default select example">
-                                        <option selected>-- SELECT --</option>
-                                        <option value="1">One</option>
-                                        <option value="2">Two</option>
-                                        <option value="3">Three</option>
+                                    <select class="form-select" aria-label="Default select example" id="cmbCat">
+                                        <option value="0">-- SELECT --</option>
+                                       
                                         </select>
                                     </div>
                                 </div>
@@ -679,11 +671,8 @@
                                 <div class="mb-4">
                                     <label class="col-md-3 form-label">Sub Category</label>
                                     <div class="col-md-9">
-                                    <select class="form-select" aria-label="Default select example">
-                                        <option selected>-- SELECT --</option>
-                                        <option value="1">One</option>
-                                        <option value="2">Two</option>
-                                        <option value="3">Three</option>
+                                    <select class="form-select" aria-label="Default select example" id="cmbsubCat">
+                                        <option value="0">-- SELECT --</option>
                                         </select>
                                     </div>
                                 </div>
@@ -691,11 +680,9 @@
                                 <div class="mb-4">
                                     <label class="col-md-3 form-label">Supplier</label>
                                     <div class="col-md-9">
-                                    <select class="form-select" aria-label="Default select example">
-                                        <option selected>-- SELECT --</option>
-                                        <option value="1">One</option>
-                                        <option value="2">Two</option>
-                                        <option value="3">Three</option>
+                                    <select class="form-select" aria-label="Default select example" id="cmdsup">
+                                        <option value="0">-- SELECT --</option>
+                                        
                                         </select>
                                     </div>
                                 </div>
@@ -703,11 +690,9 @@
                                 <div class="mb-4">
                                     <label class="col-md-3 form-label">Department</label>
                                     <div class="col-md-9">
-                                    <select class="form-select" aria-label="Default select example">
-                                        <option selected>-- SELECT --</option>
-                                        <option value="1">One</option>
-                                        <option value="2">Two</option>
-                                        <option value="3">Three</option>
+                                    <select class="form-select" aria-label="Default select example" id="cmbDepartment">
+                                        <option value="0">-- SELECT --</option>
+                                        
                                         </select>
                                     </div>
                                 </div>
@@ -715,11 +700,9 @@
                                    <div class="mb-4">
                                     <label class="col-md-3 form-label">Sub Department</label>
                                     <div class="col-md-9">
-                                    <select class="form-select" aria-label="Default select example">
-                                        <option selected>-- SELECT --</option>
-                                        <option value="1">One</option>
-                                        <option value="2">Two</option>
-                                        <option value="3">Three</option>
+                                    <select class="form-select" aria-label="Default select example" id="cmbSubdep">
+                                        <option value="0">-- SELECT --</option>
+                                        
                                         </select>
                                     </div>
                                 </div>
@@ -739,7 +722,7 @@
                             <div class="mb-4">
                                     <label class="col-md-3 form-label">Location</label>
                                     <div class="col-md-9">
-                                        <input type="text" class="form-control">
+                                        <input type="text" class="form-control"  id="location" name="location">
                                     </div>
                                 </div>
 
@@ -754,7 +737,7 @@
                                 <div class="mb-4">
                                     <label class="col-md-3 form-label">Remark</label>
                                     <div class="col-md-9">
-                                    <textarea class="form-control mb-4" placeholder="Textarea" rows="3"></textarea>
+                                    <textarea class="form-control mb-4" placeholder="Textarea" rows="3"  id="remark" name="remark"></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -804,81 +787,11 @@
                                     <div class="tab-pane active" id="tab51">
 
                                     <div class="table-responsive">
-                                                <table class="table border text-nowrap table-striped text-md-nowrap mb-0">
-                                                    <tbody>
-                                                        <tr>
-                                                            <th>ID</th>
-                                                            <th>4</th>  
-                                                        </tr>
+                                                <table class="table border text-nowrap table-striped text-md-nowrap mb-0" id="tabledetails">
+                                                    <tbody id="bodydetails">
 
-                                                        <tr>
-                                                            <th>Asset ID</th>
-                                                            <th>634758</th>  
-                                                        </tr>
-
-                                                        <tr>
-                                                            <th>Asset QR Code</th>
-                                                            <th><img width="40" src="../assets/images/asset-image/asset_qr.png" /></th>  
-                                                        </tr>
-
-                                                        <tr>
-                                                            <th>Asset Model No.</th>
-                                                            <th>Mr.</th>  
-                                                        </tr>
-
-                                                        <tr>
-                                                            <th>Name</th>
-                                                            <th>Alex</th>  
-                                                        </tr>
-
-                                                        <tr>
-                                                            <th>Description</th>
-                                                            <th>12/12/1993</th>  
-                                                        </tr>
-
-                                                        <tr>
-                                                            <th>Category</th>
-                                                            <th>Software Engineer</th>  
-                                                        </tr>
-
-                                                        <tr>
-                                                            <th>Sub Category</th>
-                                                            <th>IT</th>  
-                                                        </tr>
-
-                                                        <tr>
-                                                            <th>Quantity</th>
-                                                            <th>QA</th>  
-                                                        </tr>
-
-                                                        <tr>
-                                                            <th>Unity Price</th>
-                                                            <th>12/12/2020</th>  
-                                                        </tr>
-
-                                                         <tr>
-                                                            <th>Supplier</th>
-                                                            <th>12/12/2021</th>  
-                                                        </tr>
-
-                                                        <tr>
-                                                            <th>Location</th>
-                                                            <th>3543534534</th>  
-                                                        </tr>
-
-                                                        <tr>
-                                                            <th>Department</th>
-                                                            <th>example@gmail.com</th>  
-                                                        </tr>
-
-                                                        <tr>
-                                                            <th>Sub Department</th>
-                                                            <th>Netherland</th>  
-                                                        </tr>
-
-                                                
-    
-                                                    </tbody>
+                                            </tbody>
+                                                        
                                                 </table>
                                             </div>
 
@@ -955,12 +868,29 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>
-                                                    <td>1</td>
-                                                    <td>7</td>
-                                                    <td>Mr. Alex</td>
-                                                    <td><button class="btn btn-danger"> <i class="fe fe-trash-2"></i></button></td>
-                                                </tr>
+                                            <?php
+                                            require_once '../includes/db_config.php';
+
+                                            $sql = 'SELECT tbassestcomment.code, tbassestcomment.comment, tbgenaral_user_profile.firstname, tbgenaral_user_profile.lastname,tbassestcomment.createdate  FROM tbassestcomment INNER JOIN user_login ON tbassestcomment.user_login_id = user_login.id INNER JOIN tbgenaral_user_profile ON user_login.genaral_user_profile_id = tbgenaral_user_profile.id where tbassestcomment.is_deleted = 0';
+                                            $result = $conn->query($sql);
+
+                                            if ($result->num_rows > 0) {
+                                                foreach ($result as $row) {
+                                                    echo "<tr>";
+                                                    echo "<td>" . $row['comment'] . "</td>";
+                                                    echo "<td>" . $row['firstname'] . "" . $row['lastname'] . "</td>";
+                                                    echo "<td>" . $row['createdate'] . "</td>";
+                                                    echo "<td>";
+                                                    echo '<button type="button" class="btn btn-icon btn-danger" id="deletecomment" data-id="' . $row['code'] . '"><i class="fe fe-trash"></i></button>';
+                                                    echo "</td>";
+                                                    echo "</tr>";
+                                                }
+                                            } else {
+                                                echo "<tr><td colspan='6'>No users found.</td></tr>";
+                                            }
+
+                                            $conn->close();
+                                            ?>
                                             
                                             </tbody>
                                         </table>
@@ -999,8 +929,8 @@
                 <div class="modal-header">
                     <h5 class="modal-title">QR Code</h5>
                     <button class="btn-close" data-bs-dismiss="modal" aria-label="Close">
-							<span aria-hidden="true">×</span>
-						</button>
+                            <span aria-hidden="true">×</span>
+                        </button>
                 </div>
                 <div class="modal-body text-center">
                 <img  width="45%"  src="../assets/images/asset-image/asset_qr.png" />
@@ -1281,4 +1211,4 @@
     </div>
 
    
-    <?php require_once '../includes/footer.php' ;?>
+    <?php require_once '../includes/footer.php'; ?>

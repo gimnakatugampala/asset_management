@@ -74,7 +74,7 @@
                                                     while ($row = $result->fetch_assoc()) {
                                                         echo "<tr>";
                                                         echo "<td>" . $row['code'] . "</td>";
-                                                        echo "<td>" . $row['name'] . "</td>";
+                                                        echo "<td>" . $row['supname'] . "</td>";
                                                         echo "<td>" . $row['contactperson'] . "</td>";
                                                         echo "<td>" . $row['email'] . "</td>";
                                                         echo "<td>" . $row['phone'] . "</td>";

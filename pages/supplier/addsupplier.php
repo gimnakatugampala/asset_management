@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $datetime = date("Y-m-d H:i:s");
     $departmentcode = strtotime($datetime);
     
-    $sql = "INSERT INTO tbsupplier (code,name,email,phone,address,createddate,contactperson,is_deleted) VALUES ('$departmentcode', '$supname', '$supemail', '$supphone', '$supaddress', '$createddate','$cperson','0')";
+    $sql = "INSERT INTO tbsupplier (code,supname,email,phone,address,createddate,contactperson,is_deleted) VALUES ('$departmentcode', '$supname', '$supemail', '$supphone', '$supaddress', '$createddate','$cperson','0')";
     if ($conn->query($sql) === true) {
         echo 'success';
     } else {

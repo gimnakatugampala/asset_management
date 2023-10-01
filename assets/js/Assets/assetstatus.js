@@ -1,3 +1,4 @@
+
 $(document).ready(function () {
     $("#addassests").click(function () {
       var name = $("#name").val();

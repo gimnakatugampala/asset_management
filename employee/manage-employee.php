@@ -73,19 +73,22 @@
 
                                                 if ($result->num_rows > 0) {
                                                     foreach ($result as $row) {
-                                                        echo "<tr>";
-                                                        echo "<td>" . $row['employeecode'] . "</td>";
-                                                        echo "<td>" . $row['firstname'] . "</td>";
-                                                        echo "<td>" . $row['lastname'] . "</td>";
-                                                        echo "<td>" . $row['dob'] . "</td>";
-                                                        echo "<td>" . $row['desname'] . "</td>";
-                                                        echo "<td>" . $row['name'] . "</td>";
-                                                        echo "<td>";
-                                                        echo '<button data-bs-toggle="modal" data-bs-target="#edit-employee-modal" type="button" id="editemp" class="btn btn-icon  btn-primary" data-id="' . $row['employeecode'] . '"><i class="fa fa-pencil" aria-hidden="true"></i></button>';
-                                                        echo '<button type="button" class="btn btn-icon btn-danger" id="deleteemp" data-id="' . $row['employeecode'] . '"><i class="fe fe-trash"></i></button>';
-                                                        echo '<button data-bs-toggle="modal" data-bs-target="#detail-employee-modal" type="button" class="btn btn-icon  btn-warning"><i class="fa fa-eye" aria-hidden="true" data-id="' . $row['employeecode'] . '"></i></button>';
-                                                        echo "</td>";
-                                                        echo "</tr>";
+                                                        if($row['employeecode'] > 0){
+                                                            echo "<tr>";
+                                                            echo "<td>" . $row['employeecode'] . "</td>";
+                                                            echo "<td>" . $row['firstname'] . "</td>";
+                                                            echo "<td>" . $row['lastname'] . "</td>";
+                                                            echo "<td>" . $row['dob'] . "</td>";
+                                                            echo "<td>" . $row['desname'] . "</td>";
+                                                            echo "<td>" . $row['name'] . "</td>";
+                                                            echo "<td>";
+                                                            echo '<button data-bs-toggle="modal" data-bs-target="#edit-employee-modal" type="button" id="editemp" class="btn btn-icon  btn-primary" data-id="' . $row['employeecode'] . '"><i class="fa fa-pencil" aria-hidden="true"></i></button>';
+                                                            echo '<button type="button" class="btn btn-icon btn-danger" id="deleteemp" data-id="' . $row['employeecode'] . '"><i class="fe fe-trash"></i></button>';
+                                                            echo '<button data-bs-toggle="modal" data-bs-target="#detail-employee-modal" type="button" class="btn btn-icon  btn-warning"><i class="fa fa-eye" aria-hidden="true" data-id="' . $row['employeecode'] . '"></i></button>';
+                                                            echo "</td>";
+                                                            echo "</tr>";
+                                                        }
+                                                        
                                                     }
                                                 } else {
                                                     echo "<tr><td colspan='6'>No users found.</td></tr>";
@@ -148,6 +151,11 @@
                             </select>
                         </div>
 
+                        <select name="country" class="form-control form-select"
+                                data-bs-placeholder="Select Department" id="cmbDepartment" >
+                                <option value="0">Select Department</option>
+
+                            </select>
 
                         <div class="mb-3">
                             <label class="form-label">Select Designation</label>

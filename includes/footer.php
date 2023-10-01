@@ -140,6 +140,9 @@
 <script src="../assets/js/LoadDropdown/catlist.js"></script>
 <script src="../assets/js/LoadDropdown/designationlist.js"></script>
 <script src="../assets/js/LoadDropdown/subdeplist.js"></script>
+<script src="../assets/js/LoadDropdown/statuslist.js"></script>
+<script src="../assets/js/LoadDropdown/suplist.js"></script>
+<script src="../assets/js/LoadDropdown/subcatlist.js"></script>
 
 <script src="../assets/js/user/usermanagement.js"></script>
 <script src="../assets/js/user/userprofile.js"></script>

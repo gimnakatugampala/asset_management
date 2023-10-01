@@ -10,7 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $editsupphone = $_POST['editsupphone'];
         $userId = $_POST['userId'];
 
-        $sql = "UPDATE tbsupplier SET name  = '$editsupname',email  = '$editsupemail', phone  = '$editsupphone', address  = '$editsupaddress',contactperson  = '$editcperson' WHERE code = '$userId'";
+        $sql = "UPDATE tbsupplier SET supname  = '$editsupname',email  = '$editsupemail', phone  = '$editsupphone', address  = '$editsupaddress',contactperson  = '$editcperson' WHERE code = '$userId'";
         if ($conn->query($sql) === true) {
             echo 'success';
         } else {

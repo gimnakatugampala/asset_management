@@ -11,14 +11,14 @@ if (isset($_POST['user_id'])) {
 
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
-        $name = $row['name'];
+        $supname = $row['supname'];
         $email = $row['email'];
         $phone = $row['phone'];
         $address = $row['address'];
         $contactperson = $row['contactperson'];
 
         $response = [
-            'name' => $name,
+            'supname' => $supname,
             'email' => $email,
             'phone' => $phone,
             'address' => $address,
