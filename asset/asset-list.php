@@ -868,29 +868,7 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                            <?php
-                                            require_once '../includes/db_config.php';
-
-                                            $sql = 'SELECT tbassestcomment.code, tbassestcomment.comment, tbgenaral_user_profile.firstname, tbgenaral_user_profile.lastname,tbassestcomment.createdate  FROM tbassestcomment INNER JOIN user_login ON tbassestcomment.user_login_id = user_login.id INNER JOIN tbgenaral_user_profile ON user_login.genaral_user_profile_id = tbgenaral_user_profile.id where tbassestcomment.is_deleted = 0';
-                                            $result = $conn->query($sql);
-
-                                            if ($result->num_rows > 0) {
-                                                foreach ($result as $row) {
-                                                    echo "<tr>";
-                                                    echo "<td>" . $row['comment'] . "</td>";
-                                                    echo "<td>" . $row['firstname'] . "" . $row['lastname'] . "</td>";
-                                                    echo "<td>" . $row['createdate'] . "</td>";
-                                                    echo "<td>";
-                                                    echo '<button type="button" class="btn btn-icon btn-danger" id="deletecomment" data-id="' . $row['code'] . '"><i class="fe fe-trash"></i></button>';
-                                                    echo "</td>";
-                                                    echo "</tr>";
-                                                }
-                                            } else {
-                                                echo "<tr><td colspan='6'>No users found.</td></tr>";
-                                            }
-
-                                            $conn->close();
-                                            ?>
+                                            
                                             
                                             </tbody>
                                         </table>
