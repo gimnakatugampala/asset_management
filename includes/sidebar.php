@@ -10,12 +10,12 @@
                             <!-- <img src="../assets/images/brand/icon-white.png" class="header-brand-img toggle-logo"
                                 alt="logo"> -->
 
-                                <h3 class="header-brand-img toggle-logo m-2">AMS</h3>
+                                <h3 class="header-brand-img toggle-logo m-2">A</h3>
 
                                 <h3 class="header-brand-img light-logo m-2">AMS</h3>
                             <!-- <img src="../assets/images/brand/icon-dark.png" class="header-brand-img light-logo" alt="logo"> -->
 
-                            <h3 class="header-brand-img light-logo1 m-2">AMS</h3>
+                            <h3 class="header-brand-img light-logo1 m-2">A</h3>
                             <!-- <img src="../assets/images/brand/logo-dark.png" class="header-brand-img light-logo1"
                                 alt="logo"> -->
                         </a>
