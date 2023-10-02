@@ -153,6 +153,9 @@
 <script src="../assets/js/Assets/subcat.js"></script>
 <script src="../assets/js/Assets/assest.js"></script>
 
+
+<script src="../assets/js/dashboard/dashboard.js"></script>
+
 <script src="../assets/js/LoadDropdown/departmentlist.js"></script>
 <script src="../assets/js/employee/addsubdepartment.js"></script>
 <script src="../assets/js/employee/adddesignation.js"></script>

@@ -3,9 +3,9 @@ require_once '../../includes/db_config.php';
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     try {
-        $userId = $_POST["userId"];
+        $user_id = $_POST["user_id"];
 
-        $sql = "UPDATE tbasset SET is_deleted  = '1' WHERE code = '$userId'";
+        $sql = "UPDATE tbassestcomment SET is_deleted  = '1' WHERE commentcode = '$user_id'";
         if ($conn->query($sql) === TRUE) {
             echo "success";
         } else {

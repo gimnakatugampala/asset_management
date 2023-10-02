@@ -7,7 +7,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $editcatname = $_POST['editcatname'];
         $editcatdescription = $_POST['editcatdescription'];
 
-        $sql = "UPDATE assetstatus SET name  = '$editcatname', description  = '$editcatdescription' WHERE code = '$userId'";
+        $sql = "UPDATE assetstatus SET asscatname  = '$editcatname', description  = '$editcatdescription' WHERE code = '$userId'";
         if ($conn->query($sql) === true) {
             echo 'success';
         } else {

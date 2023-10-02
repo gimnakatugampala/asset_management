@@ -8,7 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    $sql = "SELECT * FROM user_login WHERE email = '$email' AND password = '$password'";
+    $sql = "SELECT * FROM user_login WHERE email = '$email' AND password = '$password' and is_deleted = 0";
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {

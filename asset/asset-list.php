@@ -70,7 +70,8 @@
                                                 $result = $conn->query($sql);
 
                                                 if ($result->num_rows > 0) {
-                                                    while ($row = $result->fetch_assoc()) {
+                                                    $rows = $result->fetch_all(MYSQLI_ASSOC);
+                                                    foreach ($rows as $row) {
                                                         echo "<tr>";
                                                         echo "<td><img src='../qrimage/" . $row['qrcode'] . "' alt='QR Code'></td>"; // Display QR code image
                                                         echo "<td>" . $row['modal'] . "</td>";
@@ -78,26 +79,26 @@
                                                         echo "<td>" . $row['unitprice'] . "</td>";
                                                         echo "<td>" . $row['purchaseDate'] . "</td>";
                                                         if ($row['employeecode'] == 000) {
-                                                            echo '<td>Unassigned</td>';
+                                                            echo '<td> <button id="empassigndetail" data-bs-toggle="modal" data-bs-target="#emp-modal" data-id="' . $row['code'] . '" type="button" class="btn btn-icon  btn-github"><i class="fa fa-eye" aria-hidden="true"></i></button>Unassigned</td>';
                                                         } else {
-                                                            echo "<td>" . $row['firstname'] . " " . $row['lastname'] . "</td>";
+                                                            echo '<td>' . $row['firstname'] . " " . $row['lastname'] . '</td>';
                                                         }
                                                         echo "<td>";
-                                                        echo '<button id="viewdetails" data-bs-toggle="modal" data-bs-target="#asset-details-modal" data-id="' . $row['code'] . '" type="button" class="btn btn-icon  btn-github"><i class="fa fa-eye" aria-hidden="true"></i></button>';
-                                                        echo '<button id="alocatedetails" data-bs-toggle="modal" data-bs-target="#allocate-modal" data-id="' . $row['code'] . '" data-bs-whatever="@mdo" type="button" class="btn btn-icon  btn-primary"><i class="fa fa-plus" aria-hidden="true"></i></button>';
-                                                        echo '<button id="editassest" data-bs-toggle="modal" data-bs-target="#edit-asset-modal" data-id="' . $row['code'] . '" type="button" class="btn btn-icon  btn-secondary"><i class="fa fa-pencil" aria-hidden="true"></i></button>';
-                                                        echo '<button id="deleteassest" type="button" class="btn btn-icon  btn-danger" data-id="' . $row['code'] . '"><i class="fe fe-trash"></i></button>';
+                                                        echo '<button data-bs-toggle="modal" data-bs-target="#asset-details-modal" data-id="' . $row['code'] . '" type="button" class="btn btn-icon  btn-github viewdetails"><i class="fa fa-eye" aria-hidden="true"></i></button>';
+                                                        echo '<button data-bs-toggle="modal" data-bs-target="#allocate-modal" data-id="' . $row['code'] . '" data-bs-whatever="@mdo" type="button" class="btn btn-icon  btn-primary alocatedetails"><i class="fa fa-plus" aria-hidden="true"></i></button>';
+                                                        echo '<button data-bs-toggle="modal" data-bs-target="#edit-asset-modal" data-id="' . $row['code'] . '" type="button" class="btn btn-icon  btn-secondary editassestlist"><i class="fa fa-pencil" aria-hidden="true"></i></button>';
+                                                        echo '<button type="button" class="btn btn-icon  btn-danger deleteassestlist" data-id="' . $row['code'] . '"><i class="fe fe-trash"></i></button>';
                                                         echo "</td>";
                                                         echo "<td>";
                                                         echo '<span class="dropdown">
-                                                        <button class="btn btn-icon  btn-warning dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                                        <i class="fa fa-print" aria-hidden="true"></i>
-                                                        </button>
-                                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                                            <li><a class="dropdown-item"  href="../asset/asset-qr-code.php">QR Code</a></li>
-                                                            <li><a class="dropdown-item" href="../asset/asset-print.php">Detail Invoice</a></li>
-                                                        </ul>
-                                                        </span>';
+        <button class="btn btn-icon  btn-warning dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+        <i class="fa fa-print" aria-hidden="true"></i>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+            <li><a class="dropdown-item"  href="../asset/asset-qr-code.php">QR Code</a></li>
+            <li><a class="dropdown-item" href="../asset/asset-print.php">Detail Invoice</a></li>
+        </ul>
+        </span>';
                                                         echo "</td>";
                                                         echo "</tr>";
                                                     }
@@ -109,6 +110,7 @@
 
                                                 $conn->close();
                                                 ?>
+
                                             </tbody>
                                             </table>
                                         </div>
@@ -363,7 +365,7 @@
                                     <div class="tab-pane" id="tab32">
                                         
                                     <div class="table-responsive">
-                                        <table class="table border text-nowrap text-md-nowrap mb-0">
+                                    <table class="table border text-nowrap text-md-nowrap mb-0">
                                             <thead class="table-primary">
                                                 <tr>
                                                     <th>Comment</th>
@@ -373,7 +375,7 @@
                                                     
                                                 </tr>
                                             </thead>
-                                            <tbody>
+                                            <tbody id="commentbodyallocate">
                                                
                                             </tbody>
                                         </table>
@@ -382,8 +384,8 @@
                                     <div class="row my-5">
                                         <div class="col-md-12">
                                             <label>Comment Message</label>
-                                            <textarea class="form-control mb-4" placeholder="Textarea" rows="4"></textarea>
-                                            <button type="button" class="btn btn-icon  btn-primary">Add Comment</button>
+                                            <textarea class="form-control mb-4" placeholder="Textarea" rows="4" id="commentarea1" name="commentarea"></textarea>
+                                            <button type="button" class="btn btn-icon  btn-primary" id="addcomment1">Add Comment</button>
                                         </div>
                                     </div>
                                     
@@ -577,10 +579,6 @@
                                 </div>
                                 </div>
                             </div>
-
-
-
-
                     </div>
                 </div>
 
@@ -787,10 +785,9 @@
                                     <div class="tab-pane active" id="tab51">
 
                                     <div class="table-responsive">
-                                                <table class="table border text-nowrap table-striped text-md-nowrap mb-0" id="tabledetails">
-                                                    <tbody id="bodydetails">
-
-                                            </tbody>
+                                                <table class="table border text-nowrap table-striped text-md-nowrap mb-0">
+                                                <tbody id="table-body">
+        </tbody>
                                                         
                                                 </table>
                                             </div>
@@ -857,7 +854,7 @@
                                     <div class="tab-pane" id="tab54">
 
                                     <div class="table-responsive">
-                                        <table class="table border text-nowrap text-md-nowrap mb-0">
+                                    <table class="table border text-nowrap text-md-nowrap mb-0">
                                             <thead class="table-primary">
                                                 <tr>
                                                     <th>Comment</th>
@@ -867,9 +864,8 @@
                                                     
                                                 </tr>
                                             </thead>
-                                            <tbody>
-                                            
-                                            
+                                            <tbody id="commentbodyviewdetails">
+                                               
                                             </tbody>
                                         </table>
                                     </div>
@@ -877,8 +873,8 @@
                                     <div class="row my-5">
                                         <div class="col-md-12">
                                             <label>Comment Message</label>
-                                            <textarea class="form-control mb-4" placeholder="Textarea" rows="4"></textarea>
-                                            <button type="button" class="btn btn-icon  btn-primary">Add Comment</button>
+                                            <textarea class="form-control mb-4" placeholder="Textarea" rows="4" id="commentarea2" name="commentarea"></textarea>
+                                            <button type="button" class="btn btn-icon  btn-primary" id="addcomment2">Add Comment</button>
                                         </div>
                                     </div>
 
@@ -1148,22 +1144,18 @@
                                     <div class="tab-pane" id="tab62">
                                      
                                     <div class="table-responsive">
-                                        <table class="table border text-nowrap text-md-nowrap mb-0">
+                                        <<table class="table border text-nowrap text-md-nowrap mb-0">
                                             <thead class="table-primary">
                                                 <tr>
                                                     <th>Comment</th>
                                                     <th>Comment By</th>
                                                     <th>Comment Date</th>
+                                                    <th>Action</th>
                                                     
                                                 </tr>
                                             </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td>1</td>
-                                                    <td>7</td>
-                                                    <td>Mr. Alex</td>
-                                                </tr>
-                                            
+                                            <tbody id="commentbodyedit">
+                                               
                                             </tbody>
                                         </table>
                                     </div>
@@ -1171,8 +1163,8 @@
                                     <div class="row my-5">
                                         <div class="col-md-12">
                                             <label>Comment Message</label>
-                                            <textarea class="form-control mb-4" placeholder="Textarea" rows="4"></textarea>
-                                            <button type="button" class="btn btn-icon  btn-primary">Add Comment</button>
+                                            <textarea class="form-control mb-4" placeholder="Textarea" rows="4" id="commentarea3" name="commentarea"></textarea>
+                                            <button type="button" class="btn btn-icon  btn-primary" id="addcomment3">Add Comment</button>
                                         </div>
                                     </div>
 
