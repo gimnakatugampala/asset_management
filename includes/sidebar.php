@@ -142,7 +142,7 @@
 
                                                         <!-- <li><a href="../user/identity-settings.php" class="slide-item">Identity Settings</a></li> -->
 
-                                                        <li><a href="../user/login-history.php" class="slide-item"> Login Settings</a></li>
+                                                        <!-- <li><a href="../user/login-history.php" class="slide-item"> Login Settings</a></li> -->
 													</ul>
 
 												</div>
