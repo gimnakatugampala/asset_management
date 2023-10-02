@@ -47,7 +47,7 @@
 
                                                     <li><a href="../asset/asset-list.php" class="slide-item">Assets</a></li>
 
-                                                    <li><a href="../asset/asset-history.php" class="slide-item"> Asset History</a></li>
+                                                    <!-- <li><a href="../asset/asset-history.php" class="slide-item"> Asset History</a></li> -->
 
                                                     <li><a href="../asset/asset-categories.php" class="slide-item">Asset Categories</a></li>
 
@@ -142,7 +142,7 @@
 
                                                         <!-- <li><a href="../user/identity-settings.php" class="slide-item">Identity Settings</a></li> -->
 
-                                                        <li><a href="../user/login-history.php" class="slide-item"> Login Settings</a></li>
+                                                        <!-- <li><a href="../user/login-history.php" class="slide-item"> Login Settings</a></li> -->
 													</ul>
 
 												</div>

@@ -79,15 +79,15 @@
                                                         echo "<td>" . $row['unitprice'] . "</td>";
                                                         echo "<td>" . $row['purchaseDate'] . "</td>";
                                                         if ($row['employeecode'] == 000) {
-                                                            echo '<td> <button id="empassigndetail" data-bs-toggle="modal" data-bs-target="#emp-modal" data-id="' . $row['code'] . '" type="button" class="btn btn-icon  btn-github"><i class="fa fa-eye" aria-hidden="true"></i></button>Unassigned</td>';
+                                                            echo '<td> <button id="empassigndetail" data-bs-toggle="modal" data-bs-target="#emp-modal" data-id="' . $row['code'] . '" type="button" class="btn btn-icon  btn-success mx-1"><i class="fa fa-handshake-o" aria-hidden="true"></i></button>Unassigned</td>';
                                                         } else {
                                                             echo '<td>' . $row['firstname'] . " " . $row['lastname'] . '</td>';
                                                         }
                                                         echo "<td>";
-                                                        echo '<button data-bs-toggle="modal" data-bs-target="#asset-details-modal" data-id="' . $row['code'] . '" type="button" class="btn btn-icon  btn-github viewdetails"><i class="fa fa-eye" aria-hidden="true"></i></button>';
-                                                        echo '<button data-bs-toggle="modal" data-bs-target="#allocate-modal" data-id="' . $row['code'] . '" data-bs-whatever="@mdo" type="button" class="btn btn-icon  btn-primary alocatedetails"><i class="fa fa-plus" aria-hidden="true"></i></button>';
-                                                        echo '<button data-bs-toggle="modal" data-bs-target="#edit-asset-modal" data-id="' . $row['code'] . '" type="button" class="btn btn-icon  btn-secondary editassestlist"><i class="fa fa-pencil" aria-hidden="true"></i></button>';
-                                                        echo '<button type="button" class="btn btn-icon  btn-danger deleteassestlist" data-id="' . $row['code'] . '"><i class="fe fe-trash"></i></button>';
+                                                        echo '<button data-bs-toggle="modal" data-bs-target="#asset-details-modal" data-id="' . $row['code'] . '" type="button" class="btn btn-icon  btn-github viewdetails mx-1"><i class="fa fa-eye" aria-hidden="true"></i></button>';
+                                                        echo '<button data-bs-toggle="modal" data-bs-target="#allocate-modal" data-id="' . $row['code'] . '" data-bs-whatever="@mdo" type="button" class="btn btn-icon  mx-1 btn-primary alocatedetails"><i class="fa fa-plus" aria-hidden="true"></i></button>';
+                                                        echo '<button data-bs-toggle="modal" data-bs-target="#edit-asset-modal" data-id="' . $row['code'] . '" type="button" class="btn btn-icon  btn-secondary editassestlist mx-1"><i class="fa fa-pencil" aria-hidden="true"></i></button>';
+                                                        echo '<button type="button" class="btn btn-icon  btn-danger deleteassestlist mx-1" data-id="' . $row['code'] . '"><i class="fe fe-trash"></i></button>';
                                                         echo "</td>";
                                                         echo "<td>";
                                                         echo '<span class="dropdown">
@@ -140,7 +140,7 @@
         <div class="modal-dialog modal-xl" role="document">
             <div class="modal-content modal-content-demo">
                 <div class="modal-header">
-                    <h6 class="modal-title">Edit Asset Assign</h6>
+                    <h6 class="modal-title">Asset Assign</h6>
                     <button class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
@@ -153,243 +153,50 @@
                                 <div class="tabs-menu tabs-menu-border">
                                     <!-- Tabs -->
                                     <ul class="nav panel-tabs">
-                                        <li><a href="#tab29" class="active" data-bs-toggle="tab">Basic Info</a></li>
-                                        <li><a href="#tab30" data-bs-toggle="tab">Other Info</a></li>
-                                        <li><a href="#tab31" data-bs-toggle="tab">Asset Assign</a></li>
-                                        <li><a href="#tab32" data-bs-toggle="tab">Comment History</a></li>
+                                        <li><a href="#tab29" class="active" data-bs-toggle="tab">Asset Assign</a></li>
+                                        <!-- <li><a href="#tab30" data-bs-toggle="tab">Basic Info</a></li>
+                                        <li><a href="#tab31" data-bs-toggle="tab">Other Info</a></li>
+                                        <li><a href="#tab32" data-bs-toggle="tab">Comment History</a></li> -->
                                     </ul>
                                 </div>
                             </div>
                             <div class="panel-body tabs-menu-body">
                                 <div class="tab-content">
-                                    <div class="tab-pane active" id="tab29">
 
-                                    <div class="row">
-                                <div class="col-md-6">
+                                <div class="tab-pane active" id="tab29">
 
-                                     <div class="mb-4">
-                                    <label class="col-md-3 form-label">QR Code</label>
-                                       <img width="100" src="../assets/images/asset-image/asset_qr.png" />
-                                    </div>
-
-
-                                    
-                                    <div class="mb-4">
-                                        <label class="col-md-3 form-label">Asset Model No</label>
-                                        <div class="col-md-9">
-                                            <input type="text" class="form-control">
-                                        </div>
-                                    </div>
-
-                                    <div class="mb-4">
-                                        <label class="col-md-3 form-label">Name</label>
-                                        <div class="col-md-9">
-                                            <input type="text" class="form-control">
-                                        </div>
-                                    </div>
-
-                                    <div class="mb-4">
-                                        <label class="col-md-3 form-label">Description</label>
-                                        <div class="col-md-9">
-                                            <input type="text" class="form-control">
-                                        </div>
-                                    </div>
-
-                                    <div class="mb-4">
-                                        <label class="col-md-3 form-label">Unit Price</label>
-                                        <div class="col-md-9">
-                                            <input type="text" class="form-control">
-                                        </div>
-                                    </div>
-
-                                    <div class="mb-4">
-                                        <label class="col-md-4 form-label">Date Of Purchase</label>
-                                        <div class="col-md-8">
-                                        <input class="form-control" placeholder="MM/DD/YYYY" type="date">
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                                <div class="col-md-6">
-
-                                <div class="mb-4">
-                                        <label class="col-md-3 form-label">Asset Status</label>
-                                        <div class="col-md-9">
-                                        <select class="form-select" aria-label="Default select example">
-                                            <option selected>Open this select menu</option>
-                                            <option value="1">One</option>
-                                            <option value="2">Two</option>
-                                            <option value="3">Three</option>
+                                        <div class=" row mb-4">
+                                            <label class="col-md-3 form-label">Assign Employee</label>
+                                            <div class="col-md-9">
+                                            <select name="country" class="form-control form-select" data-bs-placeholder="Select Country">
+                                                <option value="br">Brazil</option>
+                                                <option value="cz">Czech Republic</option>
+                                                <option value="de">Germany</option>
+                                                <option value="pl" selected>Poland</option>
                                             </select>
-                                        </div>
-                                </div>
-
-                                <div class="mb-4">
-                                    <label class="col-md-3 form-label">Category</label>
-                                    <div class="col-md-9">
-                                    <select class="form-select" aria-label="Default select example">
-                                        <option selected>-- SELECT --</option>
-                                        <option value="1">One</option>
-                                        <option value="2">Two</option>
-                                        <option value="3">Three</option>
-                                        </select>
-                                    </div>
-                                </div>
-
-                                <div class="mb-4">
-                                    <label class="col-md-3 form-label">Sub Category</label>
-                                    <div class="col-md-9">
-                                    <select class="form-select" aria-label="Default select example">
-                                        <option selected>-- SELECT --</option>
-                                        <option value="1">One</option>
-                                        <option value="2">Two</option>
-                                        <option value="3">Three</option>
-                                        </select>
-                                    </div>
-                                </div>
-
-                                <div class="mb-4">
-                                    <label class="col-md-3 form-label">Supplier</label>
-                                    <div class="col-md-9">
-                                    <select class="form-select" aria-label="Default select example">
-                                        <option selected>-- SELECT --</option>
-                                        <option value="1">One</option>
-                                        <option value="2">Two</option>
-                                        <option value="3">Three</option>
-                                        </select>
-                                    </div>
-                                </div>
-
-                                <div class="mb-4">
-                                    <label class="col-md-3 form-label">Department</label>
-                                    <div class="col-md-9">
-                                    <select class="form-select" aria-label="Default select example">
-                                        <option selected>-- SELECT --</option>
-                                        <option value="1">One</option>
-                                        <option value="2">Two</option>
-                                        <option value="3">Three</option>
-                                        </select>
-                                    </div>
-                                </div>
-
-                                   <div class="mb-4">
-                                    <label class="col-md-3 form-label">Sub Department</label>
-                                    <div class="col-md-9">
-                                    <select class="form-select" aria-label="Default select example">
-                                        <option selected>-- SELECT --</option>
-                                        <option value="1">One</option>
-                                        <option value="2">Two</option>
-                                        <option value="3">Three</option>
-                                        </select>
-                                    </div>
-                                </div>
-
-                           
-                                </div>
-
-                                <div class="d-flex justify-content-center">
-                                    <button type="button" class="btn btn-danger mx-2">Save</button>
-                                    <button type="button" class="btn btn-info mx-2">Cancel</button>
-                                </div>
-
-                                
-
-
-                           </div>
-
-                                    </div>
-                                    <div class="tab-pane" id="tab30">
-                                        
-                                    <div class="row">
-
-                                    <div class="col-md-12">
-
-                                    <div class="mb-4">
-                                            <label class="col-md-3 form-label">Location</label>
-                                            <div class="col-md-9">
-                                                <input type="text" class="form-control">
-                                            </div>
-                                        </div>
-
-                                        <div class="mb-4">
-                                            <label class="col-md-3 form-label">Image URL</label>
-                                            <div class="col-md-9">
-                                            <input type="file" class="dropify" data-bs-height="180">
-                                            </div>
-                                        </div>
-
-
-                                        <div class="mb-4">
-                                            <label class="col-md-3 form-label">Remark</label>
-                                            <div class="col-md-9">
-                                            <textarea class="form-control mb-4" placeholder="Textarea" rows="3"></textarea>
                                             </div>
                                         </div>
                                         
-                                    </div>
+                                        <div class="d-flex justify-content-center">
+                                            <button class="btn btn-primary m-2">Save</button>
 
-
-                                    <div class="d-flex justify-content-center">
-                                        <button type="button" class="btn btn-danger mx-2">Save</button>
-                                        <button type="button" class="btn btn-info mx-2">Cancel</button>
-                                    </div>
+                                            <button class="btn btn-secondary m-2" data-bs-dismiss="modal">Close</button>
+                                        </div>
 
                                     </div>
+                                    <!-- <div class="tab-pane" id="tab30">
+                                        
+                                    <h1>2</h1>
                                     
-                                    </div>
-                                    <div class="tab-pane" id="tab31">
-                                    <!-- <div class="form-group"> -->
-                                            <!-- <label class="form-label">Customize Select</label> -->
-                                            <div class=" row mb-4">
-                                                <label class="col-md-3 form-label">Assign Employee</label>
-                                                <div class="col-md-9">
-                                                <select name="country" class="form-control form-select" data-bs-placeholder="Select Country">
-                                                    <option value="br">Brazil</option>
-                                                    <option value="cz">Czech Republic</option>
-                                                    <option value="de">Germany</option>
-                                                    <option value="pl" selected>Poland</option>
-                                                </select>
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="d-flex justify-content-center">
-                                                <button class="btn btn-primary m-2">Save</button>
-
-                                                <button class="btn btn-secondary m-2" data-bs-dismiss="modal">Close</button>
-                                            </div>
-
-                                           
-                                        <!-- </div> -->
-                                    </div>
-                                    <div class="tab-pane" id="tab32">
+                                    </div> -->
+                                    <!-- <div class="tab-pane" id="tab31">
+                               
+                                    </div> -->
+                                    <!-- <div class="tab-pane" id="tab32">
                                         
-                                    <div class="table-responsive">
-                                    <table class="table border text-nowrap text-md-nowrap mb-0">
-                                            <thead class="table-primary">
-                                                <tr>
-                                                    <th>Comment</th>
-                                                    <th>Comment By</th>
-                                                    <th>Comment Date</th>
-                                                    <th>Action</th>
-                                                    
-                                                </tr>
-                                            </thead>
-                                            <tbody id="commentbodyallocate">
-                                               
-                                            </tbody>
-                                        </table>
-                                    </div>
-
-                                    <div class="row my-5">
-                                        <div class="col-md-12">
-                                            <label>Comment Message</label>
-                                            <textarea class="form-control mb-4" placeholder="Textarea" rows="4" id="commentarea1" name="commentarea"></textarea>
-                                            <button type="button" class="btn btn-icon  btn-primary" id="addcomment1">Add Comment</button>
-                                        </div>
-                                    </div>
+                                        <h1>4</h1>
                                     
-                                    </div>
+                                    </div> -->
                                 </div>
                                 </div>
                             </div>
@@ -424,7 +231,7 @@
                                     <ul class="nav panel-tabs">
                                         <li><a href="#tab1" class="active" data-bs-toggle="tab">Employee Details</a></li>
                                         <li><a href="#tab2" data-bs-toggle="tab">Assigned Assets</a></li>
-                                        <li><a href="#tab3" data-bs-toggle="tab">Asset History</a></li>
+
                                         
                                     </ul>
                                 </div>
@@ -547,34 +354,7 @@
 
                                     </div>
 
-                                    <div class="tab-pane" id="tab3">
-
-                                    <div class="table-responsive">
-                                        <table class="table border text-nowrap text-md-nowrap mb-0">
-                                            <thead class="table-primary">
-                                                <tr>
-                                                    <th>ID</th>
-                                                    <th>Asset ID</th>
-                                                    <th>Assign Employee</th>
-                                                    <th>Action</th>
-                                                    <th>Note</th>
-                                                    <th>Created Date</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td>1</td>
-                                                    <td>7</td>
-                                                    <td>Mr. Alex</td>
-                                                    <td>Ussigned Emplyee Assigned to Employee </td>
-                                                    <td></td>
-                                                    <td>01 January 2021</td>
-                                                </tr>
-                                            
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                    </div>
+                                   
                                
                                 </div>
                                 </div>
@@ -774,7 +554,6 @@
                                     <ul class="nav panel-tabs">
                                         <li><a href="#tab51" class="active" data-bs-toggle="tab">Asset Info</a></li>
                                         <li><a href="#tab52" data-bs-toggle="tab">Assignee Info</a></li>
-                                        <li><a href="#tab53" data-bs-toggle="tab">Asset History</a></li>
                                         <li><a href="#tab54" data-bs-toggle="tab">Comment History</a></li>
                                         
                                     </ul>
@@ -824,32 +603,7 @@
 
                                     </div>
 
-                                    <div class="tab-pane" id="tab53">
-
-                                    <div class="table-responsive">
-                                        <table class="table border text-nowrap text-md-nowrap mb-0">
-                                            <thead class="table-primary">
-                                                <tr>
-                                                    <th>ID</th>
-                                                    <th>Assign Employee</th>
-                                                    <th>Action</th>
-                                                    <th>Note</th>
-                                                    <th>Created Date</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td>1</td>
-                                                    <td>Mr. Alex</td>
-                                                    <td>Ussigned Emplyee Assigned to Employee </td>
-                                                    <td></td>
-                                                    <td>01 January 2021</td>
-                                                </tr>
-                                            
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                    </div>
+                                  
 
                                     <div class="tab-pane" id="tab54">
 
@@ -935,7 +689,7 @@
                                         <li><a href="#tab69" class="active" data-bs-toggle="tab">Basic Info</a></li>
                                         <li><a href="#tab60" data-bs-toggle="tab">Other Info</a></li>
                                         <li><a href="#tab61" data-bs-toggle="tab">Asset Assign</a></li>
-                                        <li><a href="#tab62" data-bs-toggle="tab">Comment History</a></li>
+                                        <!-- <li><a href="#tab62" data-bs-toggle="tab">Comment History</a></li> -->
                                     </ul>
                                 </div>
                             </div>
@@ -1141,7 +895,7 @@
                                            
                                         <!-- </div> -->
                                     </div>
-                                    <div class="tab-pane" id="tab62">
+                                    <!-- <div class="tab-pane" id="tab62">
                                      
                                     <div class="table-responsive">
                                         <<table class="table border text-nowrap text-md-nowrap mb-0">
@@ -1168,7 +922,7 @@
                                         </div>
                                     </div>
 
-                                    </div>
+                                    </div> -->
                                 </div>
                                 </div>
                             </div>
