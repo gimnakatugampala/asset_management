@@ -47,7 +47,7 @@
 
                                                     <li><a href="../asset/asset-list.php" class="slide-item">Assets</a></li>
 
-                                                    <li><a href="../asset/asset-history.php" class="slide-item"> Asset History</a></li>
+                                                    <!-- <li><a href="../asset/asset-history.php" class="slide-item"> Asset History</a></li> -->
 
                                                     <li><a href="../asset/asset-categories.php" class="slide-item">Asset Categories</a></li>
 
