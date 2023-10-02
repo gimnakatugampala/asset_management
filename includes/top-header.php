@@ -5,8 +5,8 @@
                         <!-- sidebar-toggle-->
                         <a class="logo-horizontal " href="../dashboard/index.php">
                             
-                            <h2 class="header-brand-img desktop-logo">AMS</h2>
-                            <h2 class="header-brand-img light-logo1">AMS</h2>
+                            <!-- <h2 class="header-brand-img desktop-logo">AMS</h2>
+                            <h2 class="header-brand-img light-logo1">AMS</h2> -->
                             <!-- <img src="../assets/images/brand/logo-white.png" class="header-brand-img desktop-logo" alt="logo">
                             <img src="../assets/images/brand/logo-dark.png" class="header-brand-img light-logo1"
                                 alt="logo"> -->
