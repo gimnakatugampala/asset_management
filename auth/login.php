@@ -8,7 +8,10 @@
                 <!-- CONTAINER OPEN -->
                 <div class="col col-login mx-auto mt-7">
                     <div class="text-center">
-                        <a href="index.html"><img src="../assets/images/brand/logo-white.png" class="header-brand-img" alt=""></a>
+                        <a href="./login.php">
+                            <!-- <img src="../assets/images/brand/logo-white.png" class="header-brand-img" alt=""> -->
+                            <h2 class="header-brand-img">AMS</h2>
+                        </a>
                     </div>
                 </div>
 
