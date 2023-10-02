@@ -71,7 +71,7 @@
                                                     foreach ($result as $row) {
                                                         echo "<tr>";
                                                         echo "<td>" . $row['code'] . "</td>";
-                                                        echo "<td>" . $row['name'] . "</td>";
+                                                        echo "<td>" . $row['sname'] . "</td>";
                                                         echo "<td>" . $row['createdate'] . "</td>";
                                                         echo "<td>";
                                                         echo '<button data-bs-toggle="modal" data-bs-target="#edit-asset-status-modal" type="button" id="editassest" class="btn btn-icon  btn-primary" data-id="' . $row['code'] . '"><i class="fa fa-pencil" aria-hidden="true"></i></button>';
