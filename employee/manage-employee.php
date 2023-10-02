@@ -66,7 +66,7 @@
                                                 <?php
                                                 require_once '../includes/db_config.php';
 
-                                                $sql = 'SELECT tbemployee.employeecode, tbdesignation.desname,tbemployee.firstname,tbemployee.lastname,tbemployee.dob,tbdepartment.name
+                                                $sql = 'SELECT tbemployee.employeecode, tbdesignation.desname,tbemployee.firstname,tbemployee.lastname,tbemployee.dob,tbdepartment.depname
                                                 FROM tbemployee
                                                 INNER JOIN tbdesignation ON tbemployee.designationid = tbdesignation.id INNER JOIN tbdepartment ON tbemployee.departmentid = tbdepartment.id where tbemployee.is_deleted = 0';
                                                 $result = $conn->query($sql);
@@ -80,7 +80,7 @@
                                                             echo "<td>" . $row['lastname'] . "</td>";
                                                             echo "<td>" . $row['dob'] . "</td>";
                                                             echo "<td>" . $row['desname'] . "</td>";
-                                                            echo "<td>" . $row['name'] . "</td>";
+                                                            echo "<td>" . $row['depname'] . "</td>";
                                                             echo "<td>";
                                                             echo '<button data-bs-toggle="modal" data-bs-target="#edit-employee-modal" type="button" id="editemp" class="btn btn-icon  btn-primary" data-id="' . $row['employeecode'] . '"><i class="fa fa-pencil" aria-hidden="true"></i></button>';
                                                             echo '<button type="button" class="btn btn-icon btn-danger" id="deleteemp" data-id="' . $row['employeecode'] . '"><i class="fe fe-trash"></i></button>';

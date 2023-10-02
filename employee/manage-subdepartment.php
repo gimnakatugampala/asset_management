@@ -63,14 +63,14 @@
                                                 <?php
                                                 require_once '../includes/db_config.php';
 
-                                                $sql = 'SELECT tbsubdepartment.code,tbdepartment.name,tbsubdepartment.subdepname,tbsubdepartment.createdate FROM tbsubdepartment INNER JOIN tbdepartment ON tbsubdepartment.departmentid = tbdepartment.id where tbsubdepartment.is_deleted = 0';
+                                                $sql = 'SELECT tbsubdepartment.code,tbdepartment.depname,tbsubdepartment.subdepname,tbsubdepartment.createdate FROM tbsubdepartment INNER JOIN tbdepartment ON tbsubdepartment.departmentid = tbdepartment.id where tbsubdepartment.is_deleted = 0';
                                                 $result = $conn->query($sql);
 
                                                 if ($result->num_rows > 0) {
                                                     while ($row = $result->fetch_assoc()) {
                                                         echo "<tr>";
                                                         echo "<td>" . $row['code'] . "</td>";
-                                                        echo "<td>" . $row['name'] . "</td>";
+                                                        echo "<td>" . $row['depname'] . "</td>";
                                                         echo "<td>" . $row['subdepname'] . "</td>";
                                                         echo "<td>" . $row['createdate'] . "</td>";
                                                         echo "<td>";
