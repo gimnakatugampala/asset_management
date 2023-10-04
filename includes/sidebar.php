@@ -2,13 +2,22 @@
                 <div class="app-sidebar__overlay" data-bs-toggle="sidebar"></div>
                 <div class="app-sidebar">
                     <div class="side-header">
-                        <a class="header-brand1" href="index.html">
-                            <img src="../assets/images/brand/logo-white.png" class="header-brand-img desktop-logo" alt="logo">
-                            <img src="../assets/images/brand/icon-white.png" class="header-brand-img toggle-logo"
-                                alt="logo">
-                            <img src="../assets/images/brand/icon-dark.png" class="header-brand-img light-logo" alt="logo">
-                            <img src="../assets/images/brand/logo-dark.png" class="header-brand-img light-logo1"
-                                alt="logo">
+                        <a class="header-brand1" href="../dashboard/index.php">
+
+                            <h3 class="header-brand-img desktop-logo m-2">AMS</h3>
+                            
+                            <!-- <img src="../assets/images/brand/logo-white.png" class="header-brand-img desktop-logo" alt="logo"> -->
+                            <!-- <img src="../assets/images/brand/icon-white.png" class="header-brand-img toggle-logo"
+                                alt="logo"> -->
+
+                                <h3 class="header-brand-img toggle-logo m-2">A</h3>
+
+                                <h3 class="header-brand-img light-logo m-2">A</h3>
+                            <!-- <img src="../assets/images/brand/icon-dark.png" class="header-brand-img light-logo" alt="logo"> -->
+
+                            <h3 class="header-brand-img light-logo1 m-2">AMS</h3>
+                            <!-- <img src="../assets/images/brand/logo-dark.png" class="header-brand-img light-logo1"
+                                alt="logo"> -->
                         </a>
                         <!-- LOGO -->
                     </div>
