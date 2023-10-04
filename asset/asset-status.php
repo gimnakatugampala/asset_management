@@ -74,8 +74,8 @@
                                                         echo "<td>" . $row['sname'] . "</td>";
                                                         echo "<td>" . $row['createdate'] . "</td>";
                                                         echo "<td>";
-                                                        echo '<button data-bs-toggle="modal" data-bs-target="#edit-asset-status-modal" type="button" id="editassest" class="btn btn-icon  btn-primary" data-id="' . $row['code'] . '"><i class="fa fa-pencil" aria-hidden="true"></i></button>';
-                                                        echo '<button type="button" class="btn btn-icon btn-danger" id="deleteassest" data-id="' . $row['code'] . '"><i class="fe fe-trash"></i></button>';
+                                                        echo '<button data-bs-toggle="modal" data-bs-target="#edit-asset-status-modal" type="button" class="btn btn-icon  btn-primary editassest" data-id="' . $row['code'] . '"><i class="fa fa-pencil" aria-hidden="true"></i></button>';
+                                                        echo '<button type="button" class="btn btn-icon btn-danger deleteassest" data-id="' . $row['code'] . '"><i class="fe fe-trash"></i></button>';
                                                         echo "</td>";
                                                         echo "</tr>";
                                                     }

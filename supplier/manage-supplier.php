@@ -81,8 +81,8 @@
                                                         echo "<td>" . $row['address'] . "</td>";
                                                         echo "<td>" . $row['createddate'] . "</td>";
                                                         echo "<td>";
-                                                        echo '<button data-bs-toggle="modal" data-bs-target="#edit-supplier-modal" type="button" id="editsup" class="btn btn-icon  btn-primary" data-id="' . $row['code'] . '"><i class="fa fa-pencil" aria-hidden="true"></i></button>';
-                                                        echo '<button type="button" class="btn btn-icon btn-danger" id="deletesup" data-id="' . $row['code'] . '"><i class="fe fe-trash"></i></button>';
+                                                        echo '<button data-bs-toggle="modal" data-bs-target="#edit-supplier-modal" type="button" class="btn btn-icon  btn-primary editsup" data-id="' . $row['code'] . '"><i class="fa fa-pencil" aria-hidden="true"></i></button>';
+                                                        echo '<button type="button" class="btn btn-icon btn-danger deletesup" data-id="' . $row['code'] . '"><i class="fe fe-trash"></i></button>';
                                                         echo "</td>";
                                                         echo "</tr>";
                                                     }

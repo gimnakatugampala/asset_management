@@ -80,8 +80,8 @@
                                                         echo "<td>" . $row['email'] . "</td>";
                                                         echo "<td>" . $row['createddate'] . "</td>";
                                                         echo "<td>";
-                                                        echo '<button data-bs-toggle="modal" data-bs-target="#pass-reset-modal" id="updateuserpws" type="button" class="btn btn-icon btn-success"  data-id="' . $row['usercode'] . '"><i class="fa fa-key" aria-hidden="true"></i></button>';
-                                                        echo '<button type="button" class="btn btn-icon btn-danger" id="deleteuser" data-id="' . $row['usercode'] . '"><i class="fe fe-trash"></i></button>';
+                                                        echo '<button data-bs-toggle="modal" data-bs-target="#pass-reset-modal" type="button" class="btn btn-icon btn-success updateuserpws"  data-id="' . $row['usercode'] . '"><i class="fa fa-key" aria-hidden="true"></i></button>';
+                                                        echo '<button type="button" class="btn btn-icon btn-danger deleteuser" data-id="' . $row['usercode'] . '"><i class="fe fe-trash"></i></button>';
                                                         echo "</td>";
                                                         echo "</tr>";
                                                     }

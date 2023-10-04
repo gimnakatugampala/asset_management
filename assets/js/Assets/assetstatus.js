@@ -45,7 +45,7 @@ $(document).ready(function () {
       }
     });
   
-    $("#editassest").click(function () {
+    $(".editassest").click(function () {
       var userId = $(this).data("id");
   
       $.ajax({
@@ -114,7 +114,7 @@ $(document).ready(function () {
       });
     });
   
-    $("#deleteassest").click(function () {
+    $(".deleteassest").click(function () {
       var userId = $(this).data("id");
   
       Swal.fire({

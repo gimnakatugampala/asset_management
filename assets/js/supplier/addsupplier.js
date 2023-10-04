@@ -81,7 +81,7 @@ $(document).ready(function () {
     }
   });
 
-  $("#editsup").click(function () {
+  $(".editsup").click(function () {
     var userId = $(this).data("id");
 
     $.ajax({
@@ -190,7 +190,7 @@ $(document).ready(function () {
     });
   });
 
-  $("#deletesup").click(function () {
+  $(".deletesup").click(function () {
     var userId = $(this).data("id");
 
     Swal.fire({

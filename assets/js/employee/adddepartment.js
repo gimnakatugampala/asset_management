@@ -44,7 +44,7 @@ $(document).ready(function () {
     }
   });
 
-  $("#editdepartment").click(function () {
+  $(".editdepartment").click(function () {
     var userId = $(this).data("id");
 
     $.ajax({
@@ -113,7 +113,7 @@ $(document).ready(function () {
     });
   });
 
-  $("#deletedepartment").click(function () {
+  $(".deletedepartment").click(function () {
     var userId = $(this).data("id");
 
     Swal.fire({

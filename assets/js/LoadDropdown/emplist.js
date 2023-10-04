@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const countrySelect = document.getElementById("cmbCat");
+    const countrySelect = document.getElementById("assignemp");
 
     // Function to load categories using AJAX
     function loadCountrylist() {
@@ -20,12 +20,12 @@ document.addEventListener("DOMContentLoaded", function () {
         categories.forEach(function (category) {
             const option = document.createElement("option");
             option.value = category.id;
-            option.textContent = category.name;
+            option.textContent = category.firstname +" "+ category.lastname;
             countrySelect.appendChild(option);
         });
     }
 
-    const editcmbDepartment = document.getElementById("editcmbCat");
+    const editcmbDepartment = document.getElementById("assignempedit");
 
     // Function to load categories using AJAX
     function loadCountrylist2() {
@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", function () {
         categories.forEach(function (category) {
             const option = document.createElement("option");
             option.value = category.id;
-            option.textContent = category.name;
+            option.textContent = category.firstname +" "+ category.lastname;
             editcmbDepartment.appendChild(option);
         });
     }

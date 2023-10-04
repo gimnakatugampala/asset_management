@@ -148,7 +148,7 @@ $(document).ready(function () {
     }
   });
 
-  $("#updateuserpws").click(function () {
+  $(".updateuserpws").click(function () {
     var userId = $(this).data("id");
     $("#pwsUpdate").click(function () {
       var pws = $("#pws").val();
@@ -210,7 +210,7 @@ $(document).ready(function () {
     });
   });
 
-  $("#deleteuser").click(function () {
+  $(".deleteuser").click(function () {
     var userId = $(this).data("id");
 
     Swal.fire({

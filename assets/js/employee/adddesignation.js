@@ -45,7 +45,7 @@ $(document).ready(function () {
     });
 
 
-    $("#editdesignation").click(function () {
+    $(".editdesignation").click(function () {
         var userId = $(this).data("id");
     
         $.ajax({
@@ -116,7 +116,7 @@ $(document).ready(function () {
     
 
 
-    $("#deletedesignation").click(function () {
+    $(".deletedesignation").click(function () {
         var userId = $(this).data("id");
     
         Swal.fire({

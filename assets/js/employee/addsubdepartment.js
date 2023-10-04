@@ -57,7 +57,7 @@ $(document).ready(function () {
     }
   });
 
-  $("#subdepedit").click(function () {
+  $(".subdepedit").click(function () {
     var userId = $(this).data("id");
     var depId = ""
 
@@ -135,7 +135,7 @@ $(document).ready(function () {
     });
   });
 
-  $("#deletesubdepartment").click(function () {
+  $(".deletesubdepartment").click(function () {
     var userId = $(this).data("id");
 
     Swal.fire({

@@ -57,7 +57,7 @@ $(document).ready(function () {
       }
     });
   
-    $("#subcatedit").click(function () {
+    $(".subcatedit").click(function () {
       var userId = $(this).data("id");
       var depId = ""
   
@@ -132,7 +132,7 @@ $(document).ready(function () {
       });
     });
   
-    $("#deletesubcat").click(function () {
+    $(".deletesubcat").click(function () {
       var userId = $(this).data("id");
   
       Swal.fire({
