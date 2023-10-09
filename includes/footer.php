@@ -133,9 +133,6 @@
 <script src="../assets/plugins/sweetalert/sweetalert2.all.min.js"></script>
 <script src="../assets/plugins/sweetalert/sweetalerts.min.js"></script>
 
-
-
-
 <script src="../assets/js/LoadDropdown/countrylist.js"></script>
 <script src="../assets/js/LoadDropdown/catlist.js"></script>
 <script src="../assets/js/LoadDropdown/designationlist.js"></script>
@@ -143,6 +140,7 @@
 <script src="../assets/js/LoadDropdown/statuslist.js"></script>
 <script src="../assets/js/LoadDropdown/suplist.js"></script>
 <script src="../assets/js/LoadDropdown/subcatlist.js"></script>
+<script src="../assets/js/LoadDropdown/emplist.js"></script>
 
 <script src="../assets/js/user/usermanagement.js"></script>
 <script src="../assets/js/user/userprofile.js"></script>
@@ -152,7 +150,7 @@
 <script src="../assets/js/Assets/cat.js"></script>
 <script src="../assets/js/Assets/subcat.js"></script>
 <script src="../assets/js/Assets/assest.js"></script>
-
+<script src="../assets/js/Report/a_status.js"></script>
 
 <script src="../assets/js/dashboard/dashboard.js"></script>
 

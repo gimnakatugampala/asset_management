@@ -77,8 +77,8 @@
                                                         echo "<td>" . $row['subcatname'] . "</td>";
                                                         echo "<td>" . $row['createdate'] . "</td>";
                                                         echo "<td>";
-                                                        echo '<button data-bs-toggle="modal" data-bs-target="#edit-asset-sub-cat-modal" type="button" id="subcatedit" class="btn btn-icon  btn-primary" data-id="' . $row['code'] . '"><i class="fa fa-pencil" aria-hidden="true"></i></button>';
-                                                        echo '<button type="button" class="btn btn-icon btn-danger" id="deletesubcat" data-id="' . $row['code'] . '"><i class="fe fe-trash"></i></button>';
+                                                        echo '<button data-bs-toggle="modal" data-bs-target="#edit-asset-sub-cat-modal" type="button" class="btn btn-icon  btn-primary subcatedit" data-id="' . $row['code'] . '"><i class="fa fa-pencil" aria-hidden="true"></i></button>';
+                                                        echo '<button type="button" class="btn btn-icon btn-danger deletesubcat" data-id="' . $row['code'] . '"><i class="fe fe-trash"></i></button>';
                                                         echo "</td>";
                                                         echo "</tr>";
                                                     }

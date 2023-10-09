@@ -137,7 +137,7 @@ $(document).ready(function () {
 
   
 
-  $("#editemp").click(function () {
+  $(".editemp").click(function () {
     var userId = $(this).data("id");
     $("#pwsUpdate").click(function () {
       var pws = $("#pws").val();
@@ -199,7 +199,7 @@ $(document).ready(function () {
     });
   });
 
-  $("#deleteemp").click(function () {
+  $(".deleteemp").click(function () {
     var userId = $(this).data("id");
 
     Swal.fire({

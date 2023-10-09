@@ -82,9 +82,9 @@
                                                             echo "<td>" . $row['desname'] . "</td>";
                                                             echo "<td>" . $row['depname'] . "</td>";
                                                             echo "<td>";
-                                                            echo '<button data-bs-toggle="modal" data-bs-target="#edit-employee-modal" type="button" id="editemp" class="btn btn-icon  btn-primary" data-id="' . $row['employeecode'] . '"><i class="fa fa-pencil" aria-hidden="true"></i></button>';
-                                                            echo '<button type="button" class="btn btn-icon btn-danger" id="deleteemp" data-id="' . $row['employeecode'] . '"><i class="fe fe-trash"></i></button>';
-                                                            echo '<button data-bs-toggle="modal" data-bs-target="#detail-employee-modal" type="button" class="btn btn-icon  btn-warning"><i class="fa fa-eye" aria-hidden="true" data-id="' . $row['employeecode'] . '"></i></button>';
+                                                            echo '<button data-bs-toggle="modal" data-bs-target="#edit-employee-modal" type="button" class="btn btn-icon  btn-primary editemp" data-id="' . $row['employeecode'] . '"><i class="fa fa-pencil" aria-hidden="true"></i></button>';
+                                                            echo '<button type="button" class="btn btn-icon btn-danger deleteemp" data-id="' . $row['employeecode'] . '"><i class="fe fe-trash"></i></button>';
+                                                            // echo '<button data-bs-toggle="modal" data-bs-target="#detail-employee-modal" type="button" class="btn btn-icon  btn-warning"><i class="fa fa-eye" aria-hidden="true" data-id="' . $row['employeecode'] . '"></i></button>';
                                                             echo "</td>";
                                                             echo "</tr>";
                                                         }

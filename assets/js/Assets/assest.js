@@ -167,8 +167,9 @@ finishLink.addEventListener("click", function (event) {
 });
 
 $(".viewdetails").click(function () {
-  var clickedButton; // Declare a variable to store the clicked button reference
+  var clickedButton;
   user_id = $(this).data("id");
+
   $.ajax({
     type: "POST",
     url: "../pages/Assets/assest_data.php",
@@ -317,12 +318,38 @@ $(".viewdetails").click(function () {
       console.error("Error:", error);
     },
   });
-  
+
+  $.ajax({
+    type: "POST",
+    url: "../pages/Assets/assineDetails.php",
+    data: {
+      user_id: user_id,
+    },
+    success: function (response) {
+      var data = JSON.parse(response);
+      var table = $("#assindbody1");
+      table.empty();
+
+      for (var i = 0; i < data.length; i++) {
+        var row = $("<tr>");
+        row.append($("<td>").text(data[i].code));
+        row.append($("<td>").text(data[i].name));
+        row.append($("<td>").text(data[i].modal));
+        row.append($("<td>").text(data[i].purchaseDate));
+        row.append($("<td>").text(data[i].modifydate));
+        table.append(row);
+      }
+    },
+    error: function (xhr, status, error) {
+      console.error("Error:", error);
+    },
+  });
 });
 
 $(".alocatedetails").click(function () {
   var clickedButton; // Declare a variable to store the clicked button reference
-  user_id = $(this).data("id");  $.ajax({
+  user_id = $(this).data("id");
+  $.ajax({
     type: "POST",
     url: "../pages/Assets/assest_comment_list.php",
     data: {
@@ -390,70 +417,32 @@ $(".alocatedetails").click(function () {
 
 $(".editassestlist").click(function () {
   var clickedButton; // Declare a variable to store the clicked button reference
-  user_id = $(this).data("id");  $.ajax({
-    type: "POST",
-    url: "../pages/Assets/assest_comment_list.php",
-    data: {
-      user_id: user_id,
-    },
-    success: function (response) {
-      var data = JSON.parse(response);
-      var table = $("#commentbodyedit");
-      table.empty();
+  user_id = $(this).data("id");
 
-      // Iterate over the data array and create a table row for each item
-      for (var i = 0; i < data.length; i++) {
-        var row = $("<tr>");
-        row.append($("<td>").text(data[i].comment));
-        row.append($("<td>").text(data[i].firstname));
-        row.append($("<td>").text(data[i].commentcreatedate));
-        row.append(
-          "<td><button type='button' class='btn btn-icon btn-danger deletecommentitem' data-id='" +
-            data[i].commentcode +
-            "'><i class='fe fe-trash'></i></button></td>"
-        );
-        table.append(row);
-      }
+        // Make an AJAX request to fetch data from the server
+        $.ajax({
+            type: "POST", // Use POST method to send data
+            url: "../pages/Assets/assest_data.php", // Replace with the actual path to your server-side script
+            data: {
+                user_id: user_id // Pass the user ID to the server
+            },
+            success: function(response) {
+              var data = JSON.parse(response);
 
-      $(".deletecommentitem").click(function () {
-        $("#asset-details-modal").modal("toggle");
-        clickedButton = $(this); // Store the clicked button reference
-        user_id = clickedButton.data("id");
-
-        Swal.fire({
-          title: "Are you sure?",
-          text: "You won't be able to revert this!",
-          icon: "warning",
-          showCancelButton: true,
-          confirmButtonColor: "#3085d6",
-          cancelButtonColor: "#d33",
-          confirmButtonText: "Yes, delete it!",
-        }).then((result) => {
-          if (result.isConfirmed) {
-            $.ajax({
-              url: "../pages/Assets/deletecommentlist.php",
-              method: "POST",
-              data: { user_id: user_id },
-              success: function (response) {
-                if (response === "success") {
-                  clickedButton.closest("tr").remove(); // Use the stored reference to remove the closest <tr> element
-                  window.location.reload();
-                } else {
-                  alert("Failed to delete the Category.");
-                }
-              },
-              error: function () {
-                alert("Error occurred while deleting the Category.");
-              },
-            });
-          }
+              $("#qr-code-input").val(userData.qrCode);
+              $("#model-no-input").val(userData.modelNo);
+               $("#qr-code-input").val(userData.qrCode);
+              $("#model-no-input").val(userData.modelNo); 
+              $("#qr-code-input").val(userData.qrCode);
+              $("#model-no-input").val(userData.modelNo); 
+              $("#qr-code-input").val(userData.qrCode);
+              $("#model-no-input").val(userData.modelNo);
+            },
+            error: function(xhr, status, error) {
+                // Handle error
+                console.error(error);
+            }
         });
-      });
-    },
-    error: function (xhr, status, error) {
-      console.error("Error:", error);
-    },
-  });
 });
 
 $(".deleteassestlist").click(function () {
@@ -622,3 +611,173 @@ $("#addcomment3").click(function () {
   }
 });
 
+$("#saveassignuser").click(function () {
+  const selectemp = document.getElementById("assignemp");
+  const empid = selectemp.value;
+
+  if (empid === "0") {
+    $("#allocate-modal").modal("toggle");
+    Swal.fire({
+      icon: "error",
+      title: "Error",
+      text: "Please Select Employee",
+    });
+  } else {
+    $.ajax({
+      type: "POST",
+      url: "../pages/Assets/assignEmp.php",
+      data: {
+        user_id: user_id,
+        empid: empid,
+      },
+      success: function (response) {
+        $("#allocate-modal").modal("toggle");
+        if (response === "success") {
+          Swal.fire({
+            icon: "success",
+            title: "Success",
+            text: "Employee Assigned",
+          });
+          $("#assignemp").val("0");
+        } else {
+          Swal.fire({
+            icon: "error",
+            title: "Error",
+            text: "An error occurred while saving the data.",
+          });
+        }
+      },
+      error: function (xhr, status, error) {
+        // Handle errors here
+        console.error("Error:", error);
+      },
+    });
+  }
+});
+
+$(".empassigndetail").click(function () {
+  var clickedButton;
+  user_id = $(this).data("id");
+
+  $.ajax({
+    type: "POST",
+    url: "../pages/Assets/assest_emp_data.php",
+    data: {
+      user_id: user_id,
+    },
+    success: function (response) {
+      var data = JSON.parse(response);
+      var tableBody = document.getElementById("table-body-emp-details");
+
+      // Generate the table HTML dynamically
+      var tableHTML = "";
+      for (var i = 0; i < data.length; i++) {
+        tableHTML += "<tr>";
+        tableHTML += "<th>EMPLOYEE ID</th>";
+        tableHTML += "<th>" + data[i].employeecode + "</th>";
+        tableHTML += "</tr>";
+
+        tableHTML += "<tr>";
+        tableHTML += "<th>FIRST NAME</th>";
+        tableHTML += "<th>" + data[i].firstname + "</th>";
+        tableHTML += "</tr>";
+
+        tableHTML += "<tr>";
+        tableHTML += "<th>LAST NAME</th>";
+        tableHTML += "<th>" + data[i].lastname + "</th>";
+        tableHTML += "</tr>";
+
+        tableHTML += "<tr>";
+        tableHTML += "<th>DATE OF BIRTH</th>";
+        tableHTML += "<th>" + data[i].dob + "</th>";
+        tableHTML += "</tr>";
+
+        tableHTML += "<tr>";
+        tableHTML += "<th>DESIGNATION</th>";
+        tableHTML += "<th>" + data[i].desname + "</th>";
+        tableHTML += "</tr>";
+
+        tableHTML += "<tr>";
+        tableHTML += "<th>DEPARTMENT</th>";
+        tableHTML += "<th>" + data[i].depname + "</th>";
+        tableHTML += "</tr>";
+
+        tableHTML += "<tr>";
+        tableHTML += "<th>SUB DEPARTMENT</th>";
+        tableHTML += "<th>" + data[i].subdepname + "</th>";
+        tableHTML += "</tr>";
+
+        tableHTML += "<tr>";
+        tableHTML += "<th>JOINING DATE</th>";
+        tableHTML += "<th>" + data[i].joingdate + "</th>";
+        tableHTML += "</tr>";
+
+        tableHTML += "<tr>";
+        tableHTML += "<th>LEAVING DATE</th>";
+        tableHTML += "<th>" + data[i].leavedate + "</th>";
+        tableHTML += "</tr>";
+
+        tableHTML += "<tr>";
+        tableHTML += "<th>PHONE</th>";
+        tableHTML += "<th>" + data[i].phone + "</th>";
+        tableHTML += "</tr>";
+
+        tableHTML += "<tr>";
+        tableHTML += "<th>EMAIL</th>";
+        tableHTML += "<th>" + data[i].email + "</th>";
+        tableHTML += "</tr>";
+
+        tableHTML += "<tr>";
+        tableHTML += "<th>ADDRESS</th>";
+        tableHTML += "<th>" + data[i].address + "</th>";
+        tableHTML += "</tr>";
+
+        tableHTML += "<tr>";
+        tableHTML += "<th>CREATED DATE</th>";
+        tableHTML += "<th>" + data[i].modifieddate + "</th>";
+        tableHTML += "</tr>";
+      }
+      tableBody.innerHTML = tableHTML;
+    },
+    error: function (xhr, status, error) {
+      console.error("Error:", error);
+    },
+  });
+
+  $.ajax({
+    type: "POST",
+    url: "../pages/Assets/assineDetails.php",
+    data: {
+      user_id: user_id,
+    },
+    success: function (response) {
+      var data = JSON.parse(response);
+      var table = $("#assindbody2");
+      table.empty();
+
+      for (var i = 0; i < data.length; i++) {
+        var row = $("<tr>");
+        row.append($("<td>").text(data[i].code));
+        row.append($("<td>").text(data[i].name));
+        row.append($("<td>").text(data[i].modal));
+        row.append($("<td>").text(data[i].purchaseDate));
+        row.append($("<td>").text(data[i].modifydate));
+        table.append(row);
+      }
+    },
+    error: function (xhr, status, error) {
+      console.error("Error:", error);
+    },
+  });
+});
+
+$(".qrbtn").click(function () {
+  var clickedButton;
+  user_id = $(this).data("id");
+
+  window.location.href =
+    "asset-qr-code.php?code=" +
+    encodeURIComponent(user_id);
+});
+
+$(".detailsbtn").click(function () {});

@@ -46,7 +46,7 @@
                                         <div class="mb-4">
                                                 <label class="col-md-5 form-label">Start Date</label>
                                                 <div class="col-md-12">
-                                                    <input type="date" class="form-control">
+                                                    <input type="date" class="form-control" id="start-date" name="start-date">
                                                 </div>
                                             </div>
                                         </div>
@@ -55,14 +55,14 @@
                                         <div class="mb-4">
                                                 <label class="col-md-5 form-label">End Date</label>
                                                 <div class="col-md-12">
-                                                    <input type="date" class="form-control">
+                                                    <input type="date" class="form-control" id="end-date" name="end-date">
                                                 </div>
                                             </div>
                                         </div>
 
                                  
                                         <div class="col-md-12">
-                                            <button type="button" class="btn btn-primary mx-2">Submit</button>
+                                            <button type="button" class="btn btn-primary mx-2" id="suubmit">Submit</button>
                                             <button type="button" class="btn btn-danger mx-2">Reset</button>
                                         </div>
                                         
@@ -78,9 +78,6 @@
                         <div class="row row-sm">
                             <div class="col-lg-12">
                                 <div class="card">
-                                    <div class="card-header">
-                                        <h3 class="card-title">Total Assets : 8</h3>
-                                    </div>
                                     <div class="card-body">
 
                                     <div class="table-responsive">
@@ -89,29 +86,17 @@
                                                     <tr>
                                                         
                                                         <th class="border-bottom-0">New</th>
-                                                        <th class="border-bottom-0">In Use</th>
-                                                        <th class="border-bottom-0">Available</th>
+                                                        <th class="border-bottom-0">Status</th>
+                                                        <!-- <th class="border-bottom-0">Available</th>
                                                         <th class="border-bottom-0">Damage</th>
                                                         <th class="border-bottom-0">Return</th>
                                                         <th class="border-bottom-0">Expired</th>
                                                         <th class="border-bottom-0">Required License Update</th>
                                                         <th class="border-bottom-0">Miscellaneous</th>
-                                                    </tr>
+                                                    </tr> -->
                                                 </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td>4</td>
-                                                        <td>3</td>
-                                                        <td>0</td>
-                                                        <td>1</td>
-                                                        <td>2</td>
-                                                        <td>0</td>
-                                                        <td>0</td>
-                                                        <td>0</td>
-                                                        
-
-                                               
-                                                    </tr>
+                                                <tbody id="table-body-range">
+                                                    
                                                    
                                                 </tbody>
                                             </table>
