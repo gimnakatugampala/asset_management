@@ -24,8 +24,10 @@ document.addEventListener("DOMContentLoaded", function () {
             countrySelect.appendChild(option);
         });
     }
+    
+    loadCountrylist();
 
-    const editcmbDepartment = document.getElementById("editcmbStatus");
+    const editcountrySelect = document.getElementById("editcmbStatus");
 
     // Function to load categories using AJAX
     function loadCountrylist2() {
@@ -47,10 +49,9 @@ document.addEventListener("DOMContentLoaded", function () {
             const option = document.createElement("option");
             option.value = category.id;
             option.textContent = category.sname;
-            editcmbDepartment.appendChild(option);
+            editcountrySelect.appendChild(option);
         });
     }
-
+    
     loadCountrylist2();
-    loadCountrylist();
 });

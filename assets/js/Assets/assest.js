@@ -418,36 +418,61 @@ $(".alocatedetails").click(function () {
 $(".editassestlist").click(function () {
   var clickedButton; // Declare a variable to store the clicked button reference
   user_id = $(this).data("id");
+  var statusid = "";
 
-        // Make an AJAX request to fetch data from the server
-        $.ajax({
-            type: "POST", // Use POST method to send data
-            url: "../pages/Assets/assest_data.php", // Replace with the actual path to your server-side script
-            data: {
-                user_id: user_id // Pass the user ID to the server
-            },
-            success: function(response) {
-              var data = JSON.parse(response);
+  $.ajax({
+    type: "POST", // Use POST method to send data
+    url: "../pages/Assets/assest_data.php", // Replace with the actual path to your server-side script
+    data: {
+      user_id: user_id, // Pass the user ID to the server
+    },
+    success: function (response) {
+      var data = JSON.parse(response);
 
-              $("#qr-code-input").val(userData.qrCode);
-              $("#model-no-input").val(userData.modelNo);
-               $("#qr-code-input").val(userData.qrCode);
-              $("#model-no-input").val(userData.modelNo); 
-              $("#qr-code-input").val(userData.qrCode);
-              $("#model-no-input").val(userData.modelNo); 
-              $("#qr-code-input").val(userData.qrCode);
-              $("#model-no-input").val(userData.modelNo);
-            },
-            error: function(xhr, status, error) {
-                // Handle error
-                console.error(error);
-            }
-        });
+      $("#editmodel").val(data[0].modal);
+      $("#editnameassest").val(data[0].name);
+      $("#editdisassest").val(data[0].description);
+      $("#editunitprice").val(data[0].unitprice);
+      $("#editpurchasedate").val(data[0].purchaseDate);
+      $("#editlocation").val(data[0].location);
+      $("#editremark").val(data[0].remark);
+    },
+    error: function (xhr, status, error) {
+      // Handle error
+      console.error(error);
+    },
+  });
+
+
+  $("#editSave1").click(function () {
+    $("#edit-asset-modal").modal("toggle");
+    clickedButton = $(this); // Store the clicked button reference
+    user_id = clickedButton.data("id");
+
+    $.ajax({
+      url: "../pages/Assets/deletecommentlist.php",
+      method: "POST",
+      data: { user_id: user_id },
+      success: function (response) {
+        if (response === "success") {
+          clickedButton.closest("tr").remove(); // Use the stored reference to remove the closest <tr> element
+          window.location.reload();
+        } else {
+          alert("Failed to delete the Category.");
+        }
+      },
+      error: function () {
+        alert("Error occurred while deleting the Category.");
+      },
+    });
+    
+  });
+  
 });
 
 $(".deleteassestlist").click(function () {
   var userId = $(this).data("id");
-
+  
   Swal.fire({
     title: "Are you sure?",
     text: "You won't be able to revert this!",
@@ -776,8 +801,7 @@ $(".qrbtn").click(function () {
   user_id = $(this).data("id");
 
   window.location.href =
-    "asset-qr-code.php?code=" +
-    encodeURIComponent(user_id);
+    "asset-qr-code.php?code=" + encodeURIComponent(user_id);
 });
 
 $(".detailsbtn").click(function () {});

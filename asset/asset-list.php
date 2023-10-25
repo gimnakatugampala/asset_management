@@ -601,28 +601,28 @@
                                                 <div class="mb-4">
                                                     <label class="col-md-3 form-label">Asset Model No</label>
                                                     <div class="col-md-9">
-                                                        <input type="text" class="form-control" id="" name="">
+                                                        <input type="text" class="form-control" id="editmodel" name="editmodel">
                                                     </div>
                                                 </div>
 
                                                 <div class="mb-4">
                                                     <label class="col-md-3 form-label">Name</label>
                                                     <div class="col-md-9">
-                                                        <input type="text" class="form-control" id="" name="">
+                                                        <input type="text" class="form-control" id="editnameassest" name="editnameassest">
                                                     </div>
                                                 </div>
 
                                                 <div class="mb-4">
                                                     <label class="col-md-3 form-label">Description</label>
                                                     <div class="col-md-9">
-                                                        <input type="text" class="form-control" id="" name="">
+                                                        <input type="text" class="form-control" id="editdisassest" name="">
                                                     </div>
                                                 </div>
 
                                                 <div class="mb-4">
                                                     <label class="col-md-3 form-label">Unit Price</label>
                                                     <div class="col-md-9">
-                                                        <input type="text" class="form-control" id="" name="">
+                                                        <input type="text" class="form-control" id="editunitprice" name="editunitprice">
                                                     </div>
                                                 </div>
 
@@ -630,7 +630,7 @@
                                                     <label class="col-md-4 form-label">Date Of Purchase</label>
                                                     <div class="col-md-8">
                                                         <input class="form-control" placeholder="MM/DD/YYYY"
-                                                            type="date" id="" name="">
+                                                            type="date" id="editpurchasedate" name="editpurchasedate">
                                                     </div>
                                                 </div>
 
@@ -643,7 +643,6 @@
                                                     <div class="col-md-9">
                                                         <select class="form-select" aria-label="Default select example" id="editcmbStatus">
                                                             <option value="0">Select Status</option>
-                                                            
                                                         </select>
                                                     </div>
                                                 </div>
@@ -697,7 +696,7 @@
                                             </div>
 
                                             <div class="d-flex justify-content-center">
-                                                <button type="button" class="btn btn-danger mx-2">Save</button>
+                                                <button type="button" class="btn btn-danger mx-2" id="editSave1">Save</button>
                                                 <button type="button" class="btn btn-info mx-2">Cancel</button>
                                             </div>
 
@@ -718,7 +717,7 @@
                                                 <div class="mb-4">
                                                     <label class="col-md-3 form-label">Location</label>
                                                     <div class="col-md-9">
-                                                        <input type="text" class="form-control">
+                                                        <input type="text" class="form-control" id="editlocation" name="editlocation">
                                                     </div>
                                                 </div>
 
@@ -734,7 +733,7 @@
                                                     <label class="col-md-3 form-label">Remark</label>
                                                     <div class="col-md-9">
                                                         <textarea class="form-control mb-4" placeholder="Textarea"
-                                                            rows="3"></textarea>
+                                                            rows="3" id="editremark" name="editremark"></textarea>
                                                     </div>
                                                 </div>
 
@@ -742,7 +741,7 @@
 
 
                                             <div class="d-flex justify-content-center">
-                                                <button type="button" class="btn btn-danger mx-2">Save</button>
+                                                <button type="button" class="btn btn-danger mx-2" id="editSave2">Save</button>
                                                 <button type="button" class="btn btn-info mx-2">Cancel</button>
                                             </div>
 
