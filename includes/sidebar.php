@@ -162,7 +162,7 @@
 								</ul>
                             </li>
 
-                            <li class="slide">
+                            <!-- <li class="slide">
                                 <a class="side-menu__item" data-bs-toggle="slide" href="javascript:void(0)"><i
                                         class="side-menu__icon fe fe-users"></i><span
                                         class="side-menu__label">Report</span><i
@@ -188,7 +188,7 @@
 										</div>
 									</li>
 								</ul>
-                            </li>
+                            </li> -->
                         </ul>
                         <div class="slide-right" id="slide-right"><svg xmlns="http://www.w3.org/2000/svg" fill="#7b8191"
                                 width="24" height="24" viewBox="0 0 24 24">
